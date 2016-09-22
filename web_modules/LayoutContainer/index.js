@@ -2,12 +2,15 @@ import React, { Component, PropTypes } from "react"
 import Helmet from "react-helmet"
 
 // Import global CSS before other components and their styles
-import "./index.global.css"
-import styles from "./index.css"
+import "../styles/global.styles"
+import Nav from "../components/Nav"
+import Footer from "../components/Footer"
 
-import Header from "../Header"
-import Footer from "../Footer"
-
+const scripts = [
+  ...process.env.NODE_ENV === "production" && [
+    { src: "https://cdn.polyfill.io/v2/polyfill.min.js" },
+  ],
+]
 export default class Layout extends Component {
 
   static propTypes = {
@@ -24,7 +27,8 @@ export default class Layout extends Component {
     } = this.context.metadata
 
     return (
-      <div className={ styles.layout }>
+      <div>
+        <Nav />
         <Helmet
           meta={ [
             {
@@ -32,25 +36,11 @@ export default class Layout extends Component {
               process.env.PHENOMIC_NAME } ${ process.env.PHENOMIC_VERSION }`,
             },
             { property: "og:site_name", content: pkg.name },
-            { name: "twitter:site", content: `@${ pkg.twitter }` },
           ] }
-          script={ [
-            { src: "https://cdn.polyfill.io/v2/polyfill.min.js" },
-          ] }
+          script={ scripts }
         />
 
-        { /* meta viewport safari/chrome/edge */ }
-        <Helmet
-          meta={ [ {
-            name: "viewport", content: "width=device-width, initial-scale=1",
-          } ] }
-        />
-        <style>{ "@-ms-viewport { width: device-width; }" }</style>
-
-        <Header />
-        <div className={ styles.content }>
-          { this.props.children }
-        </div>
+        { this.props.children }
         <Footer />
       </div>
     )

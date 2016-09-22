@@ -3,6 +3,8 @@ import Helmet from "react-helmet"
 import invariant from "invariant"
 import { BodyContainer, joinUri } from "phenomic"
 
+import styles from "./Page.scss"
+
 class Page extends Component {
   render() {
     const { props, context } = this
@@ -54,7 +56,13 @@ class Page extends Component {
           <h1>{ head.title }</h1>
         }
         { header }
-        <BodyContainer>{ body }</BodyContainer>
+        <div className="row">
+          <div className={ styles.mainCol }>
+            <div className={ styles.content }>
+              <BodyContainer>{ body }</BodyContainer>
+            </div>
+          </div>
+        </div>
         { props.children }
         { footer }
       </div>

@@ -58,6 +58,7 @@ export const makeConfig = (config = {}) => {
         // And *.global.css are considered as global (normal) CSS
 
         // *.css => CSS Modules
+        ///*
         {
           test: /\.css$/,
           exclude: /\.global\.css$/,
@@ -82,6 +83,7 @@ export const makeConfig = (config = {}) => {
             [ "css-loader", "postcss-loader" ].join("!"),
           ),
         },
+        //*/
         // ! \\
         // If you want global CSS only, just remove the 2 sections above
         // and use the following one
@@ -108,7 +110,29 @@ export const makeConfig = (config = {}) => {
         //
         // LESS: npm install --save-dev less less-loader
         // https://github.com/webpack/less-loader
-
+        {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract(
+            "style-loader",
+            "css-loader" + (
+              "?modules" +
+              "&localIdentName=" +
+              (
+                process.env.NODE_ENV === "production"
+                ? "[hash:base64:5]"
+                : "[path][name]--[local]--[hash:base64:5]"
+              ).toString()
+            ) + "!" +
+            "sass-loader",
+          ),
+        },
+        {
+          test: /global.styles$/,
+          loader: ExtractTextPlugin.extract(
+            "style-loader",
+            "css-loader!sass-loader",
+          ),
+        },
         // copy assets and return generated path in js
         {
           test: /\.(html|ico|jpe?g|png|gif)$/,
@@ -122,6 +146,14 @@ export const makeConfig = (config = {}) => {
           test: /\.svg$/,
           loader: "raw-loader",
         },
+      ],
+    },
+
+    sassLoader: {
+      includePaths: [
+        path.join(config.cwd, "web_modules/styles"),
+        path.join(config.cwd, "web_modules"),
+        path.join(config.cwd, "node_modules"),
       ],
     },
 
@@ -169,12 +201,13 @@ export const makeConfig = (config = {}) => {
       publicPath: config.baseUrl.pathname,
       filename: "[name].[hash].js",
     },
-
+    /*
     resolve: {
       extensions: [ ".js", ".json", "" ],
       root: [ path.join(__dirname, "node_modules") ],
     },
     resolveLoader: { root: [ path.join(__dirname, "node_modules") ] },
+    */
   }
 }
 
