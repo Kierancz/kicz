@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from "react"
 import Helmet from "react-helmet"
-import invariant from "invariant"
+// import invariant from "invariant"
 import { BodyContainer, joinUri } from "phenomic"
-
+import Banner from "../../components/Banner"
 import styles from "./Page.scss"
 
 class Page extends Component {
@@ -14,7 +14,7 @@ class Page extends Component {
     } = context.metadata
 
     const {
-      __filename,
+      // __filename,
       __url,
       head,
       body,
@@ -22,10 +22,11 @@ class Page extends Component {
       footer,
     } = props
 
-    invariant(
+    /* invariant(
       typeof head.title === "string",
       `Your page '${ __filename }' needs a title`
     )
+    */
 
     const metaTitle = head.metaTitle ? head.metaTitle : head.title
 
@@ -44,6 +45,7 @@ class Page extends Component {
       { name: "description", content: head.description },
     ]
 
+    const img="https://c2.staticflickr.com/6/5723/30769260225_f72ea92a51_k.jpg"
     return (
       <div>
         <Helmet
@@ -51,11 +53,8 @@ class Page extends Component {
           meta={ meta }
         />
 
-        {
-          head.title &&
-          <h1>{ head.title }</h1>
-        }
         { header }
+        <Banner imgUrl={ img } />
         <div className="row">
           <div className={ styles.mainCol }>
             <div className={ styles.content }>

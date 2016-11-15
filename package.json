@@ -3,7 +3,7 @@
   "name": "kicz",
   "homepage": "http://www.kicz.me",
   "twitter": "",
-  "repository": "",
+  "repository": "https://github.com/Kierancz/kicz.git",
   "scripts": {
     "lint:js": "eslint --ignore-path .gitignore --fix .",
     "lint:css": "stylelint \"web_modules/**/*.css\"",
@@ -11,7 +11,9 @@
     "start": "phenomic start",
     "build": "phenomic build",
     "pretest": "npm run lint",
-    "test": "npm run build"
+    "test": "npm run build", 
+    "predeploy": "npm run build", 
+    "deploy": "./scripts/deploy.sh"
   },
   "phenomic": {
     "CNAME": true
@@ -61,7 +63,6 @@
     "eslint-plugin-react": "^4.3.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.1",
-    "gh-pages": "^0.11.0",
     "history": "^2.0.0",
     "invariant": "^2.1.1",
     "json-loader": "^0.5.2",
@@ -92,6 +93,7 @@
     "bootstrap-sass": "^3.3.6",
     "classnames": "^2.2.5",
     "react-bootstrap": "^0.30.3",
-    "sass-loader": "^4.0.2"
+    "sass-loader": "^4.0.2", 
+    "markdown-it": "^6.0.1"
   }
 }

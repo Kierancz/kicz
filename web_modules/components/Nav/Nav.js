@@ -1,11 +1,16 @@
 import React, { Component, PropTypes } from "react"
 import cx from "classnames"
 import { Link } from "react-router"
-
-import Navbar from "react-bootstrap/lib/Navbar"
+import Navbar, { 
+  Header, 
+  Brand, 
+  Toggle, 
+  Collapse, 
+} from "react-bootstrap/lib/Navbar"
 import Nav from "react-bootstrap/lib/Nav"
 // import NavDropdown from "react-bootstrap/lib/NavDropdown"
 import styles from "./Nav.scss"
+import klogo1 from "./klogo1.png"
 
 export default class NavComponent extends Component {
   static propTypes = {
@@ -57,19 +62,21 @@ export default class NavComponent extends Component {
         expanded={ this.state.expanded }
         onToggle={ this.handleCollaspeToggle }
       >
-        <Navbar.Header>
-          <Navbar.Brand>
-            <Link to="/" className={ styles.logo } />
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
+        <Header>
+          <Brand>
+            <Link to="/">
+              <img src={ klogo1 } className={ styles.logo } />
+            </Link>
+          </Brand>
+          <Toggle />
+        </Header>
+        <Collapse>
           <Nav pullRight>
-            <NavItem to="/about/" name="About" />
-            <NavItem to="/projects/" name="Projects" />
-            <NavItem to="/contact/" name="Contact" />
+            <NavItem to="/about.html" name="About" />
+            <NavItem to="/projects.html" name="Projects" />
+            <NavItem to="/contact.html" name="Contact" />
           </Nav>
-        </Navbar.Collapse>
+        </Collapse>
       </Navbar>
       )
   }

@@ -39,8 +39,9 @@ export default class Layout extends Component {
           ] }
           script={ scripts }
         />
-
+        <body>
         { this.props.children }
+        </body>
         <Footer />
       </div>
     )

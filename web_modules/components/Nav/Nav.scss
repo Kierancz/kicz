@@ -81,15 +81,14 @@
 }
 
 .logo {
+  position: absolute;
   color: #fff !important;
-  font-size: 1.5rem;
-  font-weight: 300;
-  margin-right: 5px;
-  text-transform: uppercase;
-
+  width: 3em;
+  top: 0px;
   &:focus,
   &:hover {
     text-decoration: none;
+    color: #42f450;
   }
 }
 

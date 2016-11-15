@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from "react"
-
 import Page from "../Page"
 
 class Post extends Component {

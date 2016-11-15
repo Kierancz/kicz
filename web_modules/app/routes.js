@@ -8,6 +8,9 @@ import Page from "../layouts/Page"
 import PageError from "../layouts/PageError"
 import PageLoading from "../layouts/PageLoading"
 import Homepage from "../layouts/Homepage"
+// import About from "../layouts/About"
+// import Code from "../layouts/Code"
+// import Photo from "../layouts/Photo"
 import Post from "../layouts/Post"
 
 class PageContainer extends Component {

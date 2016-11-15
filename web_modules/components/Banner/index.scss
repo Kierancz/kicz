@@ -4,7 +4,6 @@
   min-height: 100vh;
   position: relative;
   text-align: center;
-  background: url(./background.jpg) no-repeat center center / cover;
   transform-style: preserve-3d;
 
   &::before {
@@ -68,11 +67,6 @@
   > p {
     font-size: 2rem;
   }
-}
-
-.center {
-  margin: 0 auto;
-  max-width: 300px;
 }
 
 @media (max-width: 768px) {

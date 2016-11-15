@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import styles from "./Header.scss"
+import Button from "react-bootstrap/lib/Button"
+import ButtonToolbar from "react-bootstrap/lib/ButtonToolbar"
 
 class HomepageHeader extends Component {
   render() {
@@ -16,6 +18,10 @@ class HomepageHeader extends Component {
             to transform lives and that web design needs to 
             be equitable and accessible to all. 
           </p>
+          <ButtonToolbar className={ styles.center }>
+            <Button>Learn More</Button>
+            <Button bsStyle="primary">My Projects</Button>
+          </ButtonToolbar>
         </div>
       </header>
     )
