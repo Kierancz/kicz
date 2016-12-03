@@ -10,7 +10,7 @@ import Navbar, {
 import Nav from "react-bootstrap/lib/Nav"
 // import NavDropdown from "react-bootstrap/lib/NavDropdown"
 import styles from "./Nav.scss"
-import klogo1 from "./klogo1.png"
+import logo from "./kInfin.png"
 
 export default class NavComponent extends Component {
   static propTypes = {
@@ -65,7 +65,7 @@ export default class NavComponent extends Component {
         <Header>
           <Brand>
             <Link to="/">
-              <img src={ klogo1 } className={ styles.logo } />
+              <img src={ logo } className={ styles.logo } />
             </Link>
           </Brand>
           <Toggle />

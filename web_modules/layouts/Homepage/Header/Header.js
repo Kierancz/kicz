@@ -10,16 +10,22 @@ class HomepageHeader extends Component {
         <div className={ styles.intro }>
           <h1>Hi there,</h1>
 
-          <h2>I'm Kieran, a front end engineer and designer.</h2>
+          <h2>I'm Kieran, a mild-mannered maker
+          and front-end engineering and design geek.</h2>
           <p>
-            I love making the web more useful and enjoyable
-            with simple structures and a focused attention to 
-            detail. I believe the web has an incredible power
-            to transform lives and that web design needs to 
-            be equitable and accessible to all. 
+            I believe the web is humanity's greatest creation. 
+            <br /><br />
+            It has an incredible potential to unite all the lovely 
+            people of the world, to pool our collective knowledge, 
+            and empower those courageous enough to better themselves
+            and the world we share.
+            <br /><br />
+            As a fledgling web developer, I am humbled to be able
+            take a small part in creating a more intuitive and 
+            accessible experience for users of all backgrounds.  
           </p>
           <ButtonToolbar className={ styles.center }>
-            <Button>Learn More</Button>
+            <Button>More Me!</Button>
             <Button bsStyle="primary">My Projects</Button>
           </ButtonToolbar>
         </div>
