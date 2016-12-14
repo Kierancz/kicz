@@ -7,10 +7,8 @@ import PhenomicPageContainer from "phenomic/lib/PageContainer"
 import Page from "../layouts/Page"
 import PageError from "../layouts/PageError"
 import PageLoading from "../layouts/PageLoading"
-import Homepage from "../layouts/Homepage"
-// import About from "../layouts/About"
-// import Code from "../layouts/Code"
-// import Photo from "../layouts/Photo"
+import HomePage from "../layouts/HomePage"
+import Projects from "../layouts/Projects"
 import Post from "../layouts/Post"
 
 class PageContainer extends Component {
@@ -23,7 +21,8 @@ class PageContainer extends Component {
           Page,
           PageError,
           PageLoading,
-          Homepage,
+          HomePage,
+          Projects,
           Post,
         } }
       />
@@ -33,6 +32,8 @@ class PageContainer extends Component {
 
 export default (
   <Route component={ LayoutContainer }>
+    <Route path="/" component={ HomePage } />
+    <Route path="/Projects" component={ Projects } />
     <Route path="*" component={ PageContainer } />
   </Route>
 )

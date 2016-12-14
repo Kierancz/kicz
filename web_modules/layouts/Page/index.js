@@ -7,12 +7,7 @@ import styles from "./Page.scss"
 
 class Page extends Component {
   render() {
-    const { props, context } = this
-
-    const {
-      pkg,
-    } = context.metadata
-
+    const { props } = this
     const {
       // __filename,
       __url,
@@ -38,10 +33,6 @@ class Page extends Component {
         content: joinUri(process.env.PHENOMIC_USER_URL, __url),
       },
       { property: "og:description", content: head.description },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: metaTitle },
-      { name: "twitter:creator", content: `@${ pkg.twitter }` },
-      { name: "twitter:description", content: head.description },
       { name: "description", content: head.description },
     ]
 

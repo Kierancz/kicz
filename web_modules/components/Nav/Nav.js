@@ -1,16 +1,16 @@
 import React, { Component, PropTypes } from "react"
+import SVGInline from "react-svg-inline"
 import cx from "classnames"
 import { Link } from "react-router"
 import Navbar, { 
   Header, 
-  Brand, 
   Toggle, 
   Collapse, 
 } from "react-bootstrap/lib/Navbar"
 import Nav from "react-bootstrap/lib/Nav"
 // import NavDropdown from "react-bootstrap/lib/NavDropdown"
 import styles from "./Nav.scss"
-import logo from "./kInfin.png"
+import logo from "./kInfin.svg"
 
 export default class NavComponent extends Component {
   static propTypes = {
@@ -63,11 +63,11 @@ export default class NavComponent extends Component {
         onToggle={ this.handleCollaspeToggle }
       >
         <Header>
-          <Brand>
-            <Link to="/">
-              <img src={ logo } className={ styles.logo } />
-            </Link>
-          </Brand>
+          <Link to="./">
+            <SVGInline 
+              svg={ logo } 
+            />
+          </Link>
           <Toggle />
         </Header>
         <Collapse>

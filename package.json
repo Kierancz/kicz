@@ -11,8 +11,8 @@
     "start": "phenomic start",
     "build": "phenomic build",
     "pretest": "npm run lint",
-    "test": "npm run build", 
-    "predeploy": "npm run build", 
+    "test": "npm run build",
+    "predeploy": "npm run build",
     "deploy": "./scripts/deploy.sh"
   },
   "phenomic": {
@@ -92,8 +92,9 @@
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
     "classnames": "^2.2.5",
+    "markdown-it": "^6.0.1",
     "react-bootstrap": "^0.30.3",
-    "sass-loader": "^4.0.2", 
-    "markdown-it": "^6.0.1"
+    "react-svg": "^1.1.5",
+    "sass-loader": "^4.0.2"
   }
 }

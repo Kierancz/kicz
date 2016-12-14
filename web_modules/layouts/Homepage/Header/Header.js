@@ -11,22 +11,23 @@ class HomepageHeader extends Component {
           <h1>Hi there,</h1>
 
           <h2>I'm Kieran, a mild-mannered maker
-          and front-end engineering and design geek.</h2>
+          and front-end engineering & design geek.</h2>
+          <br />
           <p>
             I believe the web is humanity's greatest creation. 
-            <br /><br />
             It has an incredible potential to unite all the lovely 
             people of the world, to pool our collective knowledge, 
             and empower those courageous enough to better themselves
             and the world we share.
             <br /><br />
-            As a fledgling web developer, I am humbled to be able
-            take a small part in creating a more intuitive and 
-            accessible experience for users of all backgrounds.  
+            As a fledgling web developer, I am excited to be learning
+            more everyday so that I can take a small part in creating 
+            a more inspiring, intuitive, and accessible experience for users of 
+            all backgrounds.  
           </p>
           <ButtonToolbar className={ styles.center }>
-            <Button>More Me!</Button>
-            <Button bsStyle="primary">My Projects</Button>
+            <Button href="/about.html">About Me</Button>
+            <Button href="/projects.html" bsStyle="primary">Projects</Button>
           </ButtonToolbar>
         </div>
       </header>

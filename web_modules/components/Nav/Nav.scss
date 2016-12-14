@@ -80,18 +80,14 @@
   background-color: #fff !important;
 }
 
-.logo {
-  position: absolute;
-  color: #fff !important;
-  width: 3em;
-  top: 0px;
-  &:focus,
-  &:hover {
-    text-decoration: none;
-    color: #42f450;
-  }
-  margin-top: 8px;
+:global #logo {
+  width: 60px;
+  margin-top: 2px;
+  position: relative;
+  padding-bottom: 6px;
+  left: 20px;
 }
+
 
 :global .navbar-collapse {
   border: 0;
