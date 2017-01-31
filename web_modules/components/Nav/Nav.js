@@ -10,7 +10,7 @@ import Navbar, {
 import Nav from "react-bootstrap/lib/Nav"
 // import NavDropdown from "react-bootstrap/lib/NavDropdown"
 import styles from "./Nav.scss"
-import logo from "./kInfin.svg"
+import logo from "./kInfinSVGwhite.svg"
 
 export default class NavComponent extends Component {
   static propTypes = {
@@ -63,7 +63,7 @@ export default class NavComponent extends Component {
         onToggle={ this.handleCollaspeToggle }
       >
         <Header>
-          <Link to="./">
+          <Link to="/">
             <SVGInline 
               svg={ logo } 
             />
@@ -74,6 +74,8 @@ export default class NavComponent extends Component {
           <Nav pullRight>
             <NavItem to="/about.html" name="About" />
             <NavItem to="/projects.html" name="Projects" />
+            <NavItem to="/photography.html" name="Photography" />
+            <NavItem to="/blog.html" name="Blog" />
             <NavItem to="/contact.html" name="Contact" />
           </Nav>
         </Collapse>
