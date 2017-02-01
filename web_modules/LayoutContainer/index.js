@@ -6,6 +6,8 @@ import "../styles/global.styles"
 import Nav from "../components/Nav"
 import Footer from "../components/Footer"
 
+import favicon from "./favicon-32x32.png"
+
 const scripts = [
   ...process.env.NODE_ENV === "production" && [
     { src: "https://cdn.polyfill.io/v2/polyfill.min.js" },
@@ -30,6 +32,12 @@ export default class Layout extends Component {
       <div>
         <Nav />
         <Helmet
+          link={ [
+            { "rel": "icon",
+              "type": "image/png", 
+              "href": favicon,
+            },
+          ] }
           meta={ [
             {
               name: "generator", content: `${

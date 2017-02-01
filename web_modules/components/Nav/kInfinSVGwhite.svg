@@ -6,10 +6,10 @@
 		<path fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" d="M27.343,53.543
 			c-6.235-3.38-24.208-13.124-24.208-13.124V3.543h15.73h120.386L3.162,77.325v36.852h136.062c0,0-77.995-42.545-91.681-50.01"/>
 		<g>
-			<circle fill="#FFFFFF" cx="27.234" cy="53.484" r="2.444"/>
+			<circle fill="#FFFFFF" cx="27.234" cy="53.484" r="2.8"/>
 		</g>
 		<g>
-			<circle fill="#FFFFFF" cx="47.652" cy="64.226" r="2.444"/>
+			<circle fill="#FFFFFF" cx="47.652" cy="64.226" r="2.8"/>
 		</g>
 	</g>
 </g>
