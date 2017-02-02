@@ -3,6 +3,9 @@ import React, { Component, PropTypes } from "react"
 
 import Helmet from "react-helmet"
 import Banner from "../../components/Banner"
+import { Card, CardTitle } from "react-materialize/lib"
+
+import chatty from "./chatty.png"
 
 // const numberOfLatestPosts = 6
 
@@ -42,6 +45,20 @@ export default class Projects extends Component {
           meta={ meta }
         />
         <Banner imgUrl={ img } />
+        <div className="container">
+          <Card 
+            className="card-image"
+            header={
+              <CardTitle image={ chatty }>Chatty Cathy
+              </CardTitle>
+            }
+          >
+            I am a very simple card. I am good at containing 
+            small bits of information. I am convenient because 
+            require little markup to use effectively.
+          </Card>
+        </div>
+
       </div>
     )
   }
