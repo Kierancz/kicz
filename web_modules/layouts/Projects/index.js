@@ -3,9 +3,11 @@ import React, { Component, PropTypes } from "react"
 
 import Helmet from "react-helmet"
 import Banner from "../../components/Banner"
-import { Card, CardTitle } from "react-materialize/lib"
+import { Card, CardTitle, Row, Col } from "react-materialize/lib"
+import styles from "./index.scss"
 
 import chatty from "./chatty.png"
+import banner from "./code.png"
 
 // const numberOfLatestPosts = 6
 
@@ -29,8 +31,6 @@ export default class Projects extends Component {
     } = this.context.metadata
 
     const title = "Projects"
-    const img = 
-    "https://c2.staticflickr.com/6/5723/30769260225_f72ea92a51_k.jpg"
 
     const meta = [
       { property: "og:type", content: "article" },
@@ -44,20 +44,30 @@ export default class Projects extends Component {
           title={ title }
           meta={ meta }
         />
-        <Banner imgUrl={ img } />
-        <div className="container">
-          <Card 
-            className="card-image"
-            header={
-              <CardTitle image={ chatty }>Chatty Cathy
-              </CardTitle>
-            }
-          >
-            I am a very simple card. I am good at containing 
-            small bits of information. I am convenient because 
-            require little markup to use effectively.
-          </Card>
-        </div>
+        <Banner 
+          imgUrl={ banner } 
+          h1="Projects" 
+          h2="A collection of selected creative works"
+        />
+        <section>
+          <div className={ styles.container }>
+            <Row>
+              <Col s={ 4 }>
+              <Card 
+                className="card-image"
+                header={
+                  <CardTitle image={ chatty }>Chatty Cathy
+                  </CardTitle>
+                }
+              >
+                I am a very simple card. I am good at containing 
+                small bits of information. I am convenient because 
+                require little markup to use effectively.
+              </Card>
+              </Col>
+            </Row>
+          </div>
+        </section>
 
       </div>
     )

@@ -4,18 +4,15 @@
   background-color: #000000;
 }
 
-.mainCol {
-  @extend .col-sm-12;
-  margin: 2rem 0 auto;
-}
-
 .content {
   text-align: justify;
   font-size: 1.2rem;
   line-height: 1.5;
-  margin-top: 3em;
+  padding: 400px;
   margin-left: 3em;
   color: white;
+  position: relative;
+  z-index: 2;
 
   > p, > a {
     font-size: 1.2rem;

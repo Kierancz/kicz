@@ -5,6 +5,8 @@ import { BodyContainer, joinUri } from "phenomic"
 import Banner from "../../components/Banner"
 import styles from "./Page.scss"
 
+import bannerImg from "./flatiron.jpg"
+
 class Page extends Component {
   render() {
     const { props } = this
@@ -36,7 +38,6 @@ class Page extends Component {
       { name: "description", content: head.description },
     ]
 
-    const img="https://c2.staticflickr.com/6/5723/30769260225_f72ea92a51_k.jpg"
     return (
       <div>
         <Helmet
@@ -45,12 +46,10 @@ class Page extends Component {
         />
 
         { header }
-        <Banner imgUrl={ img } />
+        <Banner imgUrl={ bannerImg } h1={ metaTitle } />
         <div className="row">
-          <div className={ styles.mainCol }>
-            <div className={ styles.content }>
-              <BodyContainer>{ body }</BodyContainer>
-            </div>
+          <div className={ styles.content }>
+            <BodyContainer>{ body }</BodyContainer>
           </div>
         </div>
         { props.children }

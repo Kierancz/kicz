@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from "react"
 import styles from "./index.scss"
-// import flatiron from ""
-
+// import cx from "classnames"
 export default class Banner extends Component {
   static propTypes = {
     imgUrl: PropTypes.string.isRequired,
@@ -13,21 +12,25 @@ export default class Banner extends Component {
   render() {
     const imgUrl = this.props.imgUrl
     const banner = {
-      top: "0px",
-      height: "600px",
+      height: "400px",
       background: "url(" + imgUrl + ")no-repeat center center",
     }
 
+    /* const bannerClass = cx(styles.wrapper, {
+      [styles.docked]: this.props.docked,
+    })
+    */
+
     return (
-      <div style={ banner }>
-        <header className={ styles.header }>
+      <header className={ styles.header }>
+        <div style={ banner }>
           <div className={ styles.intro }>
             <h1>{ this.props.h1 }</h1>
             <h2>{ this.props.h2 }</h2>
             <p>{ this.props.para }</p>
           </div>
-        </header>
-      </div>
+        </div>
+      </header>
     )
   }
 }
