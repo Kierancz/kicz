@@ -27,10 +27,10 @@ class HomepageHeader extends Component {
           </p>
           <ButtonToolbar className={ styles.center }>
           <Link to="/about.html">
-            <Button>About Me</Button>
+            <Button className="fill">About Me</Button>
           </Link>
           <Link to="/projects.html">
-            <Button bsStyle="primary">Projects</Button>
+            <Button bsStyle="primary" className="fill">Projects</Button>
           </Link>
           </ButtonToolbar>
         </div>

@@ -1,5 +1,5 @@
 ---
 layout: Photography
-route: photo.html
+route: photos.html
 ---
 

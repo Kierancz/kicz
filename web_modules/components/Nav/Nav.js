@@ -74,7 +74,7 @@ export default class NavComponent extends Component {
           <Nav pullRight>
             <NavItem to="/about.html" name="About" />
             <NavItem to="/projects.html" name="Projects" />
-            <NavItem to="/photography.html" name="Photography" />
+            <NavItem to="/photos.html" name="Photography" />
             <NavItem to="/blog.html" name="Blog" />
             <NavItem to="/contact.html" name="Contact" />
           </Nav>

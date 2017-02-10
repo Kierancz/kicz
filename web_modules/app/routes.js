@@ -9,6 +9,7 @@ import PageError from "../layouts/PageError"
 import PageLoading from "../layouts/PageLoading"
 import HomePage from "../layouts/HomePage"
 import Projects from "../layouts/Projects"
+import Photography from "../layouts/Photography"
 import Post from "../layouts/Post"
 
 class PageContainer extends Component {
@@ -23,6 +24,7 @@ class PageContainer extends Component {
           PageLoading,
           HomePage,
           Projects,
+          Photography,
           Post,
         } }
       />
@@ -34,6 +36,7 @@ export default (
   <Route component={ LayoutContainer }>
     <Route path="/" component={ HomePage } />
     <Route path="/Projects" component={ Projects } />
+    <Route path="/Photography" component={ Photography } />
     <Route path="*" component={ PageContainer } />
   </Route>
 )

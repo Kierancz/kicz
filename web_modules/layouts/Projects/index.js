@@ -7,7 +7,7 @@ import { Card, CardTitle, Row, Col } from "react-materialize/lib"
 import styles from "./index.scss"
 
 import chatty from "./chatty.png"
-import banner from "./code.png"
+import bannerImg from "./code.png"
 
 // const numberOfLatestPosts = 6
 
@@ -45,7 +45,7 @@ export default class Projects extends Component {
           meta={ meta }
         />
         <Banner 
-          imgUrl={ banner } 
+          imgUrl={ bannerImg } 
           h1="Projects" 
           h2="A collection of selected creative works"
         />
