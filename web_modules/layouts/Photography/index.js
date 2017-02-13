@@ -1,11 +1,12 @@
 import React, { Component, PropTypes } from "react"
 import Helmet from "react-helmet"
 import Banner from "../../components/Banner"
-import styles from "./index.scss"
-
+// import styles from "./index.scss"
+import Gallery from "react-grid-gallery"
+import images from "../../../content/assets/photos.js"
 import bannerImg from "./camera.jpg"
 
-export default class Projects extends Component {
+export default class Photography extends Component {
   static contextTypes = {
     collection: PropTypes.array.isRequired,
     metadata: PropTypes.object.isRequired,
@@ -16,14 +17,14 @@ export default class Projects extends Component {
       pkg,
     } = this.context.metadata
 
-    const title = "Projects"
+    const title = "Photography"
 
     const meta = [
       { property: "og:type", content: "article" },
       { property: "og:title", content: title },
-      { property: "og:url", content: pkg.projects },
+      { property: "og:url", content: pkg.photography },
     ]
-
+    
     return (
       <div>
         <Helmet
@@ -36,8 +37,13 @@ export default class Projects extends Component {
           h2="Light n' stuff"
         />
         <section>
-          <div className={ styles.container }>
-          </div>
+          <Gallery 
+            images={ images } 
+            enableImageSelection={ false }
+            backdropClosesModal
+            rowHeight={ 400 }
+            lightboxWidth={ 1536 }
+          />
         </section>
 
       </div>

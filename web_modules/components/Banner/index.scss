@@ -24,7 +24,8 @@
 
 .intro {
   // Vertical align
-  transform: translateY(60%);
+  position: absolute;
+  top: 120px;
   color: #fff;
   width: 100%;
   text-align: center;

@@ -8,7 +8,7 @@ export default class Footer extends Component {
   render() {
     return (
       <footer className={ styles.footer }>
-        { "© 2016 Kieran Czerwinski | " }
+        { "© 2017 Kieran Czerwinski | " }
         { "Pages: " }
         <Link
           className={ styles.link }

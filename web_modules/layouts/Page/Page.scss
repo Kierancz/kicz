@@ -8,7 +8,7 @@
   text-align: justify;
   font-size: 1.2rem;
   line-height: 1.5;
-  padding: 400px;
+  margin-top: 400px;
   margin-left: 3em;
   color: white;
   position: relative;
@@ -29,11 +29,4 @@
     margin-bottom: 1rem;
   }
 
-  img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-    padding: 1rem 0;
-  }
 }

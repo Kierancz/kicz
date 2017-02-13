@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from "react"
 import Helmet from "react-helmet"
-// import invariant from "invariant"
+import invariant from "invariant"
 import { BodyContainer, joinUri } from "phenomic"
 import Banner from "../../components/Banner"
 import styles from "./Page.scss"
@@ -11,7 +11,7 @@ class Page extends Component {
   render() {
     const { props } = this
     const {
-      // __filename,
+      __filename,
       __url,
       head,
       body,
@@ -19,11 +19,10 @@ class Page extends Component {
       footer,
     } = props
 
-    /* invariant(
+    invariant(
       typeof head.title === "string",
       `Your page '${ __filename }' needs a title`
     )
-    */
 
     const metaTitle = head.metaTitle ? head.metaTitle : head.title
 
