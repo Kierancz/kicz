@@ -1,2 +1,8 @@
-.container {
+.gallery {
+  display: block;
+  position: relative;
+  z-index: 2;
+  top: 400px;
+  height: 22000px;
+  background-color: rgb(0,0,0);
 }

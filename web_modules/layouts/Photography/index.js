@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react"
 import Helmet from "react-helmet"
 import Banner from "../../components/Banner"
-// import styles from "./index.scss"
+import styles from "./index.scss"
 import Gallery from "react-grid-gallery"
 import images from "../../../content/assets/photos.js"
 import bannerImg from "./camera.jpg"
@@ -33,19 +33,20 @@ export default class Photography extends Component {
         />
         <Banner 
           imgUrl={ bannerImg } 
-          h1="Photography" 
+          h1={ title } 
           h2="Light n' stuff"
         />
-        <section>
-          <Gallery 
-            images={ images } 
-            enableImageSelection={ false }
-            backdropClosesModal
-            rowHeight={ 400 }
-            lightboxWidth={ 1536 }
-          />
-        </section>
-
+          <div className={ styles.gallery }>
+            <Gallery 
+              images={ images } 
+              enableImageSelection={ false }
+              backdropClosesModal
+              rowHeight={ 400 }
+              lightboxWidth={ 1536 }
+              className={ styles.gallery }
+            />
+          </div>
+          <br />
       </div>
     )
   }
