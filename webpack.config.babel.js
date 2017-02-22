@@ -3,6 +3,8 @@ import path from "path"
 import webpack from "webpack"
 import ExtractTextPlugin from "extract-text-webpack-plugin"
 import { phenomicLoader } from "phenomic"
+import phenomicLoaderPresetDefault from "phenomic/lib/phenomic-loader-preset-default";
+import phenomicLoaderPresetMarkDown from "phenomic/lib/phenomic-loader-preset-markdown";
 
 import pkg from "./package.json"
 
@@ -159,7 +161,11 @@ export const makeConfig = (config = {}) => {
 
     phenomic: {
       context: path.join(__dirname, config.source),
-      // plugins: [ ...phenomicLoaderPresets.markdown ]
+      plugins: [
+        ...phenomicLoaderPresetDefault,
+        ...phenomicLoaderPresetMarkDown,
+       ],
+
       // see https://phenomic.io/docs/usage/plugins/
       feedsOptions: {
         title: pkg.name,
@@ -201,6 +207,14 @@ export const makeConfig = (config = {}) => {
       publicPath: config.baseUrl.pathname,
       filename: "[name].[hash].js",
     },
+
+    // https://github.com/MoOx/phenomic/issues/656
+    ... config . Static  && {
+      Externals : [
+        / Fs-promise / ,
+      ],
+    },
+
     /*
     resolve: {
       extensions: [ ".js", ".json", "" ],

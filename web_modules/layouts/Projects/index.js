@@ -3,10 +3,12 @@ import React, { Component, PropTypes } from "react"
 
 import Helmet from "react-helmet"
 import Banner from "../../components/Banner"
-import { Card, CardTitle, Row, Col } from "react-materialize/lib"
+import { Col, Row, Grid, Button, Thumbnail } from "react-bootstrap/lib"
 import styles from "./index.scss"
 
 import chatty from "./chatty.png"
+import fiber from "./zayoFiber.gif"
+import braille from "./brailleTag.gif"
 import bannerImg from "./code.png"
 
 // const numberOfLatestPosts = 6
@@ -50,22 +52,53 @@ export default class Projects extends Component {
           h2="A collection of selected creative works"
         />
         <section>
-          <div className={ styles.container }>
+          <div className={ styles.projects }>
+          <Grid>
             <Row>
-              <Col s={ 4 }>
-              <Card 
-                className="card-image"
-                header={
-                  <CardTitle image={ chatty }>Chatty Cathy
-                  </CardTitle>
-                }
+            <Col xs={ 12 } md={ 6 }>
+              <Thumbnail 
+                src={ chatty } 
+                alt="chatty cathy messenger app design"
               >
-                I am a very simple card. I am good at containing 
-                small bits of information. I am convenient because 
-                require little markup to use effectively.
-              </Card>
-              </Col>
+                <h3>Chatty Cathy</h3>
+                <p>Simple chatroom app build from scratch 
+                with media attachments, admin view
+                and, user profile.
+                </p>
+                <p>
+                  <Button bsStyle="primary">Launch</Button>&nbsp;
+                  <Button bsStyle="default">Button</Button>
+                </p>
+              </Thumbnail>
+            </Col>
+            <Col xs={ 12 } md={ 6 }>
+              <Thumbnail src={ fiber } alt="242x200">
+                <h3>Zayo Fiber Pricing</h3>
+                <p>Provides price estimates for laying
+                down new fiber optic connections. Our team recieved first 
+                place at a Zayo sponsered hackathon for our itemized
+                price break-downs including hazard data from the 
+                overpass-turbo api.</p>
+                <p>
+                  <Button bsStyle="primary">Launch</Button>&nbsp;
+                  <Button bsStyle="default">Button</Button>
+                </p>
+              </Thumbnail>
+            </Col>
+            <Col xs={ 12 } md={ 6 }>
+              <Thumbnail src={ braille } alt="242x200">
+                <h3>Parametric Braille Tag</h3>
+                <p>This was created entirely from code, using
+                an awesome cloud-based 3D modelling tool created
+                by my professor.</p>
+                <p>
+                  <Button bsStyle="primary">Launch</Button>&nbsp;
+                  <Button bsStyle="default">Button</Button>
+                </p>
+              </Thumbnail>
+            </Col>
             </Row>
+          </Grid>
           </div>
         </section>
 

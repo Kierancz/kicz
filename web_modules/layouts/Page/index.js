@@ -5,7 +5,7 @@ import { BodyContainer, joinUri } from "phenomic"
 import Banner from "../../components/Banner"
 import styles from "./Page.scss"
 
-import bannerImg from "./flatiron.jpg"
+import defaultBannerImg from "./flatiron.jpg"
 
 class Page extends Component {
   render() {
@@ -23,6 +23,8 @@ class Page extends Component {
       typeof head.title === "string",
       `Your page '${ __filename }' needs a title`
     )
+
+    const bannerImg = head.bannerImg ? head.bannerImg : defaultBannerImg
 
     const metaTitle = head.metaTitle ? head.metaTitle : head.title
 
@@ -47,9 +49,11 @@ class Page extends Component {
         { header }
         <Banner imgUrl={ bannerImg } h1={ metaTitle } />
         <div className="row">
-          <div className={ styles.content }>
-            <BodyContainer>{ body }</BodyContainer>
-          </div>
+          <section>
+            <div className={ styles.content }>
+              <BodyContainer>{ body }</BodyContainer>
+            </div>
+          </section>
         </div>
         { props.children }
         { footer }
