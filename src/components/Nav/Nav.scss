@@ -1,0 +1,105 @@
+.wrapper {
+  border: 0;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(#000, 0.7);
+  transition: all 0.2s linear 0s;
+}
+
+@media (min-width:768px) {
+  .wrapper {
+    background-color: transparent;
+    padding-top: 30px;
+  }
+}
+
+.docked {
+  background-color: rgba(#000, 0.7) !important;
+  padding: 8px 0 0 0 !important;
+  transition: all 0.2s linear 0s;
+}
+
+:global .navbar-nav,
+:global .dropdown-toggle {
+  margin: 6px 20px 0 0;
+
+  li {
+    margin: 0;
+  }
+
+  > li > a {
+    color: #fff !important;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 400;
+    border-bottom: 2px solid transparent;
+    background-color: transparent !important;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      background-color: transparent !important;
+      border-color: rgba(255, 255, 255, 0.5) !important;
+    }
+  }
+
+  > li > .active {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+:global .dropdown-menu {
+  background-color: rgba(#000, 0.7) !important;
+
+  > li > a {
+    color: #fff !important;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+    border-color: transparent !important;
+
+    &:hover,
+    &:focus {
+      background-color: transparent !important;
+      border-bottom: 2px solid transparent;
+      border-color: rgba(255, 255, 255, 0.5) !important;
+      color: #fff !important;
+    }
+  }
+}
+
+:global .navbar-toggle {
+  border: 0 !important;
+  border-radius: 0 !important;
+  margin-top: 2px !important;
+
+  &:hover,
+  &:focus {
+    background-color: transparent !important;
+  }
+}
+
+:global .icon-bar {
+  background-color: #fff !important;
+}
+
+:global #logo {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 7s linear forwards;
+  width: 60px;
+  margin-top: 2px;
+  position: relative;
+  padding-bottom: 6px;
+  left: 20px;
+}
+
+@keyframes :global(dash) {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+:global .navbar-collapse {
+  border: 0;
+}

@@ -1,11 +1,10 @@
 ---
-layout: Page
-route: about.html
 title: About
+route: about.html
 bannerImg: assets/strawberryRock.jpg
 ---
 
-#Kieran Czerwinski
+# Kieran Czerwinski
 
 Howdy, 
 
@@ -16,3 +15,5 @@ I’ve always loved the process of creating things. I’ve been incredibly lucky
 The internet has had a profoundly affected the way I’ve developed as a personI’m also an aspiring developer with a focus on front-end engineering and design. I believe good design comes from a commitment to an iterative build, measure, and learn process where the user’s goals are paramount. As a fellow human, I believe our nature is fundamentally consistent with one another yet, our abilities can vary drastically. With technology all too often leaving behind those with a beautifully unique and yearning world view. 
 
 In my free time I like to needlessly stress about the world and my largely pointless existence, learn something new, build/design something physical and/or digital, tinker with 3D modeling/printing, blow up electronics, read a good book/article, and on the rare occasion, I grab my camera and venture outside to sun my pasty skin.
+
+

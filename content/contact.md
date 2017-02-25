@@ -1,7 +1,4 @@
 ---
-layout: Page
-route: contact.html
 title: Contact
+route: contact.html
 ---
-
-Email me by clicking here
