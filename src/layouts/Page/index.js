@@ -2,6 +2,8 @@ import React, { PropTypes } from "react"
 import Helmet from "react-helmet"
 import warning from "warning"
 import { BodyContainer, joinUri } from "phenomic"
+import { Col } from "react-bootstrap/lib"
+
 
 //import Button from "../../components/Button"
 import Loading from "../../components/Loading"
@@ -53,15 +55,17 @@ const Page = (
         meta={ meta }
       />
       { header }
-      <Banner imgUrl={ bannerImg } h1={ metaTitle } />
+      <Banner imgUrl={ bannerImg } h1={ metaTitle } h2={ head.description }/>
       <section>
-        <div className={ styles.body }>
-          {
-            isLoading
-            ? <Loading />
-            : <BodyContainer>{ body }</BodyContainer>
-          }
-        </div>
+        <Col xs={12} md={8} mdOffset={2}>
+          <div className={ styles.body }>
+            {
+              isLoading
+              ? <Loading />
+              : <BodyContainer>{ body }</BodyContainer>
+            }
+          </div>
+        </Col>
       </section>
       { children }
       { footer }

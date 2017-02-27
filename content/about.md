@@ -2,9 +2,8 @@
 title: About
 route: about.html
 bannerImg: assets/strawberryRock.jpg
+description: It's the little things
 ---
-
-# Kieran Czerwinski
 
 Howdy, 
 

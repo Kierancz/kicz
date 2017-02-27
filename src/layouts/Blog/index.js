@@ -6,9 +6,7 @@ import Page from "../Page"
 const Blog = (props) => {
   return (
     <Page { ...props }>
-      <section>
         <LatestPosts />
-      </section>
     </Page>
   )
 }
