@@ -132,10 +132,12 @@
     "phenomic": "^0.20.3"
   },
   "dependencies": {
-    "node-sass": "^3.10.0",
     "bootstrap-sass": "^3.3.6",
     "classnames": "^2.2.5",
+    "dep": "0.0.2",
     "markdown-it": "^6.0.1",
+    "material-design-icons": "^3.0.1",
+    "node-sass": "^3.10.0",
     "react-bootstrap": "^0.30.3",
     "react-grid-gallery": "^0.3.0",
     "react-images": "^0.5.2",

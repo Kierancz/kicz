@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from "react"
 
 import Helmet from "react-helmet"
 import Banner from "../../components/Banner"
-import { Col, Row, Grid, Button, Thumbnail } from "react-bootstrap/lib"
+import { Col, Row, Grid, Button } from "react-bootstrap/lib"
 import styles from "./index.scss"
 
 import chatty from "./chatty.png"
@@ -53,52 +53,55 @@ export default class Projects extends Component {
         />
         <section>
           <div className={ styles.projects }>
-          <Grid>
+
+            <Grid>
             <Row>
-            <Col xs={ 12 } md={ 6 }>
-              <Thumbnail 
+            <Col xs={12} md={8}>
+              <img 
+                className={ styles.imgLeft } 
                 src={ chatty } 
-                alt="chatty cathy messenger app design"
-              >
-                <h3>Chatty Cathy</h3>
-                <p>Simple chatroom app build from scratch 
+                alt="242x200"/>
+            </Col>
+            <Col xs={12} md={4} className={ styles.textContainer }>
+              <h2><b>Chatty Cathy</b></h2>
+              <p>Simple chatroom app build from scratch 
                 with media attachments, admin view
                 and, user profile.
-                </p>
-                <p>
-                  <Button bsStyle="primary">Launch</Button>&nbsp;
-                  <Button bsStyle="default">Button</Button>
-                </p>
-              </Thumbnail>
+              </p>
             </Col>
-            <Col xs={ 12 } md={ 6 }>
-              <Thumbnail src={ fiber } alt="242x200">
-                <h3>Zayo Fiber Pricing</h3>
-                <p>Provides price estimates for laying
-                down new fiber optic connections. Our team recieved first 
-                place at a Zayo sponsered hackathon for our itemized
-                price break-downs including hazard data from the 
-                overpass-turbo api.</p>
-                <p>
-                  <Button bsStyle="primary">Launch</Button>&nbsp;
-                  <Button bsStyle="default">Button</Button>
-                </p>
-              </Thumbnail>
+            <Col xs={12} md={8}>
+              <img 
+                className={ styles.imgLeft } 
+                src={ fiber } 
+                alt="242x200"/>
             </Col>
-            <Col xs={ 12 } md={ 6 }>
-              <Thumbnail src={ braille } alt="242x200">
-                <h3>Parametric Braille Tag</h3>
-                <p>This was created entirely from code, using
-                an awesome cloud-based 3D modelling tool created
-                by my professor.</p>
-                <p>
-                  <Button bsStyle="primary">Launch</Button>&nbsp;
-                  <Button bsStyle="default">Button</Button>
-                </p>
-              </Thumbnail>
+            <Col xs={12} md={4} className={ styles.textContainer }>
+              <h2><b>Zayo Fiber Pricing</b></h2>
+              <p>Provides price estimates for laying
+              down new fiber optic connections. Our team recieved first 
+              place at a Zayo sponsered hackathon for our itemized
+              price break-downs including hazard data from the 
+              overpass-turbo api.</p>
+            </Col>
+            <Col xs={12} md={8}>
+              <img 
+                className={ styles.imgLeft } 
+                src={ braille } 
+                alt="242x200"/>
+            </Col>
+            <Col xs={12} md={4} className={ styles.textContainer }>
+              <h2><b>Parametric Braille Tag</b></h2>
+              <p>This was created entirely from code, using
+              an awesome cloud-based 3D modelling tool created
+              by my professor.</p>
+              <p>
+                <Button bsStyle="primary">Launch</Button>&nbsp;
+                <Button bsStyle="default">Button</Button>
+              </p>
             </Col>
             </Row>
-          </Grid>
+            </Grid>
+
           </div>
         </section>
 
