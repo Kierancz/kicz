@@ -1,0 +1,22 @@
+.projects {
+  padding-top: 2em;
+  padding: 0, 0, 0, 0;
+}
+
+.projectLeft {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 15px; /* 5px rounded corners */
+}
+
+.imgLeft {
+  border-radius: 15px 0px 0px 15px;
+  width: 100%;
+  padding: 1em;
+}
+
+.textContainer {
+  color: #fff;
+  display: inline;
+  top: 0px;
+}

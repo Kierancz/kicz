@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from "react"
 
 import Helmet from "react-helmet"
 import Banner from "../../components/Banner"
+import Project from "../../components/Project"
 import { Col, Row, Grid, Button } from "react-bootstrap/lib"
 import styles from "./index.scss"
 
@@ -99,6 +100,12 @@ export default class Projects extends Component {
                 <Button bsStyle="default">Button</Button>
               </p>
             </Col>
+            <Project 
+              imgUrl="assets/projects/chatty.png"
+              title="Chatty Cathy"
+              description="A simple chatroom app build from scratch 
+                with media attachments, admin view
+                and, user profile." />
             </Row>
             </Grid>
 

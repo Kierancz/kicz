@@ -65,9 +65,9 @@ const Page = (
               : <BodyContainer>{ body }</BodyContainer>
             }
           </div>
-        </Col>
+        { children }
+      </Col>
       </section>
-      { children }
       { footer }
     </div>
   )
