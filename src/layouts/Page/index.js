@@ -55,7 +55,10 @@ const Page = (
         meta={ meta }
       />
       { header }
-      <Banner imgUrl={ bannerImg } h1={ metaTitle } h2={ head.description }/>
+      <Banner 
+        imgUrl={ bannerImg } 
+        h1={ metaTitle } 
+        h2={ head.description }/>
       <section>
         <Col xs={12} md={8} mdOffset={2}>
           <div className={ styles.body }>

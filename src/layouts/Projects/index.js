@@ -4,12 +4,9 @@ import React, { Component, PropTypes } from "react"
 import Helmet from "react-helmet"
 import Banner from "../../components/Banner"
 import Project from "../../components/Project"
-import { Col, Row, Grid, Button } from "react-bootstrap/lib"
+import {Row} from "react-bootstrap/lib"
 import styles from "./index.scss"
 
-import chatty from "./chatty.png"
-import fiber from "./zayoFiber.gif"
-import braille from "./brailleTag.gif"
 import bannerImg from "./code.png"
 
 // const numberOfLatestPosts = 6
@@ -41,6 +38,19 @@ export default class Projects extends Component {
       { property: "og:url", content: pkg.projects },
     ]
 
+    /*const tools = [{
+      id: 1, 
+      name: 'react',
+      icon: 'assets/icons/react.svg',
+      link: 'https://facebook.github.io/react/'
+    },{
+      id: 2,
+      name: 'materialize',
+      icon: '',
+      link: ''
+    }]*/
+
+
     return (
       <div>
         <Helmet
@@ -55,59 +65,31 @@ export default class Projects extends Component {
         <section>
           <div className={ styles.projects }>
 
-            <Grid>
             <Row>
-            <Col xs={12} md={8}>
-              <img 
-                className={ styles.imgLeft } 
-                src={ chatty } 
-                alt="242x200"/>
-            </Col>
-            <Col xs={12} md={4} className={ styles.textContainer }>
-              <h2><b>Chatty Cathy</b></h2>
-              <p>Simple chatroom app build from scratch 
-                with media attachments, admin view
-                and, user profile.
-              </p>
-            </Col>
-            <Col xs={12} md={8}>
-              <img 
-                className={ styles.imgLeft } 
-                src={ fiber } 
-                alt="242x200"/>
-            </Col>
-            <Col xs={12} md={4} className={ styles.textContainer }>
-              <h2><b>Zayo Fiber Pricing</b></h2>
-              <p>Provides price estimates for laying
-              down new fiber optic connections. Our team recieved first 
-              place at a Zayo sponsered hackathon for our itemized
-              price break-downs including hazard data from the 
-              overpass-turbo api.</p>
-            </Col>
-            <Col xs={12} md={8}>
-              <img 
-                className={ styles.imgLeft } 
-                src={ braille } 
-                alt="242x200"/>
-            </Col>
-            <Col xs={12} md={4} className={ styles.textContainer }>
-              <h2><b>Parametric Braille Tag</b></h2>
-              <p>This was created entirely from code, using
-              an awesome cloud-based 3D modelling tool created
-              by my professor.</p>
-              <p>
-                <Button bsStyle="primary">Launch</Button>&nbsp;
-                <Button bsStyle="default">Button</Button>
-              </p>
-            </Col>
             <Project 
               imgUrl="assets/projects/chatty.png"
               title="Chatty Cathy"
               description="A simple chatroom app build from scratch 
                 with media attachments, admin view
-                and, user profile." />
+                and, user profile."
+              tools={['react']['materialize']} />
+            <Project 
+              imgUrl="assets/projects/zayoFiber.gif"
+              title="Zayo Fiber Pricing"
+              description="Provides price estimates for laying
+              down new fiber optic connections. Our team recieved first 
+              place at a Zayo sponsered hackathon for our itemized
+              price break-downs including hazard data from the 
+              overpass-turbo api."
+              tools={['react']['materialize']} />
+            <Project 
+              imgUrl="assets/projects/brailleTag.gif"
+              title="Parametric Braille Tag"
+              description="This was created entirely from code, using
+              an awesome cloud-based 3D modelling tool created
+              by my professor."
+              tools={['react']['materialize']} />
             </Row>
-            </Grid>
 
           </div>
         </section>

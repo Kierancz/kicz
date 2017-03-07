@@ -15,11 +15,13 @@ export default class Project extends Component {
     const imgUrl = this.props.imgUrl
     const title = this.props.title
     const desc = this.props.description
+    const tools = this.props.tools
 
-    //console.log("tools: " this.props.tools)
+    
+    console.log("tools: ", tools)
 
     return (
-      <div>
+      <div className={ styles.project }>
         <Col xs={12} md={8}>
           <img 
             className={ styles.imgLeft } 
@@ -27,9 +29,11 @@ export default class Project extends Component {
             alt={ title }/>
         </Col>
         <Col xs={12} md={4} className={ styles.textContainer }>
-          <h2><b> { title }</b></h2>
+          <h2><b> { title }</b></h2><hr/>
           <p> { desc }
           </p>
+          <h3>Built with: </h3>
+            { tools }
         </Col>
       </div>
     )
