@@ -38,17 +38,50 @@ export default class Projects extends Component {
       { property: "og:url", content: pkg.projects },
     ]
 
-    /*const tools = [{
+    const react = {
       id: 1, 
-      name: 'react',
+      name: 'React',
       icon: 'assets/icons/react.svg',
       link: 'https://facebook.github.io/react/'
-    },{
+    };
+    const materialize = {
       id: 2,
-      name: 'materialize',
+      name: 'Materialize',
       icon: '',
       link: ''
-    }]*/
+    };
+    /*
+    const bootstrap = {
+      id: 3,
+      name: 'Bootstrap',
+      icon: '',
+      link: ''
+    };
+    const sass = {
+      id: 4,
+      name: 'SASS',
+      icon: '',
+      link: ''
+    };
+    */
+    const firebase = {
+      id: 5,
+      name: 'Firebase',
+      icon: '',
+      link: ''
+    };
+    const overpassTurbo = {
+      id: 6,
+      name: 'Overpass Turbo',
+      icon: '',
+      link: ''
+    };
+
+    let tools1=[]
+    let tools2=[]
+    //let tools3=[]
+    tools1.push(react, materialize, firebase)
+    tools2.push(react, materialize, overpassTurbo)
 
 
     return (
@@ -72,7 +105,7 @@ export default class Projects extends Component {
               description="A simple chatroom app build from scratch 
                 with media attachments, admin view
                 and, user profile."
-              tools={['react']['materialize']} />
+              tools={ tools1 } />
             <Project 
               imgUrl="assets/projects/zayoFiber.gif"
               title="Zayo Fiber Pricing"
@@ -81,14 +114,14 @@ export default class Projects extends Component {
               place at a Zayo sponsered hackathon for our itemized
               price break-downs including hazard data from the 
               overpass-turbo api."
-              tools={['react']['materialize']} />
+              tools={ tools2 } />
             <Project 
               imgUrl="assets/projects/brailleTag.gif"
               title="Parametric Braille Tag"
               description="This was created entirely from code, using
               an awesome cloud-based 3D modelling tool created
               by my professor."
-              tools={['react']['materialize']} />
+              tools={ tools1 } />
             </Row>
 
           </div>

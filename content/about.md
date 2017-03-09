@@ -2,12 +2,25 @@
 title: About
 route: about.html
 bannerImg: assets/strawberryRock.jpg
-description: It's the little things
+description: The little things
 ---
 
 Howdy, 
 
-I’m a small town boy from the redwoods of northern California that moved to Colorado to become less of an idiot. It didn’t really work, but now I have a bachelors degree in Computer Science and a minor stick up my butt in Philosophy.
+I’m a small town ape from the redwoods of northern California that moved to Colorado to become less of an idiot. It didn’t really work, but now I have a bachelors degree in Computer Science and a minor stick up my butt in Philosophy.
+
+I've always loved the process of turning ideas into reality. 
+
+
+Demonstrate:
+
+humility
+humor
+passion
+knowledge
+compassion
+mission
+
 
 I’ve always loved the process of creating things.  support and the dawn of the internet allowed me to discover and explore a wide range of passions, giving me the hands on skills and confidence necessary to pursue an enduring journey of creation and learning.
 

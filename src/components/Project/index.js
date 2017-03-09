@@ -15,9 +15,12 @@ export default class Project extends Component {
     const imgUrl = this.props.imgUrl
     const title = this.props.title
     const desc = this.props.description
-    const tools = this.props.tools
+    const tools = this.props.tools.map((tool) =>
+      <div key={tool.id}>
+        <h4>{tool.name}</h4>
+      </div> 
+    );
 
-    
     console.log("tools: ", tools)
 
     return (
@@ -33,6 +36,7 @@ export default class Project extends Component {
           <p> { desc }
           </p>
           <h3>Built with: </h3>
+
             { tools }
         </Col>
       </div>
