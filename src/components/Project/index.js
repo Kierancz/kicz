@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from "react"
 import { Col } from "react-bootstrap/lib"
+//import SVGInline from "react-svg-inline"
 
 import styles from "./index.scss"
 
@@ -15,13 +16,16 @@ export default class Project extends Component {
     const imgUrl = this.props.imgUrl
     const title = this.props.title
     const desc = this.props.description
+
+    console.log("tools ", this.props.tools)
     const tools = this.props.tools.map((tool) =>
       <div key={tool.id}>
-        <h4>{tool.name}</h4>
+        <a href={ tool.link }>
+          <img href={ tool.icon }/>
+          { tool.name }
+        </a>
       </div> 
     );
-
-    console.log("tools: ", tools)
 
     return (
       <div className={ styles.project }>
