@@ -1,11 +1,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var PureRenderMixin = require('react-addons-pure-render-mixin');
+//var PureRenderMixin = require('react-addons-pure-render-mixin');
 var {SparkScroll, SparkProxy} = require('./app-spark');
 var cx = require('classnames');
 
 var Hero = React.createClass({
-  mixins: [PureRenderMixin],
+  //mixins: [PureRenderMixin],
 
   getInitialState() {
     return {

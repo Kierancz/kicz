@@ -36,7 +36,7 @@ export default class Project extends Component {
             alt={ title }/>
         </Col>
         <Col xs={12} md={4} className={ styles.textContainer }>
-          <h2><b> { title }</b></h2><hr/>
+          <h2><b> { title }</b></h2><div className="gradHead"/>
           <p> { desc }
           </p>
           <h3>Built with: </h3>

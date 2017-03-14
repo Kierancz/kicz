@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from "react"
 //import ReactDom from "react-dom"
 import styles from "./index.scss"
 //import cx from "classnames"
-import PureRenderMixin from 'react-addons-pure-render-mixin'
 //import { SparkScroll } from 'react-spark-scroll/lib/spark-scroll-gsap'
 //import { ParallaxContainer, Parallax } from 'react-gsap-parallax'
 
@@ -24,8 +23,27 @@ export default class Banner extends Component {
   };
 
   constructor(props) {
-    super(props);
-    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+    super(props)
+    this.fadeBanner = this.fadeBanner.bind(this);
+  }
+
+  componentDidMount(){
+    console.log("componentDidMount")
+    window.addEventListener('scroll', this.fadeBanner);
+  }
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.fadeBanner);
+  }
+
+  fadeBanner() {
+    let scrollTop = event.target.body.scrollTop
+    //this.props.blur = scrollTop / 10
+    console.log(this.props)
+    if(scrollTop > 400) {
+      console.log("scrollTop greater than 400", scrollTop)
+    } else {
+      console.log("scrollTop less than 400", scrollTop)
+    }
   }
 
   render() {

@@ -82,7 +82,7 @@ export default class Projects extends Component {
       icon: '',
       link: 'https://webpack.github.io/'
     };
-    const css3 = {
+    const CSS3 = {
       id: 8,
       name: 'CSS3',
       icon: 'assets/icons/reactBoostrap.png',
@@ -154,19 +154,47 @@ export default class Projects extends Component {
       icon: '',
       link: ''
     };
+    const IL = {
+      id: 20,
+      name: 'Adobe Illustrator',
+      icon: '',
+      link: ''
+    }
+    const PS = {
+      id: 21, 
+      name: 'Adobe Photoshop',
+      icon: '',
+      link: ''
+    }
+    const SASS = {
+      id: 22,
+      name: 'SASS',
+      icon: '',
+      link: 'http://sass-lang.com/'
+    }
+    const phenomic = {
+      id: 23, 
+      name: 'Phenomic',
+      icon: '',
+      link: 'https://phenomic.io/'
+    }
 
 
-    let tools1=[]
-    let tools2=[]
+    let chatTools=[]
+    let zayoTools=[]
     let epokTools=[]
     let bsTools=[]
     let modGaitTools=[]
+    let portTools=[]
+    let curTools = []
 
-    tools1.push(react, materialize, firebase, css3)
-    tools2.push(react, leaflet, overpassTurbo, webpack, materialize, css3)
-    epokTools.push(wool, leather, elastic, mFiber)
+    chatTools.push(react, materialize, firebase, heroku, CSS3)
+    zayoTools.push(react, leaflet, overpassTurbo, webpack, materialize, CSS3)
+    epokTools.push(wool, leather, elastic, mFiber, IL, PS)
     bsTools.push(RoR, bootstrap, heroku)
     modGaitTools.push(arduino, gyro, SDM, CAD)
+    portTools.push(react, phenomic, bootstrap, SASS)
+    curTools.push(RoR, bootstrap, heroku, CSS3)
 
 
     return (
@@ -185,12 +213,12 @@ export default class Projects extends Component {
 
             <Row>
             <Project 
-              imgUrl="assets/projects/chatty.png"
-              title="Chatty Cathy"
-              description="A simple chatroom app build from scratch 
-                with media attachments, admin view
-                and, user profile."
-              tools={ tools1 } />
+              imgUrl="assets/projects/port.png"
+              title="kicz.me Personal Portfolio and Blog"
+              description="A personal site designed with react
+              and phenomic. It was designed to showcase some of 
+              my work as it evolves."
+              tools={ portTools } />
             <Project 
               imgUrl="assets/projects/zayoFiber.gif"
               title="Zayo Fiber Pricing"
@@ -199,39 +227,75 @@ export default class Projects extends Component {
               place at a Zayo sponsered hackathon for our itemized
               price break-downs including hazard data from the 
               overpass-turbo api."
-              tools={ tools2 } />
+              tools={ zayoTools } />
+            <Project 
+              imgUrl="assets/projects/chatty.png"
+              title="Chatty Cathy"
+              description="A simple chatroom app build from scratch 
+                with media attachments, admin view
+                and, user profile."
+              tools={ chatTools } />
             <Project 
               imgUrl="assets/projects/brailleTag.gif"
               title="Parametric Braille Tag"
               description="This was created entirely from code, using
               an awesome cloud-based 3D modelling tool created
               by my professor."
-              tools={ tools1 } />
+              tools={ chatTools } />
             <Project 
               imgUrl="assets/projects/mod.jpg"
               title="Wearable Power Modules and Parkinsons Gait Assistant"
-              description="Inspired by my first smart phone,
-              I learned how to sew and made a protective sleeve
-              with expandable storage that can hang or clip to your
-              belt or pocket so it stays consealed yet easily accessible."
+              description="For my physical computing course I taught myself
+              autoCAD and designed this wearable computing power system
+              that snaps together magnetically. Power modules contain
+              LiPo batteries and protection circuits, a charging module
+              includes a LiPo charging and 5v 'boost' circuit to charge 
+              any modules in the chain or power your
+              phone, arduino, sensors, etc. A mini breadboard module was also 
+              created for rapidly prototyping wearable electronics. 
+              Together with a partner, we programmed an arduino and
+              gyroscope to "
               tools={ modGaitTools } />
+            <Project 
+              imgUrl="assets/projects/curesource.gif"
+              title="CUresource "
+              description="CUresource is a resource
+              map for CU-Boulder students to easily and convieniently
+              find course and department info, contacts, and helpful 
+              content. You can save your current classes and departments
+              as well as your favorite posts with helpful material. It 
+              was created by me to satisfy the projects requirements
+              of my technical communication and 
+              design english course. It helped me solidfy my understanding
+              of rails and gave me more experience with front end design
+              and polymorphic controllers. The trouble was content had
+              to be added manually. It really needed scripts to pull
+              relevant information from official CU pages, but neither of
+              my partners were technically able to help."
+              tools={ curTools } />
+            <Project 
+              imgUrl="assets/projects/blokkspace.gif"
+              title="Blokkspace "
+              description="This was my first real web app that 
+              I designed a built from scratch for my first software
+              engineering course. It allows you to create
+              collaborative playlists composed of reusable blocks 
+              of media (videos, pictures, music, text, etc). It exposed
+              me to a number of core web technologies.
+              "
+              tools={ bsTools } />
             <Project 
               imgUrl="assets/projects/epokCol.jpg"
               title="Epok"
               description="Inspired by my first smart phone,
               I learned how to sew and made a protective sleeve
               with expandable storage that can hang or clip to your
-              belt or pocket so it stays consealed yet easily accessible."
+              belt or pocket so it stays consealed yet easily accessible.
+              I embarked on this project with little knowledge of 
+              product design and through it I learned how crucial
+              iterative processes, user testing, and simplicity are to
+              the practice of successful product design. "
               tools={ epokTools } />
-            <Project 
-              imgUrl="assets/projects/blokkspace.gif"
-              title="Blokkspace "
-              description="This was my first real web app that 
-              I designed a built from scratch. It allows you to create
-              collaborative playlists composed of reusable blocks 
-              of media (videos, pictures, music, text, etc).
-              "
-              tools={ bsTools } />
             </Row>
 
           </div>
