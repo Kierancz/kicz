@@ -178,6 +178,30 @@ export default class Projects extends Component {
       icon: '',
       link: 'https://phenomic.io/'
     }
+    const sqlite = {
+      id: 24, 
+      name: 'SQLite',
+      icon: '',
+      link: 'https://www.sqlite.org/'
+    }
+    const javascript = {
+      id: 25, 
+      name: 'Javascript',
+      icon: '',
+      link: ''
+    }
+    const craftml = {
+      id: 26, 
+      name: 'Craft ML',
+      icon: '',
+      link: 'https://craftml.io/collections'
+    }
+    const html = {
+      id: 27, 
+      name: 'HTML5',
+      icon: '',
+      link: ''
+    }
 
 
     let chatTools=[]
@@ -187,14 +211,16 @@ export default class Projects extends Component {
     let modGaitTools=[]
     let portTools=[]
     let curTools = []
+    let tagTools = []
 
-    chatTools.push(react, materialize, firebase, heroku, CSS3)
+    chatTools.push(react, firebase, heroku, materialize, CSS3)
     zayoTools.push(react, leaflet, overpassTurbo, webpack, materialize, CSS3)
     epokTools.push(wool, leather, elastic, mFiber, IL, PS)
-    bsTools.push(RoR, bootstrap, heroku)
+    bsTools.push(RoR, html, bootstrap, heroku, sqlite)
     modGaitTools.push(arduino, gyro, SDM, CAD)
-    portTools.push(react, phenomic, bootstrap, SASS)
-    curTools.push(RoR, bootstrap, heroku, CSS3)
+    portTools.push(react, phenomic, SASS, bootstrap)
+    curTools.push(RoR, bootstrap, heroku, sqlite, html, CSS3)
+    tagTools.push(craftml, javascript)
 
 
     return (
@@ -214,10 +240,13 @@ export default class Projects extends Component {
             <Row>
             <Project 
               imgUrl="assets/projects/port.png"
-              title="kicz.me Personal Portfolio and Blog"
+              title="Personal Portfolio and Blog"
               description="A personal site designed with react
-              and phenomic. It was designed to showcase some of 
-              my work as it evolves."
+              and phenomic. It was created as a way to record 
+              some of my work as I grow through my projects. I 
+              hope that by documenting my sucesses and failures
+              it reinforces what I've learned and clarifies
+              my thinking through writing. "
               tools={ portTools } />
             <Project 
               imgUrl="assets/projects/zayoFiber.gif"
@@ -231,17 +260,23 @@ export default class Projects extends Component {
             <Project 
               imgUrl="assets/projects/chatty.png"
               title="Chatty Cathy"
-              description="A simple chatroom app build from scratch 
-                with media attachments, admin view
-                and, user profile."
+              description="A simple single page chatroom app implemented 
+              with a state machine to switch between chat,
+              admin, and user views. It features typing detection, 
+              media attachments, up/down voting, and more."
               tools={ chatTools } />
             <Project 
               imgUrl="assets/projects/brailleTag.gif"
               title="Parametric Braille Tag"
-              description="This was created entirely from code, using
-              an awesome cloud-based 3D modelling tool created
-              by my professor."
-              tools={ chatTools } />
+              description="A customizable identification tag for 
+              the visually impaired. This simple project was created
+              with an awesome 3D modelling tool created
+              by my professor that lets you build 3D models with HTML,
+              CSS, and javascript. It's a great tool for those who
+              already know web development and want to quickly create
+              customizable 3D models which will be the future of
+              3D printing. "
+              tools={ tagTools } />
             <Project 
               imgUrl="assets/projects/mod.jpg"
               title="Wearable Power Modules and Parkinsons Gait Assistant"
@@ -263,11 +298,11 @@ export default class Projects extends Component {
               map for CU-Boulder students to easily and convieniently
               find course and department info, contacts, and helpful 
               content. You can save your current classes and departments
-              as well as your favorite posts with helpful material. It 
-              was created by me to satisfy the projects requirements
+              as well as your favorite posts with helpful material. I
+              created it to satisfy the projects requirements
               of my technical communication and 
               design english course. It helped me solidfy my understanding
-              of rails and gave me more experience with front end design
+              of rails and gave me more experience with front-end design
               and polymorphic controllers. The trouble was content had
               to be added manually. It really needed scripts to pull
               relevant information from official CU pages, but neither of
