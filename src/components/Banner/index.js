@@ -28,7 +28,7 @@ export default class Banner extends Component {
   }
 
   componentDidMount(){
-    console.log("componentDidMount")
+    //console.log("componentDidMount")
     window.addEventListener('scroll', this.fadeBanner);
   }
   componentWillUnmount(){
@@ -38,11 +38,11 @@ export default class Banner extends Component {
   fadeBanner() {
     let scrollTop = event.target.body.scrollTop
     //this.props.blur = scrollTop / 10
-    console.log(this.props)
+    //console.log(this.props)
     if(scrollTop > 400) {
-      console.log("scrollTop greater than 400", scrollTop)
+      //console.log("scrollTop greater than 400", scrollTop)
     } else {
-      console.log("scrollTop less than 400", scrollTop)
+      //console.log("scrollTop less than 400", scrollTop)
     }
   }
 

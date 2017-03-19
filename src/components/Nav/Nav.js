@@ -11,6 +11,7 @@ import Nav from "react-bootstrap/lib/Nav"
 // import NavDropdown from "react-bootstrap/lib/NavDropdown"
 import styles from "./Nav.scss"
 import logo from "./kInfinSVGwhite.svg"
+//import Headroom from "react-headroom"
 
 export default class NavComponent extends Component {
   static propTypes = {
