@@ -6,22 +6,26 @@ import { FaGithubSquare,
 
 const Social = (props) => (
   <div className={ styles.buttons }>
-    <a href="mailto:kierwinski@gmail.com">
+    <a href="mailto:kierwinski@gmail.com"
+      className={ styles.link }>
       <FaEnvelope 
         className={ styles.icon } 
         size={ props.size }/>
     </a>
-    <a href="https://www.linkedin.com/in/kieran-czerwinski-57558344/">
+    <a href="https://www.linkedin.com/in/kieran-czerwinski-57558344/"
+      className={ styles.link }>
       <FaLinkedinSquare 
         className={ styles.icon } 
         size={ props.size }/>
     </a>
-    <a href="https://github.com/Kierancz">
+    <a href="https://github.com/Kierancz"
+      className={ styles.link }>
       <FaGithubSquare 
         className={ styles.icon } 
         size={ props.size }/>
     </a>
-    <a href="https://www.facebook.com/kierancz">
+    <a href="https://www.facebook.com/kierancz"
+      className={ styles.link }>
       <FaFacebookSquare 
         className={ styles.icon } 
         size={ props.size }/>

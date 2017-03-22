@@ -17,7 +17,6 @@ export default class Project extends Component {
     const title = this.props.title
     const desc = this.props.description
 
-    console.log("tools ", this.props.tools)
     const tools = this.props.tools.map((tool) =>
       <div key={tool.id}>
         <a href={ tool.link }>

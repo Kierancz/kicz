@@ -1,10 +1,13 @@
 import React, { Component, PropTypes } from "react"
-//import ReactDom from "react-dom"
 import styles from "./index.scss"
 //import cx from "classnames"
-//import { SparkScroll } from 'react-spark-scroll/lib/spark-scroll-gsap'
-//import { ParallaxContainer, Parallax } from 'react-gsap-parallax'
-
+import { TrackDocument, Track } from 'react-track'
+import {tween} from 'react-imation';
+import {topTop,
+        getDocumentRect,
+        getDocumentElement,
+        calculateScrollY} from 'react-track/tracking-formulas';
+import {rgba} from 'react-imation/tween-value-factories';
 
 export default class Banner extends Component {
   static propTypes = {
@@ -12,71 +15,56 @@ export default class Banner extends Component {
     h1: PropTypes.string,
     h2: PropTypes.string,
     para: PropTypes.string,
-    blur: PropTypes.number,
-    /*children: React.PropTypes.node.isRequired,
-    className: React.PropTypes.string,
-    id: React.PropTypes.string,
-    scrollDistance: React.PropTypes.number.isRequired,
-    scrolljack: React.PropTypes.bool,
-    style: React.PropTypes.object
-    */
   };
 
   constructor(props) {
     super(props)
-    this.fadeBanner = this.fadeBanner.bind(this);
-  }
-
-  componentDidMount(){
-    //console.log("componentDidMount")
-    window.addEventListener('scroll', this.fadeBanner);
-  }
-  componentWillUnmount(){
-    window.removeEventListener('scroll', this.fadeBanner);
-  }
-
-  fadeBanner() {
-    let scrollTop = event.target.body.scrollTop
-    //this.props.blur = scrollTop / 10
-    //console.log(this.props)
-    if(scrollTop > 400) {
-      //console.log("scrollTop greater than 400", scrollTop)
-    } else {
-      //console.log("scrollTop less than 400", scrollTop)
-    }
   }
 
   render() {
     const imgUrl = this.props.imgUrl
-    /*var doc = document.documentElement;
-    var scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0)
-    var blur = scrollTop / 10
-    console.log("blur: ", blur)
-    */
-    //var blur = this.props.blur
+
     const banner = {
-      height: "400px",
-      background: "url(" + imgUrl + ")no-repeat center center"
-      //WebkitFilter: "blur(" px)",
-      //filter: "blur(" + blur + "px)"
+      position: 'fixed',
+      zIndex: '-1',
+      maxWidth: '100%',
+      minHeight: '400px',
+      background: "url(" + imgUrl + ")no-repeat center center",
+      webkitBackgroundSize: 'cover',
+      mozBackgroundSize: 'cover',
+      oBackgroundSize: 'cover',
+      backgroundSize: 'cover'
+
     }
-    //console.log("gsap Parallax: ", Parallax)
-    /* const bannerClass = cx(styles.wrapper, {
-      [styles.docked]: this.props.docked,
-    })
-    */
 
     return (
-      <header className={ styles.header }>
-        <div style={ banner }>
-          <div className={ styles.intro }>
-         
-            <h1>{ this.props.h1 }</h1>
-            <h2>{ this.props.h2 }</h2>
-            <p>{ this.props.para }</p>
-          </div>
-        </div>
-      </header>
+      <TrackDocument 
+        formulas={[getDocumentElement, getDocumentRect, calculateScrollY, 
+          topTop]}>
+        {(documentElement, documentRect, scrollY, topTop) =>
+          <Track className={styles.fade} formulas={[topTop]}>
+          {(Div, posTopTop) =>
+            <Div>
+              <img
+                style={banner}
+                src={this.props.imgUrl}
+                alt="banner image"
+              />
+              <div
+                className={styles.intro}
+                style={tween(scrollY, [
+                  [posTopTop, {backgroundColor: rgba(0, 0, 0, 0.5)}],
+                  [posTopTop + 330, {backgroundColor: rgba(0, 0, 0, 1)}]
+                  ])}>
+                <div className={styles.intro}>
+                  <h1>{ this.props.h1 }</h1>
+                  <h2>{ this.props.h2 }</h2>
+                  <p>{ this.props.para }</p>
+                </div>
+              </div>
+            </Div>
+          }</Track>
+      }</TrackDocument>
     )
   }
 }

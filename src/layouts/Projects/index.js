@@ -7,7 +7,7 @@ import Project from "../../components/Project"
 import {Row} from "react-bootstrap/lib"
 import styles from "./index.scss"
 
-import bannerImg from "./code.png"
+import bannerImg from "./code.jpg"
 
 // const numberOfLatestPosts = 6
 
