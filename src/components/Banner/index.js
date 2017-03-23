@@ -26,14 +26,12 @@ export default class Banner extends Component {
 
     const banner = {
       position: 'fixed',
+      top: '0px',
       zIndex: '-1',
-      maxWidth: '100%',
-      minHeight: '400px',
+      minWidth: '100%',
+      height: '400px',
       background: "url(" + imgUrl + ")no-repeat center center",
-      webkitBackgroundSize: 'cover',
-      mozBackgroundSize: 'cover',
-      oBackgroundSize: 'cover',
-      backgroundSize: 'cover'
+      objectFit: 'cover'
 
     }
 
@@ -53,14 +51,12 @@ export default class Banner extends Component {
               <div
                 className={styles.intro}
                 style={tween(scrollY, [
-                  [posTopTop, {backgroundColor: rgba(0, 0, 0, 0.5)}],
+                  [posTopTop, {backgroundColor: rgba(0, 0, 0, 0.4)}],
                   [posTopTop + 330, {backgroundColor: rgba(0, 0, 0, 1)}]
                   ])}>
-                <div className={styles.intro}>
-                  <h1>{ this.props.h1 }</h1>
-                  <h2>{ this.props.h2 }</h2>
-                  <p>{ this.props.para }</p>
-                </div>
+                <h1>{ this.props.h1 }</h1>
+                <h2>{ this.props.h2 }</h2>
+                <p>{ this.props.para }</p>
               </div>
             </Div>
           }</Track>

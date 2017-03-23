@@ -6,6 +6,8 @@ import Banner from "../../components/Banner"
 import Project from "../../components/Project"
 import {Row} from "react-bootstrap/lib"
 import styles from "./index.scss"
+import Footer from "../../components/Footer"
+
 
 import bannerImg from "./code.jpg"
 
@@ -234,7 +236,6 @@ export default class Projects extends Component {
           h1="Projects" 
           h2="A collection of selected creative works"
         />
-        <section>
           <div className={ styles.projects }>
 
             <Row>
@@ -332,9 +333,8 @@ export default class Projects extends Component {
               the practice of successful product design. "
               tools={ epokTools } />
             </Row>
-
+            <Footer/>
           </div>
-        </section>
 
       </div>
     )

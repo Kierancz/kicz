@@ -1,4 +1,9 @@
 .projects {
+  display: block;
+  position: relative;
+  z-index: 2;
+  top: 400px;
+  background-color: rgb(0,0,0);
   padding-top: 2em;
   padding-right: 2em;
   padding-left: 2em;
@@ -18,6 +23,6 @@
 
 .textContainer {
   color: #fff;
-  display: inline;
+  display: block;
   top: 0px;
 }

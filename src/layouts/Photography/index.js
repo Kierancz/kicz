@@ -5,7 +5,7 @@ import styles from "./index.scss"
 import Gallery from "react-grid-gallery"
 import images from "../../../content/assets/photos.js"
 import bannerImg from "./camera.jpg"
-
+import Footer from "../../components/Footer"
 export default class Photography extends Component {
   static contextTypes = {
     collection: PropTypes.array.isRequired,
@@ -46,7 +46,8 @@ export default class Photography extends Component {
               className={ styles.gallery }
             />
           </div>
-          <br />
+          <br/>
+          <Footer/>
       </div>
     )
   }

@@ -21,7 +21,9 @@
     background-color: rgba(0, 0, 0, 0.5);
   }
 }
-
+.fade {
+  z-index: 0;
+}
 .intro {
   // Vertical align
   position: fixed;
@@ -58,7 +60,7 @@
 @media (max-width: 768px) {
   .intro {
     h1 {
-      font-size: 2rem;
+      font-size: 4rem;
     }
     h2 {
       font-size: 1.5rem;
