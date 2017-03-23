@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "port",
-  "homepage": "https://kierancz.github.io/kicz",
+  "homepage": "http://kicz.me",
   "twitter": "",
   "repository": "https://github.com/Kierancz/kicz.git",
   "scripts": {
@@ -16,7 +16,7 @@
     "deploy": "./scripts/deploy.sh"
   },
   "phenomic": {
-    "CNAME": false
+    "CNAME": true
   },
   "#babel": "webpack-(development|production) are useful for webpack 2, otherwise use development|production",
   "babel": {
