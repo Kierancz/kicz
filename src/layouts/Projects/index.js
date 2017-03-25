@@ -20,14 +20,7 @@ export default class Projects extends Component {
   }
 
   render() {
-    /*
-    const latestPosts = enhanceCollection(this.context.collection, {
-      filter: { layout: "Post" },
-      sort: "date",
-      reverse: true,
-    })
-    .slice(0, numberOfLatestPosts)
-    */
+ 
     const {
       pkg,
     } = this.context.metadata
@@ -248,7 +241,9 @@ export default class Projects extends Component {
               hope that by documenting my sucesses and failures
               it reinforces what I've learned and clarifies
               my thinking through writing. "
-              tools={ portTools } />
+              tools={ portTools } 
+              demoUrl="http://kicz.me"
+              codeUrl="https://github.com/Kierancz/kicz" />
             <Project 
               imgUrl="assets/projects/zayoFiber.gif"
               title="Zayo Fiber Pricing"

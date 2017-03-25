@@ -3,28 +3,56 @@ import { Col } from "react-bootstrap/lib"
 //import SVGInline from "react-svg-inline"
 
 import styles from "./index.scss"
+import { MdCode, MdLaunch } 
+  from "react-icons/lib/md"
+
 
 export default class Project extends Component {
   static propTypes = {
     imgUrl: PropTypes.string.isRequired,
-    title: PropTypes.string,
+    title: PropTypes.string.isRequired,
     description: PropTypes.string,
-    tools: PropTypes.array
+    tools: PropTypes.array,
+    demoUrl: PropTypes.string,
+    codeUrl: PropTypes.string,
   };
 
   render() {
     const imgUrl = this.props.imgUrl
     const title = this.props.title
     const desc = this.props.description
+    const demoUrl = this.props.demoUrl
+    const codeUrl = this.props.codeUrl
+    const iconSize = 30
+    let dURL = 0
+    let cURL = 0
 
     const tools = this.props.tools.map((tool) =>
-      <div key={tool.id}>
+      <div key={ tool.id }>
         <a href={ tool.link }>
           <img href={ tool.icon }/>
           { tool.name }
         </a>
       </div> 
     );
+
+    if(demoUrl) {
+      dURL = 
+      <a href={ demoUrl }>
+        <MdLaunch
+        className={ styles.icon } 
+        size={ iconSize }/>
+      </a>
+    }
+
+    if(codeUrl) {
+      cURL = 
+      <a href={ codeUrl }>
+        <MdCode 
+          className={ styles.icon } 
+          size={ iconSize }/>
+      </a>
+    }
 
     return (
       <div className={ styles.project }>
@@ -39,8 +67,9 @@ export default class Project extends Component {
           <p> { desc }
           </p>
           <h3>Built with: </h3>
-
             { tools }
+            { dURL }
+            { cURL }
         </Col>
       </div>
     )
