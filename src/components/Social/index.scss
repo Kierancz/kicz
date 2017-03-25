@@ -2,16 +2,17 @@
   display: inline;
   color: #fff;
   margin-top: 1em;
-  margin-left: 1em;
 }
 
 .icon {
-  margin-right: 1em;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 a.link {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.7);
   :hover {
+    color: rgba(255, 255, 255, 1);
     overflow: visible;
     transform:scale(1.1,1.1);
     -webkit-transform:scale(1.1,1.1);

@@ -16,7 +16,8 @@ class HomepageHeader extends Component {
           <br />
           <p>
             I believe the web is humanity's greatest creation. 
-            It has an incredible potential to unite , to pool our 
+            It has an incredible potential to unite all the 
+            lovely people of the world, to pool our 
             collective knowledge, and empower those courageous 
             enough to better themselves and the world we share.
             <br /><br />
@@ -27,10 +28,10 @@ class HomepageHeader extends Component {
           </p>
           <ButtonToolbar className={ styles.center }>
           <Link to="/about.html">
-            <Button className="fill">About Me</Button>
+            <Button className="draw">About Me</Button>
           </Link>
           <Link to="/projects.html">
-            <Button bsStyle="primary" className="fill">Projects</Button>
+            <Button bsStyle="primary" className="draw">Projects</Button>
           </Link>
           </ButtonToolbar>
         </div>
