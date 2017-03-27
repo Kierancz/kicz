@@ -24,12 +24,12 @@ export default class Project extends Component {
     const demoUrl = this.props.demoUrl
     const codeUrl = this.props.codeUrl
     const iconSize = 30
-    let dURL = 0
-    let cURL = 0
+    let dURL = ""
+    let cURL = ""
 
     const tools = this.props.tools.map((tool) =>
       <div key={ tool.id }>
-        <a href={ tool.link }>
+        <a target="_blank" href={ tool.link }>
           <img href={ tool.icon }/>
           { tool.name }
         </a>
@@ -38,20 +38,24 @@ export default class Project extends Component {
 
     if(demoUrl) {
       dURL = 
-      <a href={ demoUrl }>
-        <MdLaunch
-        className={ styles.icon } 
-        size={ iconSize }/>
-      </a>
+      <div className="round-btn blue">
+        <a href={ demoUrl }>
+          <MdLaunch
+          className={ styles.icon } 
+          size={ iconSize }/>
+        </a>
+      </div>
     }
 
     if(codeUrl) {
       cURL = 
-      <a href={ codeUrl }>
-        <MdCode 
-          className={ styles.icon } 
-          size={ iconSize }/>
-      </a>
+      <div className="round-btn green">
+        <a href={ codeUrl }>
+          <MdCode 
+            className={ styles.icon } 
+            size={ iconSize }/>
+        </a>
+      </div>
     }
 
     return (

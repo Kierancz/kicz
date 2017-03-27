@@ -20,5 +20,10 @@
 }
 
 .icon {
-  color: #fff;
+  margin-top: 3px;
+  color: rgba(255, 255, 255, 0.7);
+  &:hover {
+    color: #fff;
+  }
 }
+

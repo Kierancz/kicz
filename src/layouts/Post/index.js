@@ -25,7 +25,7 @@ const Post = (props) => {
         </div>
       }
     >
-      <hr />
+      <div className="gradHead" />
       <LatestPosts />
     </Page>
   )
