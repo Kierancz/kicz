@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react"
 import { Col } from "react-bootstrap/lib"
 //import SVGInline from "react-svg-inline"
-
+import { Tooltip, OverlayTrigger } from "react-bootstrap"
 import styles from "./index.scss"
 import { MdCode, MdLaunch } 
   from "react-icons/lib/md"
@@ -27,6 +27,13 @@ export default class Project extends Component {
     let dURL = ""
     let cURL = ""
 
+    const demoTooltip = (
+      <Tooltip id="tooltip">See it in action!</Tooltip>
+    )
+    const codeTooltip = (
+      <Tooltip id="tooltip">See the code!</Tooltip>
+    )
+
     const tools = this.props.tools.map((tool) =>
       <div key={ tool.id }>
         <a target="_blank" href={ tool.link }>
@@ -38,24 +45,28 @@ export default class Project extends Component {
 
     if(demoUrl) {
       dURL = 
-      <div className="round-btn blue">
-        <a href={ demoUrl }>
-          <MdLaunch
-          className={ styles.icon } 
-          size={ iconSize }/>
-        </a>
-      </div>
+      <OverlayTrigger placement="top" overlay={demoTooltip}>
+        <div className="round-btn">
+          <a href={ demoUrl } target="_blank">
+            <MdLaunch
+            className={ styles.icon } 
+            size={ iconSize }/>
+          </a>
+        </div>
+      </OverlayTrigger>
     }
 
     if(codeUrl) {
       cURL = 
-      <div className="round-btn green">
-        <a href={ codeUrl }>
-          <MdCode 
-            className={ styles.icon } 
-            size={ iconSize }/>
-        </a>
-      </div>
+      <OverlayTrigger placement="top" overlay={codeTooltip}>
+        <div className="round-btn">
+          <a href={ codeUrl } target="_blank">
+            <MdCode 
+              className={ styles.icon } 
+              size={ iconSize }/>
+          </a>
+        </div>
+      </OverlayTrigger>
     }
 
     return (
@@ -67,13 +78,19 @@ export default class Project extends Component {
             alt={ title }/>
         </Col>
         <Col xs={12} md={4} className={ styles.textContainer }>
-          <h2><b> { title }</b></h2><div className="gradHead"/>
+          <div className={ styles.title }>
+            <div className='btn-toolbar pull-right'>
+                <div className='btn-group'>
+                  { dURL }{ cURL }
+                </div>
+            </div>
+             <h2><b> { title }</b></h2>
+          </div>
+          <div className="gradHead"/>
           <p> { desc }
           </p>
           <h3>Built with: </h3>
             { tools }
-            { dURL }
-            { cURL }
         </Col>
       </div>
     )

@@ -233,14 +233,17 @@ export default class Projects extends Component {
 
             <Row>
             <Project 
-              imgUrl="assets/projects/port.png"
+              imgUrl="assets/projects/kicz.jpg"
               title="Personal Portfolio and Blog"
-              description="A personal site designed with react
-              and phenomic. It was created as a way to record 
+              description="A personal site designed with React
+              and Phenomic. It was created as a way to record 
               some of my work as I grow through my projects. I 
               hope that by documenting my sucesses and failures
               it reinforces what I've learned and clarifies
-              my thinking through writing. "
+              my thinking through writing. It taught me a lot about
+              CSS and SVG animation, image compression and gave me 
+              more pracitce writing React components and c
+              reating scroll effects using React. "
               tools={ portTools } 
               demoUrl="http://kicz.me"
               codeUrl="https://github.com/Kierancz/kicz" />
@@ -248,11 +251,16 @@ export default class Projects extends Component {
               imgUrl="assets/projects/zayoFiber.gif"
               title="Zayo Fiber Pricing"
               description="Provides price estimates for laying
-              down new fiber optic connections. Our team recieved first 
-              place at a Zayo sponsered hackathon for our itemized
-              price break-downs including hazard data from the 
-              overpass-turbo api."
-              tools={ zayoTools } />
+              down new fiber optic connections. I parsed and filtered the JSON
+              blob returned from our AJAX call to the OverpassTurbo API to create the itemized 
+              list of potential hazards to fiber construction. This was the
+              stand-out feature that was highly praised by the panel of Zayo
+              judges and resulted in us winning first place for our efforts. I used philosophies from 
+              user centered design to guide the overall visual design using CSS, regular expressions,
+              and the informative feedback during loading states and map interaction."
+              tools={ zayoTools }
+              codeUrl="https://github.com/Kierancz/zFiber"
+              demoUrl="http://kierancz.github.io/fiber/" />
             <Project 
               imgUrl="assets/projects/chatty.png"
               title="Chatty Cathy"
@@ -260,7 +268,8 @@ export default class Projects extends Component {
               with a state machine to switch between chat,
               admin, and user views. It features typing detection, 
               media attachments, up/down voting, and more."
-              tools={ chatTools } />
+              tools={ chatTools }
+              codeUrl="https://github.com/Kierancz/book/tree/master/src/apps/together" />
             <Project 
               imgUrl="assets/projects/brailleTag.gif"
               title="Parametric Braille Tag"
@@ -272,21 +281,29 @@ export default class Projects extends Component {
               already know web development and want to quickly create
               customizable 3D models which will be the future of
               3D printing. "
-              tools={ tagTools } />
+              tools={ tagTools }
+              demoUrl="https://craftml.io/i7PNJ" />
             <Project 
               imgUrl="assets/projects/mod.jpg"
               title="Wearable Power Modules and Parkinsons Gait Assistant"
-              description="For my physical computing course I taught myself
-              autoCAD and designed this wearable computing power system
+              description="AutoCAD and designed this wearable computing power system
               that snaps together magnetically. Power modules contain
               LiPo batteries and protection circuits, a charging module
               includes a LiPo charging and 5v 'boost' circuit to charge 
-              any modules in the chain or power your
-              phone, arduino, sensors, etc. A mini breadboard module was also 
-              created for rapidly prototyping wearable electronics. 
-              Together with a partner, we programmed an arduino and
-              gyroscope to "
-              tools={ modGaitTools } />
+              any modules in the chain from USB or power your
+              phone, Arduino, sensors, etc. A mini breadboard module was also 
+              created for rapidly prototyping wearable electronics of all sorts. 
+              As a demo, my partner and I programmed an Arduino and
+              gyroscope to detect a walking gait using a custom algorithm based
+              on the YAW values from the gyro. This allowed us to detect
+              the debilitating freeze of gait (FoG) moments that people with Parkinson disease
+              often experience. Once these moments were detected we fired a laser
+              line as a visual cue needed to substitute for the patient's impaired
+              Basal Ganglia and its motor cueing function.
+"
+              tools={ modGaitTools }
+              codeUrl="https://github.com/Kierancz/gait_project/blob/master/CSCI4830_Gait_Project/CSCI4830_Gait_Project.ino"
+              demoUrl="https://www.instructables.com/id/Wearable-Power-and-Computing-Modules-to-Improve-Pa/" />
             <Project 
               imgUrl="assets/projects/curesource.gif"
               title="CUresource "
@@ -303,18 +320,21 @@ export default class Projects extends Component {
               to be added manually. It really needed scripts to pull
               relevant information from official CU pages, but neither of
               my partners were technically able to help."
-              tools={ curTools } />
+              tools={ curTools }
+              demoUrl="http://curesource.herokuapp.com/"
+              codeUrl="https://github.com/Kierancz/CUresource" />
             <Project 
               imgUrl="assets/projects/blokkspace.gif"
-              title="Blokkspace "
+              title="Blokkspace"
               description="This was my first real web app that 
               I designed a built from scratch for my first software
               engineering course. It allows you to create
               collaborative playlists composed of reusable blocks 
               of media (videos, pictures, music, text, etc). It exposed
-              me to a number of core web technologies.
-              "
-              tools={ bsTools } />
+              me to a number of core web technologies and best practices."
+              tools={ bsTools }
+              demoUrl="https://blokkspace.herokuapp.com/"
+              codeUrl="https://github.com/Kierancz/block_space" />
             <Project 
               imgUrl="assets/projects/epokCol.jpg"
               title="Epok"

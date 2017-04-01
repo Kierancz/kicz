@@ -1,0 +1,25 @@
+.about {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  top: 400px;
+  background-color: #000;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.img {
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-top: 1em;
+  width: 100%;
+  height: auto; 
+  float: left;
+}
+
+.para {
+  padding-left: 1em;
+  padding-right: 1em;
+}

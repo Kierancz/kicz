@@ -2,6 +2,6 @@
 title: Blog
 layout: Blog
 route: blog.html
-description: Just some blunderful passing thoughts
+description: Some passing thoughts, like farts in the wind
 ---
 

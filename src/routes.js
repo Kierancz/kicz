@@ -10,6 +10,7 @@ import Projects from "./layouts/Projects"
 import Photography from "./layouts/Photography"
 import Post from "./layouts/Post"
 import Blog from "./layouts/Blog"
+import About from "./layouts/About"
 
 const PageContainer = (props) => (
   <PhenomicPageContainer
@@ -18,6 +19,7 @@ const PageContainer = (props) => (
       Page,
       PageError,
       Homepage,
+      About,
       Blog,
       Projects,
       Photography,
@@ -29,6 +31,7 @@ const PageContainer = (props) => (
 export default (
   <Route component={ AppContainer }>
     <Route path="/" component={ Homepage } />
+    <Route path="/about.html" component={ About } />
     <Route path="/projects.html" component={ Projects } />
     <Route path="/photos.html" component={ Photography } />
     <Route path="*" component={ PageContainer } />

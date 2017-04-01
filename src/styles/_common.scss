@@ -377,14 +377,17 @@ $blue: #0eb7da;
 .round-btn {
   margin-left: 6px;
   width: 36px;
-  height: 46px;
+  height: 36px;
   border-radius: 50%;
   text-align: center;
   //overflow: hidden;
-  display: inline;
-  background: #22B592
+  display: inline-block;
 }
+
 .round-btn:hover {
-  background: #262626;
+  background: #333333;
+}
+.pull-right {
+  float: right !important;
 }
 

@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import styles from "./Header.scss"
 import { Link } from "react-router"
-import Button from "react-bootstrap/lib/Button"
 import ButtonToolbar from "react-bootstrap/lib/ButtonToolbar"
 
 class HomepageHeader extends Component {
@@ -21,17 +20,17 @@ class HomepageHeader extends Component {
             collective knowledge, and empower those courageous 
             enough to better themselves and the world we share.
             <br /><br />
-            As a fledgling web developer, I am excited to be learning
+            As a growing web developer, I am excited to be learning
             more everyday so that I can take a small part in creating 
             a more inspiring, intuitive, and accessible experience for users of 
             all backgrounds.  
           </p>
           <ButtonToolbar className={ styles.center }>
-          <Link to="/about.html">
-            <Button className="btn draw">About Me</Button>
+          <Link to="/about.html"
+            className="btn draw">About Me
           </Link>
-          <Link to="/projects.html">
-            <Button bsStyle="primary" className="btn draw">Projects</Button>
+          <Link to="/projects.html"
+            className="btn draw">Projects
           </Link>
           </ButtonToolbar>
         </div>
