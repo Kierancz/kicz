@@ -82,8 +82,7 @@ export default class About extends Component {
               diverse spiders of the world.
               </p>
               <p>
-              In my free time I like to needlessly worry about the world and my 
-              largely pointless existence, tinker with 3D modeling/printing, 
+              In my free time I like to learn new skills, tinker with 3D modeling/printing, 
               blow up electronics, read a good book or article, and on the rare 
               occasion, I venture outside to hike, mountain bike, play tennis, 
               and sun my pasty skin.

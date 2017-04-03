@@ -8,6 +8,7 @@ import { Col } from "react-bootstrap/lib"
 //import Button from "../../components/Button"
 import Loading from "../../components/Loading"
 import Banner from "../../components/Banner"
+import Footer from "../../components/Footer"
 import defaultBannerImg from "./flatiron.jpg"
 
 import styles from "./index.scss"
@@ -20,7 +21,6 @@ const Page = (
     head,
     body,
     header,
-    footer,
     children,
   },
 ) => {
@@ -70,9 +70,9 @@ const Page = (
             }
           </div>
         { children }
+        <Footer/>
       </Col>
       </section>
-      { footer }
     </div>
   )
 }

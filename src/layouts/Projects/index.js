@@ -241,9 +241,9 @@ export default class Projects extends Component {
               hope that by documenting my sucesses and failures
               it reinforces what I've learned and clarifies
               my thinking through writing. It taught me a lot about
-              CSS and SVG animation, image compression and gave me 
-              more pracitce writing React components and c
-              reating scroll effects using React. "
+              CSS and SVG animation, image compression, SASS usage, and gave me 
+              more pracitce writing React components and creating 
+              scroll effects using React. "
               tools={ portTools } 
               demoUrl="http://kicz.me"
               codeUrl="https://github.com/Kierancz/kicz" />
@@ -255,9 +255,9 @@ export default class Projects extends Component {
               blob returned from our AJAX call to the OverpassTurbo API to create the itemized 
               list of potential hazards to fiber construction. This was the
               stand-out feature that was highly praised by the panel of Zayo
-              judges and resulted in us winning first place for our efforts. I used philosophies from 
-              user centered design to guide the overall visual design using CSS, regular expressions,
-              and the informative feedback during loading states and map interaction."
+              judges and resulted in us winning first place out of nine teams. I used UCD and material design
+               to guide the overall visual design using CSS, regular expressions,
+              and the responsive feedback during loading states and map interaction."
               tools={ zayoTools }
               codeUrl="https://github.com/Kierancz/zFiber"
               demoUrl="http://kierancz.github.io/fiber/" />
@@ -286,7 +286,7 @@ export default class Projects extends Component {
             <Project 
               imgUrl="assets/projects/mod.jpg"
               title="Wearable Power Modules and Parkinsons Gait Assistant"
-              description="AutoCAD and designed this wearable computing power system
+              description="I taught myself AutoCAD and designed this wearable computing power system
               that snaps together magnetically. Power modules contain
               LiPo batteries and protection circuits, a charging module
               includes a LiPo charging and 5v 'boost' circuit to charge 

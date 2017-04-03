@@ -2,6 +2,6 @@
 title: Blog
 layout: Blog
 route: blog.html
-description: Some passing thoughts, like farts in the wind
+description: A place for documenting projects and reflective growth
 ---
 

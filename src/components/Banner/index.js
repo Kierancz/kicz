@@ -53,7 +53,7 @@ export default class Banner extends Component {
                 className={styles.intro}
                 style={tween(scrollY, [
                   [posTopTop, {backgroundColor: rgba(0, 0, 0, 0.4), transform: scale(1.2)}],
-                  [posTopTop + 200, {backgroundColor: rgba(0, 0, 0, 1), transform:scale(1)}]
+                  [posTopTop + 400, {backgroundColor: rgba(0, 0, 0, 1), transform:scale(1)}]
                   ])}>
                 <h1>{ this.props.h1 }</h1>
                 <h2>{ this.props.h2 }</h2>

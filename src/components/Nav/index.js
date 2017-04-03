@@ -28,7 +28,7 @@ export default class NavDockable extends Component {
   }
 
   dockNav() {
-    const docked = document.body.scrollTop > 10
+    const docked = document.body.scrollTop > 310
 
     if (this.state.docked !== docked) {
       this.setState({

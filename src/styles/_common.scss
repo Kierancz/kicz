@@ -21,10 +21,10 @@ body {
 }
 
 section {
-  background-color: #000;
   position: relative;
   z-index: 2;
-  margin-top: 400px;
+  top: 400px;
+  background-color: #000;
 }
 
 a {

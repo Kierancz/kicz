@@ -1,4 +1,3 @@
-# [Phenomic](https://github.com/MoOx/phenomic) phenomic-theme-base
 
 ## Install dependencies
 
