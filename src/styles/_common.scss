@@ -3,6 +3,16 @@
 /*
  * 2.0 Global Style
  */
+//Colors
+$background: #fefefe;
+$text: #4b507a;
+
+$cyan: #60daaa;
+$yellow: #fbca67;
+$orange: #ff8a30;
+$red: #f45e61;
+$purple: #6477b9;
+$blue: #0eb7da;
 
 html {
   font-family: 'Roboto', sans-serif !important;
@@ -28,6 +38,7 @@ section {
 }
 
 a {
+  color: $blue;
   &:hover {
     outline: none;
     color: #fff;
@@ -63,30 +74,6 @@ p {
   }
 }
 
-/*.btn.active.focus,
-.btn.active:focus,
-.btn.focus,
-.btn:active.focus,
-.btn:active:focus,
-.btn:focus {
-  outline: none;
-}
-
-.btn {
-  border: 0;
-  border-radius: 0;
-  padding: 0.375rem 1.75rem;
-  text-transform: uppercase;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  transition-duration: 0.3s;
-  transition-property: transform;
-  &:hover {
-    transform: scale(0.9);
-  }
-}
-*/
 
 .form-control {
   border-radius: 0;
@@ -102,50 +89,6 @@ p {
   }
 }
 
-/*button {
-  position: relative;
-  height: 45px;
-  width: 150px;
-  margin: 10px 7px;
-  padding: 5px 5px;
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 2px;
-  color: #ffffff;
-  border: 2px #ffffff solid;
-  border-radius: 4px;
-  text-transform: uppercase;
-  outline: 0;
-  overflow:hidden;
-  background: none;
-  z-index: 1;
-  cursor: pointer;
-  transition:         0.08s ease-in;
-  -o-transition:      0.08s ease-in;
-  -ms-transition:     0.08s ease-in;
-  -moz-transition:    0.08s ease-in;
-  -webkit-transition: 0.08s ease-in;
-}
-
-.fill:hover {
-  color: whitesmoke;
-}
-
-.fill:before {
-  content: "";
-  position: absolute;
-  background: #383736;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 100%;
-  z-index: -1;
-  -webkit-transition: top 0.09s ease-in;
-}
-
-.fill:hover:before {
-  top: 0;
-}
 
 /*
  * 3.0 Helper Class
@@ -196,61 +139,7 @@ p {
   }
 }
 
-/*
- * 3.4 Helper Class: button
- */
 
-.btn-white {
-  color: #000;
-  background-color: #fff;
-  &:hover,
-  &:focus {
-    color: #000;
-    background-color: #fff;
-  }
-}
-
-.btn-black {
-  color: #fff;
-  background-color: #000;
-  &:hover,
-  &:focus {
-    color: #fff;
-    background-color: #000;
-  }
-}
-
-
-.btn-yellow {
-  color: #000;
-  background-color: $color-accent;
-  padding: 1rem 2rem;
-  margin: 1rem 0;
-  border: 1px solid $color-accent;
-
-  &:hover,
-  &:focus {
-    background-color: $color-accent;
-    border: 1px solid #000;
-  }
-}
-
-.btn-blue {
-  color: #fff;
-  background-color: #428bca;
-  padding: 1rem 2rem;
-  margin: 1rem 0;
-  border: 1px solid #428bca;
-  &:hover,
-  &:focus {
-    color: #fff;
-    background-color: #428bca;
-    border: 1px solid #000;
-  }
-}
-.container {
-  width: 70%;
-}
 
 .gradHead {
   height: 2px;
@@ -261,17 +150,6 @@ p {
   background: -moz-linear-gradient(bottom right, green, blue); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, green, blue); /* Standard syntax (must be last) */
 }
-
-//Colors
-$background: #fefefe;
-$text: #4b507a;
-
-$cyan: #60daaa;
-$yellow: #fbca67;
-$orange: #ff8a30;
-$red: #f45e61;
-$purple: #6477b9;
-$blue: #0eb7da;
 
 // Basic styles
 .btn {
@@ -286,6 +164,7 @@ $blue: #0eb7da;
   padding: 1em 2em;
   text-align: center;
   text-transform: uppercase;
+  display: inline-block;
 
   // Required, since we're setting absolute on pseudo-elements
   position: relative;
@@ -299,6 +178,11 @@ $blue: #0eb7da;
     width: 100%;
     height: 100%;
   }
+}
+
+.btn-sm {
+  font-size: 14px;
+  padding: 0.5em 0.5em;
 }
 
 .draw {
@@ -352,28 +236,6 @@ $blue: #0eb7da;
   }
 }
 
-
-.btnCircle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.42;
-  border-radius: 15px;
-}
-
-.btn-circle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.428571429;
-  border-radius: 15px;
-  z-index: 20;
-}
-
 .round-btn {
   margin-left: 6px;
   width: 36px;
@@ -385,9 +247,14 @@ $blue: #0eb7da;
 }
 
 .round-btn:hover {
-  background: #333333;
+  background: #333;
 }
 .pull-right {
   float: right !important;
+}
+
+.tooltip-inner {
+    background-color: #333;
+    color: #fff;
 }
 

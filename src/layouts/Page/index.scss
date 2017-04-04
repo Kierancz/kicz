@@ -53,11 +53,13 @@
 
 .pageContent {
   z-index: 2;
-  margin: 1rem 0;
+
 }
 
 .body {
+  margin-top: 2em;
   color: #fff;
+  height: 100%;
   & a {
     color: var(--colorPrimary);
     transition: all 0.2s;

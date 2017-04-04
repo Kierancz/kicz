@@ -25,7 +25,7 @@ const PagePreview = ({ __url, title, date, description }) => {
         { description }
         { " " }
       </div>
-      <Link to={ __url } className={ styles.readMore }>
+      <Link to={ __url } className="btn btn-sm draw">
         <Button secondary>{ "Read More →" }</Button>
       </Link>
     </div>
