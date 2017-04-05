@@ -145,6 +145,7 @@
     "react-icons": "^2.2.3",
     "react-images": "^0.5.2",
     "react-imation": "^0.5.3",
+    "react-scroll-up": "^1.2.1",
     "react-svg": "^1.1.5",
     "react-tap-event-plugin": "^2.0.1",
     "react-track": "^0.4.3",

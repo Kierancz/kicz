@@ -77,7 +77,6 @@ export default class NavComponent extends Component {
             <NavItem to="/projects.html" name="Projects" />
             <NavItem to="/photos.html" name="Photography" />
             <NavItem to="/blog.html" name="Blog" />
-            <NavItem to="/contact.html" name="Contact" />
           </Nav>
         </Collapse>
       </Navbar>

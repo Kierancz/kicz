@@ -1,11 +1,20 @@
 import React, { Component, PropTypes } from "react"
 import Helmet from "react-helmet"
+import { Link } from "phenomic"
 import Banner from "../../components/Banner"
 import styles from "./index.scss"
 import bannerImg from "./strawberryRock.jpg"
 import me from "./me.jpg"
 import Footer from "../../components/Footer"
-import { Row, Col } from "react-bootstrap"
+import { 
+  Row, 
+  Col, 
+  Tooltip, 
+  OverlayTrigger } from "react-bootstrap"
+import {  } from "react-bootstrap"
+import { MdEmail, MdPhoneIphone } 
+  from "react-icons/lib/md"
+
 
 export default class About extends Component {
   static contextTypes = {
@@ -19,13 +28,44 @@ export default class About extends Component {
     } = this.context.metadata
 
     const title = "About"
+    const iconSize = 30
 
     const meta = [
       { property: "og:type", content: "article" },
       { property: "og:title", content: title },
       { property: "og:url", content: pkg.about },
     ]
-    
+    const emailTooltip = (
+      <Tooltip id="tooltip">Shoot me an email!</Tooltip>
+    )
+    const phoneTooltip = (
+      <Tooltip id="tooltip">+1 (707) 499 - 9913</Tooltip>
+    )
+
+    const email = (
+      <OverlayTrigger placement="top" overlay={emailTooltip}>
+        <div className="round-btn">
+          <a href="mailto:kierwinski@gmail.com">
+            <MdEmail
+            className="icon" 
+            size={ iconSize }/>
+          </a>
+        </div>
+      </OverlayTrigger>
+    )
+
+    const phone = (
+      <OverlayTrigger placement="top" overlay={phoneTooltip}>
+        <div className="round-btn">
+          <a href="tel:+17074999913">
+            <MdPhoneIphone 
+              className="icon"              
+              size={ iconSize }/>
+          </a>
+        </div>
+      </OverlayTrigger>
+    )
+
     return (
       <div>
         <Helmet
@@ -48,7 +88,13 @@ export default class About extends Component {
             </Col>
             <Col xs={12} sm={8} lg={7}>
               <div className={ styles.para }>
-              <h1>KIERAN CZERWINSKI</h1>
+              <div className='btn-toolbar pull-right'>
+                <div className='btn-group'>
+                  { email }{ phone }
+                </div>
+              </div>
+
+              <h1>Kieran Czerwinski</h1>
               <div className="gradHead"/>
               <p>I’m a resourceful ape from the redwoods of northern California 
               that moved to Colorado to become less of a dummy. It might not have 
@@ -87,6 +133,9 @@ export default class About extends Component {
               occasion, I venture outside to hike, mountain bike, play tennis, 
               and sun my pasty skin.
               </p>
+                <h3 className={ styles.work }>See some of my work: </h3><Link to="/projects.html" className="btn draw">
+                  Projects
+                </Link>
               </div>
             </Col>
           </Row>

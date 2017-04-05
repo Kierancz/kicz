@@ -49,7 +49,7 @@ export default class Project extends Component {
         <div className="round-btn">
           <a href={ demoUrl } target="_blank">
             <MdLaunch
-            className={ styles.icon } 
+            className="icon" 
             size={ iconSize }/>
           </a>
         </div>
@@ -62,7 +62,7 @@ export default class Project extends Component {
         <div className="round-btn">
           <a href={ codeUrl } target="_blank">
             <MdCode 
-              className={ styles.icon } 
+              className="icon" 
               size={ iconSize }/>
           </a>
         </div>
@@ -80,9 +80,9 @@ export default class Project extends Component {
         <Col xs={12} md={4} className={ styles.textContainer }>
           <div className={ styles.title }>
             <div className='btn-toolbar pull-right'>
-                <div className='btn-group'>
-                  { dURL }{ cURL }
-                </div>
+              <div className='btn-group'>
+                { dURL }{ cURL }
+              </div>
             </div>
              <h2><b> { title }</b></h2>
           </div>

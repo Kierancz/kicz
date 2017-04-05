@@ -6,6 +6,10 @@ import Gallery from "react-grid-gallery"
 import images from "../../../content/assets/photos.js"
 import bannerImg from "./camera.jpg"
 import Footer from "../../components/Footer"
+import ScrollToTop from "react-scroll-up"
+import { MdArrowUpward } from "react-icons/lib/md"
+import { Tooltip, OverlayTrigger } from "react-bootstrap"
+
 export default class Photography extends Component {
   static contextTypes = {
     collection: PropTypes.array.isRequired,
@@ -24,7 +28,9 @@ export default class Photography extends Component {
       { property: "og:title", content: title },
       { property: "og:url", content: pkg.photography },
     ]
-    
+    const topTooltip = (
+      <Tooltip id="tooltip">Back to top</Tooltip>
+    )
     return (
       <div>
         <Helmet
@@ -45,6 +51,13 @@ export default class Photography extends Component {
               lightboxWidth={ 1536 }
               className={ styles.gallery }
             />
+            <OverlayTrigger placement="top" overlay={topTooltip}>
+              <div className="round-btn">
+                <ScrollToTop showUnder={160}>
+                  <MdArrowUpward className="icon" size={60}/>
+                </ScrollToTop>
+              </div>
+            </OverlayTrigger>
           </div>
           <br/>
           <Footer/>

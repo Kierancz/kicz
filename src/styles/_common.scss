@@ -257,4 +257,10 @@ p {
     background-color: #333;
     color: #fff;
 }
-
+.icon {
+  margin-top: 3px;
+  color: rgba(#fff, 0.7);
+  &:hover {
+    color: #fff;
+  }
+}
