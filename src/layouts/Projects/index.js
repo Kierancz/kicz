@@ -7,6 +7,9 @@ import Project from "../../components/Project"
 import {Row} from "react-bootstrap/lib"
 import styles from "./index.scss"
 import Footer from "../../components/Footer"
+import ScrollToTop from "react-scroll-up"
+import { MdArrowUpward } from "react-icons/lib/md"
+import { Tooltip, OverlayTrigger } from "react-bootstrap"
 
 
 import bannerImg from "./code.jpg"
@@ -197,7 +200,15 @@ export default class Projects extends Component {
       icon: '',
       link: ''
     }
-
+    const nodejs = {
+      id: 28,
+      name: 'NodeJS',
+      icon: '',
+      link: 'https://nodejs.org/'
+    }
+    const topTooltip = (
+      <Tooltip id="tooltip">Back to top</Tooltip>
+    )
 
     let chatTools=[]
     let zayoTools=[]
@@ -208,12 +219,12 @@ export default class Projects extends Component {
     let curTools = []
     let tagTools = []
 
-    chatTools.push(react, firebase, heroku, materialize, CSS3)
+    chatTools.push(react, firebase, nodejs, heroku, materialize, CSS3)
     zayoTools.push(react, leaflet, overpassTurbo, webpack, materialize, CSS3)
     epokTools.push(wool, leather, elastic, mFiber, IL, PS)
     bsTools.push(RoR, html, bootstrap, heroku, sqlite)
     modGaitTools.push(arduino, gyro, SDM, CAD)
-    portTools.push(react, phenomic, SASS, bootstrap)
+    portTools.push(react, phenomic, SASS, bootstrap, webpack)
     curTools.push(RoR, bootstrap, heroku, sqlite, html, CSS3)
     tagTools.push(craftml, javascript)
 
@@ -348,6 +359,12 @@ export default class Projects extends Component {
               the practice of successful product design. "
               tools={ epokTools } />
             </Row>
+
+            <ScrollToTop showUnder={160}>
+              <OverlayTrigger placement="top" overlay={topTooltip}>
+                <MdArrowUpward className="icon" size={60}/>
+              </OverlayTrigger>
+            </ScrollToTop>
             <Footer/>
           </div>
 

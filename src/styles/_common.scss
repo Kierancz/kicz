@@ -38,12 +38,36 @@ section {
 }
 
 a {
+  position: relative;
   color: $blue;
   &:hover {
     outline: none;
     color: #fff;
   }
 }
+
+
+/* LEFT TO RIGHT */
+a.slide {
+  text-decoration: none;
+  position: relative;
+}
+a.slide:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  border-bottom: 2px solid #fff;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  -moz-transition: 0.4s;
+}
+a.slide:hover:after {
+  width: 100%;
+}
+
 
 h1,
 h2,
@@ -156,8 +180,8 @@ p {
   background: none;
   border: 0;
   box-sizing: border-box;
-  box-shadow: inset 0 0 0 2px #fff; // Using inset box-shadow instead of border for sizing simplicity
-  color: #fff;
+  box-shadow: inset 0 0 0 2px $blue; // Using inset box-shadow instead of border for sizing simplicity
+  color: $blue;
   font-size: inherit;
   font-weight: 700;
   margin: 1em;
@@ -208,7 +232,7 @@ p {
   }
   
   &:hover {
-    color: $blue;
+    color: #fff;
   }
 
   // Hover styles
@@ -219,16 +243,16 @@ p {
   }
 
   &:hover::before {
-    border-top-color: $blue; // Make borders visible
-    border-right-color: $blue;
+    border-top-color: #fff; // Make borders visible
+    border-right-color: #fff;
     transition:
       width 0.25s ease-out, // Width expands first
       height 0.25s ease-out 0.25s; // And then height
   }
 
   &:hover::after {
-    border-bottom-color: $blue; // Make borders visible
-    border-left-color: $blue;
+    border-bottom-color: #fff; // Make borders visible
+    border-left-color: #fff;
     transition:
       border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
       width 0.25s ease-out 0.5s, // And then exanding width
@@ -264,3 +288,4 @@ p {
     color: #fff;
   }
 }
+

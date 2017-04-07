@@ -10,9 +10,11 @@ const PagePreview = ({ __url, title, date, description }) => {
 
   return (
     <div className={ styles.wrapper }>
-      <Link to={ __url } className={ styles.title }>
+      <div className={ styles.title }>
+      <Link to={ __url } className="slide">
         { title }
       </Link>
+      </div>
       <div className={ styles.meta }>
         {
           pageDate &&

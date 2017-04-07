@@ -97,8 +97,8 @@ export default class About extends Component {
               <h1>Kieran Czerwinski</h1>
               <div className="gradHead"/>
               <p>I’m a resourceful ape from the redwoods of northern California 
-              that moved to Colorado to become less of a dummy. It might not have 
-              worked, but now I have a bachelors degree in Computer Science and a 
+              that moved to Colorado to become less of a dummy. The success of this
+              is highly debatable, but now I have a bachelors degree in Computer Science and a 
               minor stick up my butt in Philosophy.
               </p>
               <p>
@@ -111,7 +111,7 @@ export default class About extends Component {
               and learning from the resulting success and failures. It’s a 
               beautifully cyclical, humbling, and rewarding process that I 
               think is crucial not only to designing successful products, but 
-              to life in general.
+              to learning how to optimize returns on energy expended in all aspects of life.
               </p>
               <p>
               I’ve been an Internet addict since the days of dialup. It allowed 

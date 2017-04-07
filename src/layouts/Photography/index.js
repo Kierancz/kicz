@@ -42,7 +42,7 @@ export default class Photography extends Component {
           h1={ title } 
           h2="Phenominal Photons"
         />
-          <div className={ styles.gallery }>
+          <div className={ styles.page }>
             <Gallery 
               images={ images } 
               enableImageSelection={ false }
@@ -51,13 +51,11 @@ export default class Photography extends Component {
               lightboxWidth={ 1536 }
               className={ styles.gallery }
             />
-            <OverlayTrigger placement="top" overlay={topTooltip}>
-              <div className="round-btn">
-                <ScrollToTop showUnder={160}>
-                  <MdArrowUpward className="icon" size={60}/>
-                </ScrollToTop>
-              </div>
-            </OverlayTrigger>
+            <ScrollToTop showUnder={160}>
+              <OverlayTrigger placement="top" overlay={topTooltip}>
+                <MdArrowUpward className="icon" size={60}/>
+              </OverlayTrigger>
+            </ScrollToTop>
           </div>
           <br/>
           <Footer/>

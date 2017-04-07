@@ -9,7 +9,6 @@ import DefaultHeadMeta from "./components/DefaultHeadMeta"
 import Content from "./components/Content"
 
 import Nav from "./components/Nav"
-import Footer from "./components/Footer"
 
 const AppContainer = (props) => (
   <Container>
@@ -18,7 +17,6 @@ const AppContainer = (props) => (
     <Content>
       { props.children }
     </Content>
-    <Footer />
   </Container>
 )
 
