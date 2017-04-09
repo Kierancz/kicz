@@ -266,8 +266,8 @@ export default class Projects extends Component {
               blob returned from our AJAX call to the OverpassTurbo API to create the itemized 
               list of potential hazards to fiber construction. This was the
               stand-out feature that was highly praised by the panel of Zayo
-              judges and resulted in us winning first place out of nine teams. I used UCD and material design
-               to guide the overall visual design using CSS, regular expressions,
+              judges and resulted in our three person team winning first place out of nine teams. 
+              I used philosophies from UCD to guide the overall visual design using CSS, regular expressions,
               and the responsive feedback during loading states and map interaction."
               tools={ zayoTools }
               codeUrl="https://github.com/Kierancz/zFiber"
@@ -278,7 +278,10 @@ export default class Projects extends Component {
               description="A simple single page chatroom app implemented 
               with a state machine to switch between chat,
               admin, and user views. It features typing detection, 
-              media attachments, up/down voting, and more."
+              media attachments, up/down voting, and more. I helped develop 
+              both front and back-end features including chatroom creation, 
+              media attachments, user profiles, user simulation features, and
+              I also designed the general look and feel using CSS and Material-UI."
               tools={ chatTools }
               codeUrl="https://github.com/Kierancz/book/tree/master/src/apps/together" />
             <Project 
@@ -296,18 +299,18 @@ export default class Projects extends Component {
               demoUrl="https://craftml.io/i7PNJ" />
             <Project 
               imgUrl="assets/projects/mod.jpg"
-              title="Wearable Power Modules and Parkinsons Gait Assistant"
+              title="Wearable Power Modules and Parkinsons FOG Assistant"
               description="I taught myself AutoCAD and designed this wearable computing power system
               that snaps together magnetically. Power modules contain
               LiPo batteries and protection circuits, a charging module
-              includes a LiPo charging and 5v 'boost' circuit to charge 
+              includes a LiPo charging and 5V 'boost' circuit to charge 
               any modules in the chain from USB or power your
               phone, Arduino, sensors, etc. A mini breadboard module was also 
               created for rapidly prototyping wearable electronics of all sorts. 
               As a demo, my partner and I programmed an Arduino and
               gyroscope to detect a walking gait using a custom algorithm based
               on the YAW values from the gyro. This allowed us to detect
-              the debilitating freeze of gait (FoG) moments that people with Parkinson disease
+              the debilitating freeze of gait (FOG) moments that people with Parkinson disease
               often experience. Once these moments were detected we fired a laser
               line as a visual cue needed to substitute for the patient's impaired
               Basal Ganglia and its motor cueing function.
@@ -325,8 +328,8 @@ export default class Projects extends Component {
               as well as your favorite posts with helpful material. I
               created it to satisfy the projects requirements
               of my technical communication and 
-              design english course. It helped me solidfy my understanding
-              of rails and gave me more experience with front-end design
+              design writing course. It helped me solidfy my understanding
+              of Rails and gave me more experience with front-end design
               and polymorphic controllers. The trouble was content had
               to be added manually. It really needed scripts to pull
               relevant information from official CU pages, but neither of
@@ -338,8 +341,8 @@ export default class Projects extends Component {
               imgUrl="assets/projects/blokkspace.gif"
               title="Blokkspace"
               description="This was my first real web app that 
-              I designed a built from scratch for my first software
-              engineering course. It allows you to create
+              I designed a built from scratch using test driven development
+              for my software engineering course. It allows you to create
               collaborative playlists composed of reusable blocks 
               of media (videos, pictures, music, text, etc). It exposed
               me to a number of core web technologies and best practices."

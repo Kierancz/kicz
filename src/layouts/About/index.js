@@ -110,13 +110,13 @@ export default class About extends Component {
               wisdom comes not merely from building, but objectively evaluating 
               and learning from the resulting success and failures. It’s a 
               beautifully cyclical, humbling, and rewarding process that I 
-              think is crucial not only to designing successful products, but 
-              to learning how to optimize returns on energy expended in all aspects of life.
+              think is crucial not only to designing and building successful products, but 
+              to developing an efficient, virtuous, and rewarding life in general.
               </p>
               <p>
-              I’ve been an Internet addict since the days of dialup. It allowed 
+              The web has played a huge role in this personal development. It allowed 
               me to discover and explore a wide range of passions, giving me 
-              the hands on skills and confidence necessary to pursue an enduring 
+              the skills and confidence necessary to pursue an enduring 
               journey of creation and learning. It’s an amazing resource for the 
               collective wisdom of humanity and I think its vast potential to 
               reshape our lives makes it humanity’s greatest creation since 

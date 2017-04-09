@@ -10,7 +10,7 @@ export default class Footer extends Component {
     return (
       <footer className={ styles.footer }>
         <Social size={20}/>
-        { "© 2017 Kieran Czerwinski" }
+        { " © 2017 Kieran Czerwinski" }
       </footer>
     )
   }

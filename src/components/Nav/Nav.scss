@@ -89,6 +89,7 @@
   -webkit-animation: dash 7s linear forwards;
   -o-animation: dash 7s linear forwards;
   -moz-animation: dash 7s linear forwards;
+  animation: dash 7s linear forwards;
   width: 60px;
   margin-top: 2px;
   position: relative;
@@ -99,9 +100,19 @@
     opacity: 1;
     stroke-dasharray: 100;
     stroke-dashoffset: 1000;
-    -webkit-animation: dash 2s infinite linear;
+    -webkit-animation-name: dash;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
     -o-animation: dash 2s infinite linear;
     -moz-animation: dash 2s infinite linear;
+    animation: dash 2s infinite linear;
+  }
+}
+
+@-webkit-keyframes :global(dash) {
+  to {
+    stroke-dashoffset: 0;
   }
 }
 
