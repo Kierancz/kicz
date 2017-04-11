@@ -73,10 +73,10 @@ export default class NavComponent extends Component {
         </Header>
         <Collapse>
           <Nav pullRight>
-            <NavItem to="/about.html" name="About" />
-            <NavItem to="/projects.html" name="Projects" />
-            <NavItem to="/photos.html" name="Photography" />
-            <NavItem to="/blog.html" name="Blog" />
+            <NavItem to="/about" name="About" />
+            <NavItem to="/projects" name="Projects" />
+            <NavItem to="/photos" name="Photography" />
+            <NavItem to="/blog" name="Blog" />
           </Nav>
         </Collapse>
       </Navbar>

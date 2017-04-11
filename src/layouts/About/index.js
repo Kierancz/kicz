@@ -120,7 +120,7 @@ export default class About extends Component {
               journey of creation and learning. It’s an amazing resource for the 
               collective wisdom of humanity and I think its vast potential to 
               reshape our lives makes it humanity’s greatest creation since 
-              language itself. However, the web's potential is severely limited 
+              written language itself. However, the web's potential is severely limited 
               by its accessibility to the general populace and all to often 
               leaves behind those who it could benefit most. As an ever growing web 
               developer and designer, I’m excited to play a small part in making 

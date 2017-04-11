@@ -31,9 +31,9 @@ const PageContainer = (props) => (
 export default (
   <Route component={ AppContainer }>
     <Route path="/" component={ Homepage } />
-    <Route path="/about.html" component={ About } />
-    <Route path="/projects.html" component={ Projects } />
-    <Route path="/photos.html" component={ Photography } />
+    <Route path="/about" component={ About } />
+    <Route path="/projects" component={ Projects } />
+    <Route path="/photos" component={ Photography } />
     <Route path="*" component={ PageContainer } />
   </Route>
 )
