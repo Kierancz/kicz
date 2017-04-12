@@ -270,7 +270,7 @@ export default class Projects extends Component {
               I used philosophies from UCD to guide the overall visual design using CSS, regular expressions,
               and the responsive feedback during loading states and map interaction."
               tools={ zayoTools }
-              codeUrl="https://github.com/Kierancz/zFiber"
+              codeUrl="https://github.com/Kierancz/fiber"
               demoUrl="http://kierancz.github.io/fiber/" />
             <Project 
               imgUrl="assets/projects/chatty.png"

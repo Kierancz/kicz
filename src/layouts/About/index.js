@@ -97,9 +97,10 @@ export default class About extends Component {
               <h1>Kieran Czerwinski</h1>
               <div className="gradHead"/>
               <p>I’m a resourceful ape from the redwoods of northern California 
-              that moved to Colorado to become less of a dummy. The success of this
-              is highly debatable, but now I have a bachelors degree in Computer Science and a 
-              minor stick up my butt in Philosophy.
+              with a Bachelor’s degree in Computer Science, Minor in Philosophy, 
+              six years of programming experience, and four years experience working 
+              independently and in collaborative teams developing quality web apps 
+              with beautiful, responsive, and intuitive interfaces.
               </p>
               <p>
               I’ve always had a deep love for the process of building things. 
@@ -121,9 +122,9 @@ export default class About extends Component {
               collective wisdom of humanity and I think its vast potential to 
               reshape our lives makes it humanity’s greatest creation since 
               written language itself. However, the web's potential is severely limited 
-              by its accessibility to the general populace and all to often 
-              leaves behind those who it could benefit most. As an ever growing web 
-              developer and designer, I’m excited to play a small part in making 
+              by its accessibility to the general populace and all too often 
+              leaves behind those who it could benefit most. As an ever-growing web 
+              developer and designer, I’m excited to be play a small part in making 
               the web a more intuitive, accessible, and useful place for all the 
               diverse spiders of the world.
               </p>

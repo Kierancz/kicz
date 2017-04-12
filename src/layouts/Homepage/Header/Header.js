@@ -14,16 +14,10 @@ class HomepageHeader extends Component {
           and front-end engineering & design geek.</h2>
           <br />
           <p>
-            I believe the web is humanity's greatest creation. 
-            It has an incredible potential to unite all the 
-            lovely people of the world, to pool our 
-            collective knowledge, and empower those courageous 
-            enough to better themselves and the world we share.
-            <br /><br />
-            As a growing web developer, I am excited to be learning
-            more everyday so that I can take a small part in creating 
-            a more inspiring, intuitive, and accessible experience for users of 
-            all backgrounds.  
+            I love building cool things. These days I work mostly in JavaScript
+            writting highly reusable, functional, and efficient code. I'm 
+            constantly learning and striving to create the most intuitive and 
+            accessible user interfaces on any platform. 
           </p>
           <ButtonToolbar className={ styles.center }>
           <Link to="/about"
