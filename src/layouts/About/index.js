@@ -133,7 +133,7 @@ export default class About extends Component {
               occasion, I venture outside to hike, mountain bike, play tennis, 
               and sun my pasty skin.
               </p>
-                <h3 className={ styles.work }>See some of my work: </h3><Link to="/projects.html" className="btn draw">
+                <h3 className={ styles.work }>See some of my work: </h3><Link to="/projects" className="btn draw">
                   Projects
                 </Link>
               </div>
