@@ -110,7 +110,7 @@ For us, understanding how the movements of the body relate to yaw, pitch, and ro
 
 # Step 4: Arduino Code
 
-As mentioned earlier, our first step was to understand the yaw, pitch, and roll values from the gyroscope/accelerometer. Once we had this figured out, we decided to write some basic code and test it with an LED. Depending on the motions, the LED would either light up or turn off. This gave us an easily accessed way to demo as we continued building on our project.
+As mentioned earlier, our first step was to understand the yaw, pitch, and roll values from the gyroscope/accelerometer. We observed that the yaw values from the gyroscope were the biggest identifier of a walking gait. We created a custom algorithm that counted the deviations from the computed average yaw value to the left and right as they occurred when taking a step with right and left legs respectively. When the L and R count values were near a 1/1 ratio of the average we determined that walking had occurred. We then wrote more functions to detect when walking stopped after previous walking had been detected and then fired the laser (an LED while testing). Not the most accurate method, but it worked pretty well for the most part and was a simple routine that performed well on an arduino mini. The code can be seen [here](https://github.com/Kierancz/gait_project/blob/master/CSCI4830_Gait_Project/CSCI4830_Gait_Project.ino)
 
 
 ![Module shells in AutoCAD](https://cdn.instructables.com/FIT/OSM5/I96W8CFC/FITOSM5I96W8CFC.MEDIUM.jpg?width=614)
@@ -118,11 +118,11 @@ As mentioned earlier, our first step was to understand the yaw, pitch, and roll 
 
 We designed a whole wearable system that connects LiPo batteries in parallel with other wearable modules in order to power them. The modules consist of a charging/discharging module that is capable of charging external devices through USB or direct connection to output terminals, as well as allowing the battery modules to be charged with a micro-USB cable. Another module consists of an Arduino Micro Pro that serves as a computing module capable of powering all sorts of wearable computing projects. The final module allows a breadboard to easily be combined with the system, enabling rapid prototyping of wearable projects.
 
-The DXG and STI files from AutoCAD can be downloaded from this page. These are free for personal use, but please no commercial use without permission!
+The DXG and STI files from AutoCAD can be downloaded from this page.
 
 We had access to a high print quality 3D printer called the Objet, but any 3D printer with at least a .5mm resolution that can also print over-hangs should be able to do an adequate job.
 
-If you do not have access to a 3D printer, easy power systems using a 9V battery and linear or switching regulator (to lower 9V to 5V) can be used to power the Arduino, laser, and gyroscope units. In fact Arduino's often have an on-board regulator that lowers voltages as high as 12v down to the Arduino's operating voltage of 5V. In this case the 9V battery should be attached directly to a pin that's usually labeled RAW. Make sure to check the capabilities of your individual Arduino, so that you don't accidentally supply too much power and fry it.
+If you do not have access to a 3D printer, easy power systems using a 9V battery and linear or switching regulator (to lower 9V to 5V) can be used to power the Arduino, laser, and gyroscope units. In fact Arduino's often have an on-board regulator that lowers voltages as high as 12v down to the Arduino's operating voltage of 5V. In this case the 9V battery should be attached directly to a pin that's usually labeled RAW. Make sure to check the capabilities of your individual Arduino, so that you don't accidentally supply too much voltage and fry it.
 
 Once the modules have been 3D printed you will need to start building their innards.
 

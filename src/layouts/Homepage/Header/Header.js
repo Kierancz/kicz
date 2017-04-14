@@ -15,7 +15,7 @@ class HomepageHeader extends Component {
           <br />
           <p>
             I love building cool things. These days I work mostly in JavaScript
-            writting highly reusable, functional, and efficient code. I'm 
+            writing highly reusable, functional, and efficient code. I'm 
             constantly learning and striving to create the most intuitive and 
             accessible user interfaces on any platform. 
           </p>

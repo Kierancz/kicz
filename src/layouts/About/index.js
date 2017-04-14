@@ -105,8 +105,8 @@ export default class About extends Component {
               <p>
               I’ve always had a deep love for the process of building things. 
               It challenges my philosophies of design and allows me to practice 
-              my favorite skills; creativity, empathy, and logic to solve problems 
-              and prioritize concerns under 
+              my favorite skills; creativity, empathy, and logic to solve challenging
+              problems, communicate effectively, and prioritize concerns under 
               real-world constraints and tradeoffs. However, I believe true 
               wisdom comes not merely from building, but objectively evaluating 
               and learning from the resulting success and failures. It’s a 
@@ -124,7 +124,7 @@ export default class About extends Component {
               written language itself. However, the web's potential is severely limited 
               by its accessibility to the general populace and all too often 
               leaves behind those who it could benefit most. As an ever-growing web 
-              developer and designer, I’m excited to be play a small part in making 
+              developer and designer, I’m excited to play a small part in making 
               the web a more intuitive, accessible, and useful place for all the 
               diverse spiders of the world.
               </p>

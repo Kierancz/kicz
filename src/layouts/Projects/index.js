@@ -38,7 +38,7 @@ export default class Projects extends Component {
 
     const react = {
       id: 1, 
-      name: 'React',
+      name: 'ReactJS',
       icon: 'assets/icons/react.svg',
       link: 'https://facebook.github.io/react/'
     };
@@ -326,7 +326,7 @@ export default class Projects extends Component {
               find course and department info, contacts, and helpful 
               content. You can save your current classes and departments
               as well as your favorite posts with helpful material. I
-              created it to satisfy the projects requirements
+              created it to satisfy the project requirements
               of my technical communication and 
               design writing course. It helped me solidfy my understanding
               of Rails and gave me more experience with front-end design
