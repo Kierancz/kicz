@@ -4,7 +4,6 @@ import { Tooltip, OverlayTrigger } from "react-bootstrap"
 import { 
   FaGithubSquare, 
   FaFacebookSquare, 
-  FaLinkedinSquare, 
   FaEnvelope } from "react-icons/lib/fa"
 
 export default class Social extends Component {
@@ -15,9 +14,6 @@ export default class Social extends Component {
   render() {
     const emailTooltip = (
       <Tooltip id="tooltip">Send me an email!</Tooltip>
-    )
-    const inTooltip = (
-      <Tooltip id="tooltip">Check out my Linkedin page!</Tooltip>
     )
     const gitTooltip = (
       <Tooltip id="tooltip">See my code on Github!</Tooltip>
@@ -34,15 +30,6 @@ export default class Social extends Component {
             <a href="mailto:kierwinski@gmail.com"
               className={ styles.link }>
               <FaEnvelope 
-                className={ styles.icon } 
-                size={ size }/>
-            </a>
-          </OverlayTrigger>
-          <OverlayTrigger placement="top" overlay={inTooltip}>
-            <a href="https://www.linkedin.com/in/kieran-czerwinski-57558344/"
-              className={ styles.link }
-              target="_blank">
-              <FaLinkedinSquare 
                 className={ styles.icon } 
                 size={ size }/>
             </a>

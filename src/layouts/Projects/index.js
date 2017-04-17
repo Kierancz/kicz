@@ -206,6 +206,10 @@ export default class Projects extends Component {
       icon: '',
       link: 'https://nodejs.org/'
     }
+    const various = {
+      id: 29,
+      name: 'Various'
+    }
     const topTooltip = (
       <Tooltip id="tooltip">Back to top</Tooltip>
     )
@@ -244,7 +248,7 @@ export default class Projects extends Component {
 
             <Row>
             <Project 
-              imgUrl="assets/projects/kicz.jpg"
+              imgUrl="assets/projects/kicz.gif"
               title="Personal Portfolio and Blog"
               description="A personal site designed with React
               and Phenomic. It was created as a way to record 
@@ -361,6 +365,16 @@ export default class Projects extends Component {
               iterative processes, user testing, and simplicity are to
               the practice of successful product design. "
               tools={ epokTools } />
+            <Project 
+              imgUrl="assets/projects/randProj.jpg"
+              title="Various Projects"
+              description="These are a small sample of the projects that
+              were too insignificant, unpolished, old, or unprofessional
+              to have their own descriptions. They include simple games,
+              scientific simulations, prototype apps, websites, electronics, woodworking,
+              mockups, and wireframes. They were instrumental steps in developing
+              my philosophies of design and I learned valuable skills from all of them."
+              tools={ [various] } />
             </Row>
 
             <ScrollToTop showUnder={160}>
