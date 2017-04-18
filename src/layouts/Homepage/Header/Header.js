@@ -20,10 +20,10 @@ class HomepageHeader extends Component {
             accessible user interfaces on any platform. 
           </p>
           <ButtonToolbar className={ styles.center }>
-          <Link to="/about"
+          <Link to="/about.html"
             className="btn draw">About Me
           </Link>
-          <Link to="/projects"
+          <Link to="/projects.html"
             className="btn draw">Projects
           </Link>
           </ButtonToolbar>
