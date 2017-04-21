@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import styles from "./Header.scss"
 import { Link } from "react-router"
 import ButtonToolbar from "react-bootstrap/lib/ButtonToolbar"
+import { MdAccountCircle, MdBuild } from "react-icons/lib/md"
 
 class HomepageHeader extends Component {
   render() {
@@ -21,10 +22,18 @@ class HomepageHeader extends Component {
           </p>
           <ButtonToolbar className={ styles.center }>
           <Link to="/about.html"
-            className="btn draw">About Me
+            className="btn draw">
+            <MdAccountCircle 
+              className="butIcon" 
+              size={30}/>
+              About Me
           </Link>
           <Link to="/projects.html"
-            className="btn draw">Projects
+            className="btn draw">
+            <MdBuild 
+              className="butIcon" 
+              size={30}/>
+              Projects
           </Link>
           </ButtonToolbar>
         </div>

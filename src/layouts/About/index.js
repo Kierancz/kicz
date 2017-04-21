@@ -12,7 +12,7 @@ import {
   Tooltip, 
   OverlayTrigger } from "react-bootstrap"
 import {  } from "react-bootstrap"
-import { MdEmail, MdPhoneIphone } 
+import { MdEmail, MdPhoneIphone, MdBuild } 
   from "react-icons/lib/md"
 
 
@@ -120,10 +120,10 @@ export default class About extends Component {
               the skills and confidence necessary to pursue an enduring 
               journey of creation and learning. It’s an amazing resource for the 
               collective wisdom of humanity and I think its vast potential to 
-              reshape our lives makes it humanity’s greatest creation since 
+              reshape our lives makes it our greatest creation since 
               written language itself. However, the web's potential is severely limited 
               by its accessibility to the general populace and all too often 
-              leaves behind those who it could benefit most. As an ever-growing web 
+              leaves behind those it could benefit most. As an ever-growing web 
               developer and designer, I’m excited to play a small part in making 
               the web a more intuitive, accessible, and useful place for all the 
               diverse spiders of the world.
@@ -134,8 +134,12 @@ export default class About extends Component {
               occasion, I venture outside to hike, mountain bike, play tennis, 
               and sun my pasty skin.
               </p>
-                <h3 className={ styles.work }>See some of my work: </h3><Link to="/projects.html" className="btn draw">
-                  Projects
+                <h2 className={ styles.work }>See some of my work: </h2>
+                <Link to="/projects.html" className="btn draw">
+                  <MdBuild 
+                    className="butIcon" 
+                    size={30}/>
+                    Projects
                 </Link>
               </div>
             </Col>

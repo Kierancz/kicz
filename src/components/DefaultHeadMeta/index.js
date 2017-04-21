@@ -9,6 +9,7 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
         { "rel": "icon",
           "type": "image/png", 
           "href": favicon,
+          "lang": "en",
         },
       ] }
       meta={ [

@@ -33,7 +33,6 @@ export default class Banner extends Component {
       height: '400px',
       background: "url(" + imgUrl + ")no-repeat center center",
       objectFit: 'cover'
-
     }
 
     return (

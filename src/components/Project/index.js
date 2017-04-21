@@ -36,7 +36,11 @@ export default class Project extends Component {
 
     const tools = this.props.tools.map((tool) =>
       <div key={ tool.id }>
-        <a target="_blank" href={ tool.link } className="slide">
+        <a 
+          target="_blank" 
+          href={ tool.link } 
+          className="slide"
+          alt={ "link to " + tool.name }>
           <img href={ tool.icon }/>
           { tool.name }
         </a>
