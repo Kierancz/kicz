@@ -184,7 +184,7 @@ export default class Projects extends Component {
     }
     const javascript = {
       id: 25, 
-      name: 'Javascript',
+      name: 'JavaScript',
       icon: '',
       link: ''
     }
@@ -210,6 +210,25 @@ export default class Projects extends Component {
       id: 29,
       name: 'Various'
     }
+    const aws = {
+      id: 30,
+      name: 'AWS EC2',
+      icon: '',
+      link: 'https://aws.amazon.com/ec2/'
+    }
+    const nasa = {
+      id: 31,
+      name: 'NASA Image & Video Library',
+      icon: '',
+      link: 'https://images.nasa.gov/#/'
+    }
+    const twit = {
+      id: 32,
+      name: 'Twit',
+      icon: '',
+      link: 'https://github.com/ttezel/twit'
+    }
+
     const topTooltip = (
       <Tooltip id="tooltip">Back to top</Tooltip>
     )
@@ -222,6 +241,7 @@ export default class Projects extends Component {
     let portTools=[]
     let curTools = []
     let tagTools = []
+    let nasaTools = []
 
     chatTools.push(react, firebase, nodejs, heroku, materialize, CSS3)
     zayoTools.push(react, leaflet, overpassTurbo, webpack, materialize, CSS3)
@@ -231,6 +251,7 @@ export default class Projects extends Component {
     portTools.push(react, phenomic, SASS, bootstrap, webpack)
     curTools.push(RoR, bootstrap, heroku, sqlite, html, CSS3)
     tagTools.push(craftml, javascript)
+    nasaTools.push(nodejs, twit, nasa, aws)
 
 
     return (
@@ -247,6 +268,17 @@ export default class Projects extends Component {
           <div className={ styles.projects }>
 
             <Row>
+            <Project 
+              imgUrl="assets/projects/NasaTimeMachine.jpg"
+              title="NASA Photo Time Machine"
+              description="A Twitter bot that posts interesting photos
+              from this day in NASA history. This project gave more 
+              experience consuming data from APIs, managing control flow
+              in the asynchronous Node environment, working with Twitter APIs,
+              file manipulation, and deploying code to AWS EC2 instances."
+              tools={ nasaTools } 
+              demoUrl="https://twitter.com/NasaTimeMachine"
+              codeUrl="https://github.com/Kierancz/nasa-bot" />
             <Project 
               imgUrl="assets/projects/kicz.gif"
               title="Personal Portfolio and Blog"
