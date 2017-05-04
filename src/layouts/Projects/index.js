@@ -272,10 +272,10 @@ export default class Projects extends Component {
               imgUrl="assets/projects/NasaTimeMachine.jpg"
               title="NASA Photo Time Machine"
               description="A Twitter bot that posts interesting photos
-              from this day in NASA history. This project gave more 
-              experience consuming data from APIs, managing control flow
-              in the asynchronous Node environment, working with Twitter APIs,
-              file manipulation, and deploying code to AWS EC2 instances."
+              from this day in NASA history among other small features. 
+              This project gave me more experience consuming data from APIs, managing control flow
+              in the asynchronous Node environment, data streams, working with Twitter APIs,
+              date & file manipulation, and deploying code to AWS EC2 instances."
               tools={ nasaTools } 
               demoUrl="https://twitter.com/NasaTimeMachine"
               codeUrl="https://github.com/Kierancz/nasa-bot" />

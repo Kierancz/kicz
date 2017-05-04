@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react"
 import Helmet from "react-helmet"
 import favicon from "./favicon-32x32.png"
+import Adsense from '../Adsense';
 
 const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
   <div hidden>
@@ -23,6 +24,7 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
       ] }
       script={ [
         { src: "https://cdn.polyfill.io/v2/polyfill.min.js" },
+        { src: "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},
         ...props.scripts ? props.scripts : [],
       ] }
     />
@@ -34,6 +36,7 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
       } ] }
     />
     <style>{ "@-ms-viewport { width: device-width; }" }</style>
+    <Adsense/>
   </div>
 )
 

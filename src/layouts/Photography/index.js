@@ -40,7 +40,7 @@ export default class Photography extends Component {
         <Banner 
           imgUrl={ bannerImg } 
           h1={ title } 
-          h2="Phenominal Photons"
+          h2="Phenomenal Photons"
         />
           <div className={ styles.page }>
             <Gallery 
