@@ -228,6 +228,12 @@ export default class Projects extends Component {
       icon: '',
       link: 'https://github.com/ttezel/twit'
     }
+    const jquery = {
+      id: 33,
+      name: 'jQuery',
+      icon: '',
+      link: 'https://jquery.com/'
+    }
 
     const topTooltip = (
       <Tooltip id="tooltip">Back to top</Tooltip>
@@ -246,7 +252,7 @@ export default class Projects extends Component {
     chatTools.push(react, firebase, nodejs, heroku, materialize, CSS3)
     zayoTools.push(react, leaflet, overpassTurbo, webpack, materialize, CSS3)
     epokTools.push(wool, leather, elastic, mFiber, IL, PS)
-    bsTools.push(RoR, html, bootstrap, heroku, sqlite)
+    bsTools.push(RoR, html, bootstrap, heroku, sqlite, CSS3, jquery)
     modGaitTools.push(arduino, gyro, SDM, CAD)
     portTools.push(react, phenomic, SASS, bootstrap, webpack)
     curTools.push(RoR, bootstrap, heroku, sqlite, html, CSS3)
@@ -272,10 +278,10 @@ export default class Projects extends Component {
               imgUrl="assets/projects/NasaTimeMachine.jpg"
               title="NASA Photo Time Machine"
               description="A Twitter bot that posts interesting photos
-              from this day in NASA history among other small features. 
+              from this day in NASA history and interacts with its followers. 
               This project gave me more experience consuming data from APIs, managing control flow
               in the asynchronous Node environment, data streams, working with Twitter APIs,
-              date & file manipulation, and deploying code to AWS EC2 instances."
+              date & file manipulation, and deploying code to AWS EC2 instances using SSH & FTP."
               tools={ nasaTools } 
               demoUrl="https://twitter.com/NasaTimeMachine"
               codeUrl="https://github.com/Kierancz/nasa-bot" />
@@ -288,7 +294,7 @@ export default class Projects extends Component {
               hope that by documenting my sucesses and failures
               it reinforces what I've learned and clarifies
               my thinking through writing. It taught me a lot about
-              CSS and SVG animation, image compression, SASS usage, and gave me 
+              CSS and SVG animation, gradients, scaling, & filters, image compression, SASS usage, and gave me 
               more pracitce writing React components and creating 
               scroll effects using React. "
               tools={ portTools } 
@@ -298,13 +304,16 @@ export default class Projects extends Component {
               imgUrl="assets/projects/zayoFiber.gif"
               title="Zayo Fiber Pricing"
               description="Provides price estimates for laying
-              down new fiber optic connections. I parsed and filtered the JSON
-              blob returned from our AJAX call to the OverpassTurbo API to create the itemized 
+              down new fiber optic connections. I lead the front-end development in ReactJS, 
+              including parsing and filtering the JSON
+              blob returned from an AJAX call to the OverpassTurbo API to create the itemized 
               list of potential hazards to fiber construction. This was the
               stand-out feature that was highly praised by the panel of Zayo
               judges and resulted in our three person team winning first place out of nine teams. 
               I used philosophies from UCD to guide the overall visual design using CSS, regular expressions,
-              and the responsive feedback during loading states and map interaction."
+              and used knowledge of asynchronous JavaScript & map APIs to ensure the responsive 
+              feedback during loading states and map interaction. I also refactored back-end code to 
+              improve readability and efficiency. "
               tools={ zayoTools }
               codeUrl="https://github.com/Kierancz/fiber"
               demoUrl="http://kierancz.github.io/fiber/" />
@@ -316,8 +325,8 @@ export default class Projects extends Component {
               admin, and user views. It features typing detection, 
               media attachments, up/down voting, and more. I helped develop 
               both front and back-end features including chatroom creation, 
-              media attachments, user profiles, user simulation features, and
-              I also designed the general look and feel using CSS and Material-UI."
+              media attachments, user profiles, user simulation features using Node, and
+              I designed the general look and feel using CSS and Material-UI."
               tools={ chatTools }
               codeUrl="https://github.com/Kierancz/book/tree/master/src/apps/together" />
             <Project 
@@ -362,14 +371,13 @@ export default class Projects extends Component {
               find course and department info, contacts, and helpful 
               content. You can save your current classes and departments
               as well as your favorite posts with helpful material. I
-              created it to satisfy the project requirements
-              of my technical communication and 
-              design writing course. It helped me solidfy my understanding
+              created it from scratch to satisfy the project requirements
+              of my Technical Communication and 
+              Design writing course. It helped me solidfy my understanding
               of Rails and gave me more experience with front-end design
-              and polymorphic controllers. The trouble was content had
-              to be added manually. It really needed scripts to pull
-              relevant information from official CU pages, but neither of
-              my partners were technically able to help."
+              and polymorphic controllers as well as producing concise and 
+              clear documentation of the design features and areas for future 
+              improvement."
               tools={ curTools }
               demoUrl="http://curesource.herokuapp.com/"
               codeUrl="https://github.com/Kierancz/CUresource" />
@@ -380,8 +388,11 @@ export default class Projects extends Component {
               I designed a built from scratch using test driven development
               for my software engineering course. It allows you to create
               collaborative playlists composed of reusable blocks 
-              of media (videos, pictures, music, text, etc). It exposed
-              me to a number of core web technologies and best practices."
+              of media (videos, pictures, music, text, etc). It helped me learn a
+              number of core web technologies and best practices such as;
+              MVC architecture, forms & validation, unit & integration testing, SQL data base
+              construction & migrations, feature tracking, event handling, jQuery, 
+              user authentication & permissions, HTTP methods & routing, and many others."
               tools={ bsTools }
               demoUrl="https://blokkspace.herokuapp.com/"
               codeUrl="https://github.com/Kierancz/block_space" />
