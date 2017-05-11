@@ -336,7 +336,7 @@ export default class Projects extends Component {
               the visually impaired. This simple project was created
               with an awesome 3D modelling tool created
               by my professor that lets you build 3D models with HTML,
-              CSS, and javascript. It's a great tool for those who
+              CSS, and JavaScript. It's a great tool for those who
               already know web development and want to quickly create
               customizable 3D models which will be the future of
               3D printing. "
@@ -358,8 +358,7 @@ export default class Projects extends Component {
               the debilitating freeze of gait (FOG) moments that people with Parkinson disease
               often experience. Once these moments were detected we fired a laser
               line as a visual cue needed to substitute for the patient's impaired
-              Basal Ganglia and its motor cueing function.
-"
+              Basal Ganglia and its motor cueing function."
               tools={ modGaitTools }
               codeUrl="https://github.com/Kierancz/gait_project/blob/master/CSCI4830_Gait_Project/CSCI4830_Gait_Project.ino"
               demoUrl="https://www.instructables.com/id/Wearable-Power-and-Computing-Modules-to-Improve-Pa/" />

@@ -4,6 +4,7 @@
   "homepage": "http://kicz.me",
   "twitter": "",
   "repository": "https://github.com/Kierancz/kicz.git",
+  "googleAnalyticsUA": "UA-98883822-1",
   "scripts": {
     "lint:js": "eslint --ignore-path .gitignore --fix .",
     "lint:css": "stylelint \"src/**/*.css\"",
@@ -140,6 +141,7 @@
     "node-sass": "^3.10.0",
     "react-addons-pure-render-mixin": "^15.4.2",
     "react-bootstrap": "^0.30.3",
+    "react-google-analytics": "^0.2.0",
     "react-grid-gallery": "^0.3.0",
     "react-headroom": "^2.1.3",
     "react-icons": "^2.2.3",

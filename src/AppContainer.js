@@ -10,18 +10,23 @@ import Content from "./components/Content"
 
 import Nav from "./components/Nav"
 
+import GoogleAnalyticsTracker from "./components/GoogleAnalyticsTracker"
+
 const AppContainer = (props) => (
-  <Container>
-    <Nav/>
-    <DefaultHeadMeta />
-    <Content>
-      { props.children }
-    </Content>
-  </Container>
+  <GoogleAnalyticsTracker params={ props.params }>
+    <Container>
+      <Nav/>
+      <DefaultHeadMeta />
+      <Content>
+        { props.children }
+      </Content>
+    </Container>
+  </GoogleAnalyticsTracker>
 )
 
 AppContainer.propTypes = {
   children: PropTypes.node,
+  params: PropTypes.object
 }
 
 export default AppContainer
