@@ -94,7 +94,7 @@ export default class Projects extends Component {
     };
     const leather = {
       id: 10,
-      name: 'Leather',
+      name: 'Full-Grain Leather',
       icon: '',
       link: ''
     };
@@ -278,7 +278,7 @@ export default class Projects extends Component {
               imgUrl="assets/projects/NasaTimeMachine.jpg"
               title="NASA Photo Time Machine"
               description="A Twitter bot that posts interesting photos
-              from this day in NASA history and interacts with its followers. 
+              from this day in NASA history and interacts with users. 
               This project gave me more experience consuming data from APIs, managing control flow
               in the asynchronous Node environment, data streams, working with Twitter APIs,
               date & file manipulation, and deploying code to AWS EC2 instances using SSH & FTP."
@@ -294,7 +294,8 @@ export default class Projects extends Component {
               hope that by documenting my sucesses and failures
               it reinforces what I've learned and clarifies
               my thinking through writing. It taught me a lot about
-              CSS and SVG animation, gradients, scaling, & filters, image compression, SASS usage, and gave me 
+              CSS and SVG animation, cross-browser compatibility, gradients, scaling, filters, 
+              image compression, SASS usage, Webpack congfiguration, and gave me 
               more pracitce writing React components and creating 
               scroll effects using React. "
               tools={ portTools } 
@@ -304,7 +305,7 @@ export default class Projects extends Component {
               imgUrl="assets/projects/zayoFiber.gif"
               title="Zayo Fiber Pricing"
               description="Provides price estimates for laying
-              down new fiber optic connections. I lead the front-end development in ReactJS, 
+              down new fiber optic connections. I led the front-end development in ReactJS, 
               including parsing and filtering the JSON
               blob returned from an AJAX call to the OverpassTurbo API to create the itemized 
               list of potential hazards to fiber construction. This was the
@@ -389,7 +390,7 @@ export default class Projects extends Component {
               collaborative playlists composed of reusable blocks 
               of media (videos, pictures, music, text, etc). It helped me learn a
               number of core web technologies and best practices such as;
-              MVC architecture, forms & validation, unit & integration testing, SQL data base
+              MVC architecture, forms & validation, unit & integration testing, SQL database
               construction & migrations, feature tracking, event handling, jQuery, 
               user authentication & permissions, HTTP methods & routing, and many others."
               tools={ bsTools }
