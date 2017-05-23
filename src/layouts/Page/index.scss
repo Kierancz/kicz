@@ -59,19 +59,10 @@
   margin-top: 2em;
   color: #fff;
   height: 100%;
-  & a {
-
-    }
 
   /* handy for content */
   & img {
     max-width: 100%;
   }
 
-  & h1 {
-    margin-left: -0.75em;
-    & a {
-      visibility: hidden;
-    }
-  }
 }
