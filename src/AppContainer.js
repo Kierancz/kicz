@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 //import "./index.global.css"
-//import "./highlight.global.css"
+import "./styles/monokai-sublime.global.css"
 import "./styles/global.styles"
 
 import Container from "./components/Container"

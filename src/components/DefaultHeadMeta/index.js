@@ -11,6 +11,9 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
           "href": favicon,
           "lang": "en",
         },
+        { "rel": "stylesheet",
+          "href": "../../styles/monokai-sublime.css",
+        },
       ] }
       meta={ [
         {
@@ -23,6 +26,7 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
       ] }
       script={ [
         { src: "https://cdn.polyfill.io/v2/polyfill.min.js" },
+        { src: "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" },
         ...props.scripts ? props.scripts : [],
       ] }
     />

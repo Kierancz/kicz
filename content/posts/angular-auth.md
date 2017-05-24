@@ -9,18 +9,151 @@ layout: Post
 
 In the never ending quest to keep up with the rapdily evolving JS framework hellscape, I've been learning Angular, one of the most popular and powerful frameworks on the market. One of the first things one needs to think about when starting any web app of complexity is how to add secure user accounts for users to act through.
 
-After lots of searching with little but outdated tutorials and spotty documentation, I've compiled all the knowledge I've gained about how to create an extremely user friendly, secure, and simple authentication service (the google way)using the latest versions of Angular, AngularFire2, and Material2.
+After lots of searching and finding little but outdated tutorials and spotty documentation, I've compiled all the knowledge I've gained about how to create an extremely user friendly, secure, and simple authentication service (the Google way) using the latest versions of Angular, AngularFire2, and Material2.
+
+So why use AngularFire OAuth instead creating your own authentication using something like [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) (JSON Web Tokens)? First of all, unless you're a seasoned cyber security specialist, it's generally considered the most secure approach to not try to roll your own authentication system. The exception being if you're just making a fun side project for the sake of learning that will never handle real production loads. Using authentication services such as OAuth leaves critical security implementation up to the experts and allows you to focus on other major features of your app. Enabling common OAuth providers such as Google, Facebook, and Twitter also creates a lower barrier to entry and better user experience because users don't need to worry about signing up for a whole new service and verifying their email. They may not even need to enter password credentials if they're already logged into their chosen service.
 
 # NOTICE: Sections are still under construction
 
 
 # Step 1: Create Firebase App and Activate OAuth Providers
+### Create a Firebase Account and App
+The first step is to [create](https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fconsole.firebase.google.com%2F&followup=https%3A%2F%2Fconsole.firebase.google.com%2F&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin) a Firebase account if you haven't already.
 
-# Step 2: Install AngularFire2 and Generate Components
+Then create your new app from the Firebase console and select 'Authentication' from the side nav and go to 'sign-in-method'. Here you'll see all the sign-in providers you can enable with through Firebase. You can select whatever providers you want, but this tutorial will only cover Googe, Facebook, and Github for now. 
+
+![sign in providers](../../assets/sitePics/firebase.jpg)
+
+Google is the easiest, all you have to do is select enable  and you're done. 
+
+For Facebook you'll have to create a new app from their [developer page](https://developers.facebook.com/) and provide the Callback URL provided by Firebase to generate your App ID and App secret tokens.
+
+You'll have to do the same for Github at the [application settings page](https://github.com/settings/applications) It'll ask you for the homepage of your website, but you can put anything here if your app doesn't have one yet. Then just enter the Firebase callback URL again and you'll now have your access tokens to fill in the blanks on Firebase
+
+### Create Export File for Firebase Configuration
+Now we're ready to start configuring Firebase in our app. Navigate to your app's Overview panel and select 'Add Firebase to your web app' and copy the config properties into a new file using the template below. 
+#### config.ts
+```ts
+export const firebaseConfig = {
+  apiKey: '<your-key>',
+  authDomain: '<your-app-name>.firebaseapp.com',
+  databaseURL: 'https://<your-app-name>.firebaseio.com',
+  storageBucket: '<your-app-name>.appspot.com',
+  messagingSenderId: '<your-messaging-sender-id>'
+};
+```
+We could have put this config object directly in our app.module.ts file but then we wouldn't be able to exclude its very sensitive details from being commited if using Github. This file becomes a handy little 'secret' repository for any variables we wish to keep from prying eyes.
+
+#### .gitignore
+```ts
+config.ts
+```
+Make sure to add the new config file to your gitignore file so you don't accidentally upload your app's security details for all to see.
+
+#### app.module.ts
+```ts
+import { firebaseConfig } from '../config';
+
+...
+
+imports: [
+  AngularFireModule.initializeApp(firebaseConfig),
+]
+```
+Remember to import our firebase config object and initialize the AngularFireModule with it.
+
+# Step 2: Installation and Component Generation
+
+```console
+ npm install firebase angularfire2 --save
+```
+Here we instruct NPM to install both firebase and angularfire2 to our node_modules folder and save them as dependencies in our package.json file.
+
+```console
+ ng g service auth 
+```
+Now we use the Angular CLI shorthand 'g' for 'generate' and instruct Angular to create a new service to be injected into our app called auth.  
+
+```console
+ ng g component users/login 
+```
+
+```console
+ ng g component users/profile 
+ ```
+The convienient generate feature of the Angular CLI  automatically creates the user folder, files, imports,  declarations, and other boilderplate necesary for our new service and components, so we're ready to start adding our business logic right away!
+
+Now this these next steps are optional but it'll be handy to install Material2 and FontAwesome to help style the our components later.
+
+### Install Material2 (Optional)
+```console
+ npm install @angular/material --save
+```
+
+#### app.module.ts
+```ts
+import { 
+  MdButtonModule,  
+  MdMenuModule, 
+  MdToolbarModule, 
+  MdIconModule,
+  MdInputModule
+   } from '@angular/material';
+import { FlexLayoutModule } from "@angular/flex-layout";
+
+...
+
+imports: [
+  MdButtonModule,
+  MdMenuModule,
+  MdToolbarModule,
+  MdIconModule,
+  MdInputModule,
+  FlexLayoutModule,
+]
+```
+
+
+### Install Font Awesome (Optional)
+```ts
+ npm install font-awesome angular2-fontawesome --save
+```
+
+#### .angular-cli.json
+```ts
+{
+  "apps": [
+    {
+      "styles": [
+        "../node_modules/font-awesome/css/font-awesome.css"
+      ]
+    }
+  ],
+  "addons": [
+    "../node_modules/font-awesome/fonts/*.+(otf|eot|svg|ttf|woff|woff2)"
+  ]
+}
+```
+
+#### index.html
+```ts
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+#### app.module.ts
+```ts
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
+
+...
+
+imports: [
+  Angular2FontawesomeModule,
+]
+```
 
 # Step 3: Creating the Backend Authentication Service
 #### auth.service.ts
-```typescript
+```ts
 import { Injectable } from '@angular/core';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -87,8 +220,8 @@ export class AuthService {
   private socialSignIn(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((credential) =>  {
-          this.authState = credential.user
-          this.updateUserData()
+        this.authState = credential.user
+        this.updateUserData()
       })
       .catch(error => console.log(error));
   }
@@ -120,7 +253,7 @@ export class AuthService {
 
 # Step 4: Creating the User Login Component
 #### users/login/login.component.ts
-```typescript
+```ts
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -179,7 +312,7 @@ export class LoginComponent implements OnInit {
 
 # Step 5: Creating the User Profile Component
 #### users/profile/profile.component.ts
-```typescript
+```ts
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../auth.service";
 
@@ -221,7 +354,7 @@ export class ProfileComponent implements OnInit {
 
 # Step 6: Guarding Authorized Routes
 #### auth.guard.ts
-```typescript
+```ts
 import { Injectable } from '@angular/core';
 import { 
   CanActivate, 
