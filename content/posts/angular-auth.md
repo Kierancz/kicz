@@ -81,9 +81,9 @@ Now we use the Angular CLI shorthand 'g' for 'generate' and instruct Angular to 
  ```
 The convienient generate feature of the Angular CLI  automatically creates the user folder, files, imports,  declarations, and other boilderplate necesary for our new service and components, so we're ready to start adding our business logic right away!
 
-These next steps are optional but it'll be handy to install Material2 and FontAwesome to help style the our components later. You could use another styling library like ng-bootstrap but Google's Material2 is has a lot of nice animations and philosophy guiding its components and will provide a better user experience. 
+These next steps are optional but it'll be handy to install Material2 and FontAwesome to help style our components later. You could use another styling library like ng-bootstrap but Google's Material2 has a lot of nice built in animations and philosophy guiding its components and will provide a better user experience. As of this writing, it's only in Beta and the docs are still under construction, but expect it to be the most compatible styling framework for Angular.
 
-### Install Material2 and Flexbox(Optional)
+### Install Material2 and Flexbox (Optional)
 ```console
  npm install @angular/material @angular/flex-layout --save
 ```
@@ -167,7 +167,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from "@angular/router";
 import * as firebase from 'firebase';
 ```
-First we import all our dependencies, using AngularFireDatabase modules so that we can store our user's information for later use and to access the Observable function that we'll use on our user's login in status.
+First we import all our dependencies, using AngularFireDatabase modules so that we can store our user's information for later use and to access the Observable function that we'll use to subscribe to our user's login status.
 
 ```ts
 @Injectable()
@@ -184,7 +184,7 @@ export class AuthService {
             });
           }
 ```
-First we pass in the AngularFire objects we need as private variables to our class constructor. The private specification simply means that these objects can only be accessed and used within the scope of our AuthService class.
+Then we pass in the AngularFire objects we need as private variables to our class constructor. The private specification simply means that these objects can only be accessed and used within the scope of our AuthService class.
 
 The above code is the most critical step in Auth service because it subscribes to the AngularFire authState observable and returns a FirebaseAuthState object with details on our user's auth state that will allow us to determine when to show, hide, and guard application details.
 
@@ -218,9 +218,9 @@ When the user is logged out the state is null and when logged in, the object con
     else { return this.authState['displayName'] || 'User without a Name' }
   }
 ```
-Now using getters we set up a number of useful helper functions that we can use in our app.
+Now using getters we set up a number of useful helper functions that we can use in our app. Since classes in JS and TS are essentially an objected oriented abstraction for  objects. Accessors like getters and setters make functions behave more like object properties and give you more control over member attributes for class.
 
-
+### Social Sign In
 ```ts
 
   //// Social Auth ////
@@ -256,6 +256,12 @@ Now using getters we set up a number of useful helper functions that we can use 
     this.router.navigate(['/'])
   }
 
+```
+Here we create a reusable private function that takes the login provider as an argument and attempts to sign in through a pop up window. Once the user has entered their information, it will either be a success and then their login credentials are passed to our updateUserData function to be stored in our Firebase database. Or if there's an error, we catch it and log it to our console. (We could also provide some user feedback here)
+
+We also set up a signOut function that simply logs the user out and redirects them to our home page.
+
+```ts
   //// Helpers ////
 
   private updateUserData(): void {
@@ -273,6 +279,7 @@ Now using getters we set up a number of useful helper functions that we can use 
   }
 }
 ```
+Here's the optional helper function that saves our user data to our realtime Firebase database. This could be very useful later for administrative features and collecting more data on users.
 
 # Step 4: Creating the User Login Component
 #### users/login/login.component.ts
