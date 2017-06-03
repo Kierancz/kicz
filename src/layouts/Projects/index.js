@@ -346,7 +346,8 @@ export default class Projects extends Component {
             <Project 
               imgUrl="assets/projects/mod.jpg"
               title="Wearable Power Modules and Parkinsons FOG Assistant"
-              description="I taught myself AutoCAD and designed this wearable computing power system
+              description="For my physical computing course I taught myself
+               AutoCAD and designed this wearable computing power system
               that snaps together magnetically. Power modules contain
               LiPo batteries and protection circuits, a charging module
               includes a LiPo charging and 5V 'boost' circuit to charge 

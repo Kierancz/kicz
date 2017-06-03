@@ -7,9 +7,11 @@ layout: Post
 
 # The tutorial I wish I had when starting my Angular app
 
-In the never ending quest to keep up with the rapdily evolving JS framework brawl, I've been learning Angular, one of the most popular and powerful frameworks on the market. One of the first things one needs to think about when starting any web app of complexity is how to add secure user accounts for users to act through. After lots of searching and finding little but outdated tutorials and spotty documentation, I've compiled all the knowledge I've gained about how to create an extremely user friendly, secure, and simple authentication service (the Google way) using the latest versions of Angular, AngularFire2, and Material2. What took me a couple days of work should now take no more than an hour!
+In the never ending quest to keep up with the rapdily evolving JS framework brawl, I've been learning Google's Angular, one of the most popular and powerful frameworks on the market. One of the first things one needs to think about when starting any web app of complexity is how to add secure user accounts for users to act through. After lots of searching and finding little but outdated tutorials and spotty documentation, I've compiled all the knowledge I've gained about how to create an extremely user friendly, secure, and simple authentication service (the Google way) using the latest versions of Angular, AngularFire2, and Material2. What took me a couple days of work should now take no more than an hour!
 
 So why use AngularFire OAuth instead of creating your own authentication using something like [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) (JSON Web Tokens)? First of all, unless you're a seasoned cyber security specialist, it's generally considered the most secure approach to not try to roll your own authentication system. The exception being if you're just making a fun side project for the sake of learning that will never handle real production loads. Using authentication services such as OAuth leaves critical security implementation up to the experts and allows you to focus on other major features of your app. Enabling common OAuth providers such as Google, Facebook, and Twitter also creates a lower barrier to entry and better user experience because users don't need to worry about signing up for a whole new service and verifying their email. They may not even need to enter password credentials if they're already logged into their chosen service.
+
+There's a number of other great benefits to using Firebase for not only your app's authentication but as your entire backend service and I'd highly suggest you read [this](http://blog.angular-university.io/angular-2-firebase/) great article about how Angular and Firebase are changing the web dev world.
 
 # NOTICE: Sections are still under construction
 
@@ -115,8 +117,12 @@ imports: [
 #### index.html
 ```ts
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link href="../node_modules/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
 ```
 We must include the actual icon assets, the full list of which can be found [here](https://material.io/icons/)
+
+And we include a default Material theme that is required for the styling of our components. More info about Material theming can be found [here](https://material.angular.io/guide/theming)
 
 ### Install Font Awesome (Optional)
 ```ts
@@ -140,7 +146,7 @@ Now we install the Angular Font Awesome libraries so we can add the social icons
   ]
 }
 ```
-
+Here we tell our app where and how to consume our new FA icons in the angular CLI config file (which is just an Angular wrapper of a Webpack2 config file)
 
 #### app.module.ts
 ```ts
@@ -186,7 +192,7 @@ export class AuthService {
 ```
 Then we pass in the AngularFire objects we need as private variables to our class constructor. The private specification simply means that these objects can only be accessed and used within the scope of our AuthService class.
 
-The above code is the most critical step in Auth service because it subscribes to the AngularFire authState observable and returns a FirebaseAuthState object with details on our user's auth state that will allow us to determine when to show, hide, and guard application details.
+The above code is the most critical step in the Auth service because it subscribes to the AngularFire authState observable and returns a FirebaseAuthState object with details on our user's auth state that will allow us to determine when to show, hide, and guard application details.
 
 When the user is logged out the state is null and when logged in, the object contains useful user details like User ID, Display Name, Profile Pic URL, etc. 
 
@@ -218,7 +224,7 @@ When the user is logged out the state is null and when logged in, the object con
     else { return this.authState['displayName'] || 'User without a Name' }
   }
 ```
-Now using getters we set up a number of useful helper functions that we can use in our app. Since classes in JS and TS are essentially an objected oriented abstraction for  objects. Accessors like getters and setters make functions behave more like object properties and give you more control over member attributes for class.
+Now using getters we set up a number of useful helper functions that we can use in our app. Since classes in JS and TS are just syntatic sugar for the standard prototypal inheritance model of objects in JS. Accessors like getters and setters make functions (in this case methods) behave more like object properties and give you more control over member attributes for class. Getters simply return a value when called (i.g. this.exampleFunc), while setters specify how inputs for a method should be processed and what values returned (e.g. .exampleFunc(value))
 
 ### Social Sign In
 ```ts
@@ -322,6 +328,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 }
 ```
+Now we can start setting up our login component where we import our Auth Service that we just created to access our accessor OAuth functions. Here we're using promises as a nice abstraction to specifiy the callbacks fired after we sign in with our auth service functions. Here we're just routing our users to the profile page (that we'll create later) so they can see their user info and that they're signed in. This could obviously be changed to whatever you please.
 
 #### users/login/login.component.html
 ```html
@@ -338,7 +345,7 @@ export class LoginComponent implements OnInit {
     already logged in!
 </ng-template>
 ```
-
+Now we create the view for the login component. We use the [ngIf](https://angular.io/docs/ts/latest/api/common/index/NgIf-directive.html) Angular directive to conditionally render elements for any errors that might occur while signing in. We also conditionally set the template with the list of provider signin buttons to be conditionally displayed if there is no current user, or else we display a template that simply says 'already logged in!' if the user navigates back to the login page after signing in. 
 
 # Step 5: Creating the User Profile Component
 #### users/profile/profile.component.ts
@@ -364,6 +371,7 @@ export class ProfileComponent implements OnInit {
 
 }
 ```
+The profile component's class is very simple, just a logout function that we'll use to attach to the logout button in the profile view.
 
 #### users/profile/profile.component.html
 ```html
@@ -381,6 +389,12 @@ export class ProfileComponent implements OnInit {
     <button md-raised-button color="primary" routerLink="/login">Login</button>
   </div>
 ```
+This is a bare bones profile page that simply displays the current user's profile picture if provided or else sets a default if undefined and a logout button to signout of our account.
+
+If the user isn't logged in while navigating to this page, we ask them nicely to login. To prevent this from happening we could use an ngIf in our navbar to only show this when users are logged in, but it could be a wise design choice to show our potential users the pages they could have access to if they signin. 
+
+Some pages however we never want unauthorised users to be able to access. These pages definitly should be conditionally rendered in our navbar AND guarded against access with our route guard we'll construct below.
+
 
 # Step 6: Guarding Authorized Routes
 #### auth.guard.ts
@@ -419,3 +433,4 @@ export class AuthGuard implements CanActivate {
   }
 }
 ```
+Here we set up an observable to subscribe to the login state of our users and use the CanActivate function to specify the route we're activating with 'ActivatedRouteSnapshot', if we have a current user we return true and the canActivate function allows access to our route, if false we redirect our users to the login page and log "access denied" this could be easily replaced with a toast message or similar alert.
