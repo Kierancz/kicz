@@ -83,7 +83,7 @@ Now we use the Angular CLI shorthand 'g' for 'generate' and instruct Angular to 
  ```
 The convienient generate feature of the Angular CLI  automatically creates the user folder, files, imports,  declarations, and other boilderplate necesary for our new service and components, so we're ready to start adding our business logic right away!
 
-These next steps are optional but it'll be handy to install Material2 and FontAwesome to help style our components later. You could use another styling library like ng-bootstrap but Google's Material2 has a lot of nice built in animations and philosophy guiding its components and will provide a better user experience. As of this writing, it's only in Beta and the docs are still under construction, but expect it to be the most compatible styling framework for Angular.
+These next steps are optional but it'll be handy to install Material2 and FontAwesome to help style our components later. You could use another styling library like ng-bootstrap but Google's Material2 has a lot of nice built in animations and philosophy guiding its components and will provide a better user experience. As of this writing, it's only in Beta and the docs are still under construction, but expect it to be the most compatible styling library for Angular.
 
 ### Install Material2 and Flexbox (Optional)
 ```console
@@ -224,7 +224,7 @@ When the user is logged out the state is null and when logged in, the object con
     else { return this.authState['displayName'] || 'User without a Name' }
   }
 ```
-Now using getters we set up a number of useful helper functions that we can use in our app. Since classes in JS and TS are just syntatic sugar for the standard prototypal inheritance model of objects in JS. Accessors like getters and setters make functions (in this case methods) behave more like object properties and give you more control over member attributes for class. Getters simply return a value when called (i.g. this.exampleFunc), while setters specify how inputs for a method should be processed and what values returned (e.g. .exampleFunc(value))
+Now using getters we set up a number of useful helper functions that we can use in our app. Since classes in JS (ES6) and TS are just syntatic sugar for the standard prototypal inheritance model of objects in JS. Accessors like getters and setters make functions (in this case methods) behave more like object properties and give you more control over member attributes for class. For instance, getters specify what a function should run and return when called as a property (e.g. this.exampleFunc), while setters specify how functions should react to inputs from initialization (e.g. this.exampleFunc = value)
 
 ### Social Sign In
 ```ts

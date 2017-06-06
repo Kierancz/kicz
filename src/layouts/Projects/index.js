@@ -250,14 +250,14 @@ export default class Projects extends Component {
     let nasaTools = []
 
     chatTools.push(react, firebase, nodejs, heroku, materialize, CSS3)
-    zayoTools.push(react, leaflet, overpassTurbo, webpack, materialize, CSS3)
+    zayoTools.push(react, leaflet, overpassTurbo, webpack, materialize, CSS3, PS)
     epokTools.push(wool, leather, elastic, mFiber, IL, PS)
     bsTools.push(RoR, html, bootstrap, heroku, sqlite, CSS3, jquery)
     modGaitTools.push(arduino, gyro, SDM, CAD)
-    portTools.push(react, phenomic, SASS, bootstrap, webpack)
+    portTools.push(react, phenomic, SASS, bootstrap, webpack, IL)
     curTools.push(RoR, bootstrap, heroku, sqlite, html, CSS3)
     tagTools.push(craftml, javascript)
-    nasaTools.push(nodejs, twit, nasa, aws)
+    nasaTools.push(nodejs, twit, nasa, aws, PS)
 
 
     return (
@@ -319,14 +319,14 @@ export default class Projects extends Component {
               codeUrl="https://github.com/Kierancz/fiber"
               demoUrl="http://kierancz.github.io/fiber/" />
             <Project 
-              imgUrl="assets/projects/chatty.png"
+              imgUrl="assets/projects/chatty.gif"
               title="Chatty Cathy"
               description="A simple single page chatroom app implemented 
               with a state machine to switch between chat,
               admin, and user views. It features typing detection, 
-              media attachments, up/down voting, and more. I helped develop 
-              both front and back-end features including chatroom creation, 
-              media attachments, user profiles, user simulation features using Node, and
+              media attachments, up/down voting, and more. It was made from scratch in just a couple weeks 
+              and I helped develop both front and back-end features including chatroom creation, 
+              media attachments (YouTube, Vimeo, JPGs, etc), user profiles, user simulation features using Node, and
               I designed the general look and feel using CSS and Material-UI."
               tools={ chatTools }
               codeUrl="https://github.com/Kierancz/book/tree/master/src/apps/together" />
@@ -413,7 +413,7 @@ export default class Projects extends Component {
               imgUrl="assets/projects/randProj.jpg"
               title="Various Projects"
               description="These are a small sample of the projects that
-              were too insignificant, unpolished, old, or unprofessional
+              were too unpolished, old, or unprofessional
               to have their own descriptions. They include simple games,
               scientific simulations, prototype apps, websites, electronics, woodworking,
               mockups, and wireframes. They were instrumental steps in developing

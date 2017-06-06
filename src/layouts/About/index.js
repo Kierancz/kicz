@@ -98,7 +98,7 @@ export default class About extends Component {
               <div className="gradHead"/>
               <p>I’m a resourceful ape from the redwoods of northern California 
               with a Bachelor’s degree in Computer Science, Minor in Philosophy, 
-              six years of programming experience, and four years experience working 
+              seven years of programming experience, and four years experience working 
               independently and in collaborative teams developing quality web apps 
               with beautiful, responsive, and intuitive interfaces.
               </p>
