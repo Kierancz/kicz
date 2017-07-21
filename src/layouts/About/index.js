@@ -104,7 +104,7 @@ export default class About extends Component {
               </p>
               <p>
               I’ve always had a deep love for the process of building things. 
-              It challenges my philosophies of design and allows me to practice 
+              It tests my philosophies of design and allows me to practice 
               my favorite skills; creativity, empathy, and logic to solve challenging
               problems, communicate effectively, and prioritize concerns under 
               real-world constraints and tradeoffs. However, I believe true 
@@ -112,7 +112,7 @@ export default class About extends Component {
               and learning from the resulting success and failures. It’s a 
               beautifully cyclical, humbling, and rewarding process that I 
               think is crucial not only to designing and building successful products, but 
-              to developing an efficient, virtuous, and rewarding life in general.
+              to developing an efficient, virtuous, and fullfilling life in general.
               </p>
               <p>
               The web has played a huge role in this personal development. It allowed 

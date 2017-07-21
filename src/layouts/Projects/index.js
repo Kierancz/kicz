@@ -277,26 +277,27 @@ export default class Projects extends Component {
             <Project 
               imgUrl="assets/projects/NasaTimeMachine.jpg"
               title="NASA Photo Time Machine"
-              description="A Twitter bot that posts interesting photos
+              description="A Twitter bot that uses a custom algorithm to find and tweet interesting old photos
               from this day in NASA history and interacts with users. 
               This project gave me more experience consuming data from APIs, managing control flow
               in the asynchronous Node environment, data streams, working with Twitter APIs,
-              date & file manipulation, and deploying code to AWS EC2 instances using SSH & FTP."
+              date & file manipulation, event scheduling, and deploying code to AWS EC2 instances using SSH & FTP.
+              Its popularity has been steadily growing with absolute zero promotion."
               tools={ nasaTools } 
               demoUrl="https://twitter.com/NasaTimeMachine"
               codeUrl="https://github.com/Kierancz/nasa-bot" />
             <Project 
               imgUrl="assets/projects/kicz.gif"
               title="Personal Portfolio and Blog"
-              description="A personal site designed with React
+              description="A personal site developed with React
               and Phenomic. It was created as a way to record 
               some of my work as I grow through my projects. I 
-              hope that by documenting my sucesses and failures
+              hope that by documenting my success and failure
               it reinforces what I've learned and clarifies
               my thinking through writing. It taught me a lot about
               CSS and SVG animation, cross-browser compatibility, gradients, scaling, filters, 
               image compression, SASS usage, Webpack congfiguration, and gave me 
-              more pracitce writing React components and creating 
+              more pracitce building React components and creating 
               scroll effects using React. "
               tools={ portTools } 
               demoUrl="http://kicz.me"
@@ -321,13 +322,13 @@ export default class Projects extends Component {
             <Project 
               imgUrl="assets/projects/chatty.gif"
               title="Chatty Cathy"
-              description="A simple single page chatroom app implemented 
+              description="A real-time single page chatroom app implemented 
               with a state machine to switch between chat,
               admin, and user views. It features typing detection, 
               media attachments, up/down voting, and more. It was made from scratch in just a couple weeks 
               and I helped develop both front and back-end features including chatroom creation, 
-              media attachments (YouTube, Vimeo, JPGs, etc), user profiles, user simulation features using Node, and
-              I designed the general look and feel using CSS and Material-UI."
+              automatic media attachments (YouTube, Vimeo, JPGs, etc), user profiles, user simulation features using Node, and
+              I designed the general look and feel using CSS and material design."
               tools={ chatTools }
               codeUrl="https://github.com/Kierancz/book/tree/master/src/apps/together" />
             <Project 

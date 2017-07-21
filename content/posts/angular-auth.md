@@ -1,6 +1,6 @@
 ---
 title: Angular4 and AngularFire2 OAuth
-description: An easy way to add secure user friendly authentication to Angular
+description: An easy way to add secure user friendly authentication to Angular apps
 date: 2017-05-23
 layout: Post
 ---

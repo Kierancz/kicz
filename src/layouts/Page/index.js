@@ -10,6 +10,10 @@ import Loading from "../../components/Loading"
 import Banner from "../../components/Banner"
 import Footer from "../../components/Footer"
 import defaultBannerImg from "./flatiron.jpg"
+import ScrollToTop from "react-scroll-up"
+import { MdArrowUpward } from "react-icons/lib/md"
+import { Tooltip, OverlayTrigger } from "react-bootstrap"
+
 
 import styles from "./index.scss"
 
@@ -48,13 +52,16 @@ const Page = (
     { name: "description", content: head.description }
   ]
 
+  const topTooltip = (
+    <Tooltip id="tooltip">Back to top</Tooltip>
+  )
+
   return (
     <div className={ styles.page }>
       <Helmet
         title={ metaTitle }
         meta={ meta }
       />
-      { header }
       <Banner 
         imgUrl={ bannerImg } 
         h1={ metaTitle } 
@@ -72,6 +79,11 @@ const Page = (
         { children }
         <Footer/>
       </Col>
+      <ScrollToTop showUnder={160}>
+        <OverlayTrigger placement="top" overlay={topTooltip}>
+          <MdArrowUpward className="icon" size={60}/>
+        </OverlayTrigger>
+      </ScrollToTop>
       </section>
     </div>
   )
@@ -84,7 +96,6 @@ Page.propTypes = {
   __url: PropTypes.string,
   head: PropTypes.object.isRequired,
   body: PropTypes.string,
-  header: PropTypes.element,
 }
 
 Page.contextTypes = {

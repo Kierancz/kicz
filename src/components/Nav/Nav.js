@@ -44,7 +44,7 @@ export default class NavComponent extends Component {
     })
 
     const NavItem = ({ to, name }) => ((
-      <li>
+      <li className="slide">
         <Link
           to={ to }
           activeClassName="active"
