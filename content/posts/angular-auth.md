@@ -397,6 +397,26 @@ Some pages however we never want unauthorised users to be able to access. These 
 
 
 # Step 6: Guarding Authorized Routes
+First we need to create the guard file. We'll use Angular's CLI to generate the file.
+```console
+ng g guard core/auth 
+```
+
+Now we need to bootstrap it as a provider in our app.module file just like any other injectable service.
+
+#### app.module.ts
+```ts
+import { AuthService } from './core/auth.service';
+import { AuthGuard} from './core/auth.guard';
+// ... omitted
+  providers: [
+    AuthService,
+    AuthGuard,
+  ],
+```
+
+Now we can use the authenticated getter function we defined in our auth service made earlier to check if a user is logged in or not.
+
 #### auth.guard.ts
 ```ts
 import { Injectable } from '@angular/core';
@@ -433,4 +453,15 @@ export class AuthGuard implements CanActivate {
   }
 }
 ```
-Here we set up an observable to subscribe to the login state of our users and use the CanActivate function to specify the route we're activating with 'ActivatedRouteSnapshot', if we have a current user we return true and the canActivate function allows access to our route, if false we redirect our users to the login page and log "access denied" this could be easily replaced with a toast message or similar alert.
+Here we set up an observable to subscribe to the login state of our users and use the CanActivate function to specify the route we're activating with 'ActivatedRouteSnapshot', if we have a current user we return true and the canActivate function allows access to our route, if false we use the RxJS do function to catch unauthenticated users and redirect them to the login page and log "access denied" this could be easily replaced with a toast message or similar alert.
+
+### Guarding Router Routes
+Now that we have our general purpose guard set up, we can specify which routes it should guard from unauthenticated users.
+
+#### app-routing.module.ts
+```ts
+import { AuthGuard } from './core/auth.guard';
+const routes: Routes = [
+  { path: 'items', component: SomeComponent, canActivate: [AuthGuard]},
+]
+```

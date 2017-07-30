@@ -9,13 +9,15 @@ layout: Post
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Pmr8eylvb8s?rel=0" frameborder="0" allowfullscreen></iframe>
 
-Many useful applications for the cheap processing power and sensors we have today are limited by the short duration of use provided by our batteries. To solve this, slim LiPo battery modules were made that attach to a user’s belt with a simple clip on the back. Each module contains a LiPo cell, LiPo protection circuit (PCM), and magnetic power terminals to allow them to be easily snapped into chains to provide more power. These power modules are linked in parallel to a control module that contains a step-up regulator with integrated USB to allow it to charge a phone or other devices, power terminals for powering loads with non-standard connections, an internal LiPo charger with micro-USB connection for convenient charging individually or as a chain.
+Update: This was a short project I undertook, which lasted just over a month. There's a lot I would change, from the design of the battery modules (switching to higher energy density 18650 LiMnCo cells) to improvements of the code. This tutorial is still relevant as a reference for what's possible through rapid prototyping and as a starting point for anyone working on wearables or gait analysis.
 
-As a demonstration of the possibilities these modules open up, we decided to focus on creating a wearable device that enables people diagnosed with Parkinson’s disease (PD) to escape Freeze of Gait (FoG) moments and improve their mobility and independence. To do this, a gyroscope constantly monitors a patient’s motion to identify an incidence of slowed or frozen gait. In the case of a freeze, a laser diode with a line projection lens shines a laser-line in front of a user so that they have a visual cue to step forward, replacing the cueing function of a PD patient’s impaired Basal ganglia. Similar techniques have successfully been used to reduce FoG moments and improve walking velocity.
+Many useful applications for the cheap processing power and sensors we have today are limited by the short duration of use provided by our batteries. To solve this, slim LiPo battery modules were made that attach to a user’s belt with a simple clip on the back. Each module contains a LiPo cell, LiPo protection circuit (PCM), and magnetic power terminals to allow them to be easily snapped into chains to provide more power. These power modules are linked in parallel to a control module that contains a step-up regulator with integrated USB to allow it to charge a phone or other devices, power terminals for powering loads with non-standard connections, and an internal LiPo charger with micro-USB connection for convenient charging individually or as a chain.
+
+As a demonstration of the possibilities these modules open up, we decided to focus on creating a wearable device that enables people diagnosed with Parkinson’s disease (PD) to escape Freeze of Gait (FOG) moments and improve their mobility and independence. To do this, a gyroscope constantly monitors a patient’s motion to identify an incidence of slowed or frozen gait. In the case of a freeze, a laser diode with a line projection lens shines a laser-line in front of a user so that they have a visual cue to step forward, replacing the cueing function of a PD patient’s impaired Basal ganglia. Similar techniques have successfully been used to reduce FoG moments and improve walking velocity.
 
 # Step 1: Materials and Tools
 
-Power Module Parts:
+### Power Module Parts:
 
 - 10x10x2mm Magnets
 
@@ -45,11 +47,11 @@ These were found locally from a hardware store with a diverse inventory called M
 
 Gorilla glue epoxy is pretty great.
 
--Screws 3.6mm Length x 2.2mm Diameter
+- Screws 3.6mm Length x 2.2mm Diameter
 
 We also found these locally, unfortunately Home Depot is unlikely to carry screws this small.
 
-Gait Module Parts:
+### Gait Module Parts:
 
 Minimum parts:
 
@@ -67,11 +69,11 @@ These laser diodes with a lens to focus the beam into a line were also found on 
 
 We found 5 of these little cuties on eBay.
 
-Belt or Waist attachment Parts:
+### Belt or Waist attachment Parts:
 
 - These modules can use either an elastic or adjustable strap as well as metal clips so that they can be attached to the waist without a belt. We used these bail making pliers to bend 3003 aluminum strips into clips for the modules.
 
-Parts for improvements:
+### Parts for improvements:
 
 - Through-hole potentiometer for gait-detection sensitivity adjustment.
 
@@ -79,7 +81,7 @@ Parts for improvements:
 
 - Buzzer motor or solenoid for haptic feedback and gait-pace setting.
 
-Other Tools:
+### Other Tools:
 
 - Multimeter for testing
 

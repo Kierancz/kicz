@@ -119,7 +119,7 @@ export default class About extends Component {
               me to discover and explore a wide range of passions, giving me 
               the skills and confidence necessary to pursue an enduring 
               journey of creation and learning. It’s an amazing resource for the 
-              collective wisdom of humanity and I think its vast potential to 
+              collective knowledge of humanity, and I think its vast potential to 
               reshape our lives makes it our greatest creation since 
               written language itself. However, the web's potential is severely limited 
               by its accessibility to the general populace and all too often 

@@ -7,10 +7,7 @@ import Project from "../../components/Project"
 import {Row} from "react-bootstrap/lib"
 import styles from "./index.scss"
 import Footer from "../../components/Footer"
-import ScrollToTop from "react-scroll-up"
-import { MdArrowUpward } from "react-icons/lib/md"
-import { Tooltip, OverlayTrigger } from "react-bootstrap"
-
+import BackToTop from "../../components/BackToTop"
 
 import bannerImg from "./code.jpg"
 
@@ -235,10 +232,6 @@ export default class Projects extends Component {
       link: 'https://jquery.com/'
     }
 
-    const topTooltip = (
-      <Tooltip id="tooltip">Back to top</Tooltip>
-    )
-
     let chatTools=[]
     let zayoTools=[]
     let epokTools=[]
@@ -422,11 +415,7 @@ export default class Projects extends Component {
               tools={ [various] } />
             </Row>
 
-            <ScrollToTop showUnder={160}>
-              <OverlayTrigger placement="top" overlay={topTooltip}>
-                <MdArrowUpward className="icon" size={60}/>
-              </OverlayTrigger>
-            </ScrollToTop>
+            <BackToTop/>
             <Footer/>
           </div>
 
