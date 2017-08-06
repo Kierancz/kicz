@@ -10,6 +10,8 @@ import Banner from "../../components/Banner"
 import Footer from "../../components/Footer"
 import BackToTop from "../../components/BackToTop"
 import defaultBannerImg from "./flatiron.jpg"
+import DisqusThread from "react-disqus-thread"
+
 
 import styles from "./index.scss"
 
@@ -21,6 +23,7 @@ const Page = (
     head,
     body,
     children,
+    comments
   },
 ) => {
   warning(
@@ -32,17 +35,14 @@ const Page = (
 
   const metaTitle = head.metaTitle ? head.metaTitle : head.title
 
-  const socialImage = head.hero && head.hero.match("://") ? head.hero
-    : joinUri(process.env.PHENOMIC_USER_URL, head.hero)
-
+  const url = joinUri(process.env.PHENOMIC_USER_URL, __url);
   const meta = [
     { property: "og:type", content: "article" },
     { property: "og:title", content: metaTitle },
     {
       property: "og:url",
-      content: joinUri(process.env.PHENOMIC_USER_URL, __url),
+      content: url,
     },
-    { property: "og:image", content: socialImage },
     { property: "og:description", content: head.description },
     { name: "description", content: head.description }
   ]
@@ -66,6 +66,14 @@ const Page = (
               ? <Loading />
               : <BodyContainer>{ body }</BodyContainer>
             }
+            { comments
+              &&
+              <DisqusThread
+                shortname="kiczme"
+                identifier={url}
+                url={url}
+              />
+            }
           </div>
         { children }
         <Footer/>
@@ -83,6 +91,7 @@ Page.propTypes = {
   __url: PropTypes.string,
   head: PropTypes.object.isRequired,
   body: PropTypes.string,
+  comments: PropTypes.bool
 }
 
 Page.contextTypes = {

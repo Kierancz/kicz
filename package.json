@@ -91,7 +91,7 @@
   },
   "stylelint": {
     "extends": "./node_modules/phenomic/lib/stylelint-config-recommended/index.js",
-    "rules": { 
+    "rules": {
       "declaration-block-no-ignored-properties": null
     }
   },
@@ -144,6 +144,7 @@
     "node-sass": "^3.10.0",
     "react-addons-pure-render-mixin": "^15.4.2",
     "react-bootstrap": "^0.30.3",
+    "react-disqus-thread": "^0.4.0",
     "react-google-analytics": "^0.2.0",
     "react-grid-gallery": "^0.3.0",
     "react-headroom": "^2.1.3",

@@ -23,7 +23,7 @@ const Post = (props) => {
             }
           </header>
         </div>
-      }
+      } comments="true"
     >
       <div className="gradHead" />
       <LatestPosts />
