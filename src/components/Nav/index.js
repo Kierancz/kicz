@@ -28,11 +28,13 @@ export default class NavDockable extends Component {
   }
 
   dockNav() {
-    const docked = document.body.scrollTop > 310
+    // cross browser compatible scroll top
+    const top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+    const docked = top > 310
 
     if (this.state.docked !== docked) {
       this.setState({
-        docked,
+        docked
       })
     }
   }

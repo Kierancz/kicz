@@ -30,13 +30,13 @@ export default class NavComponent extends Component {
     this.setState({
       expanded: !this.state.expanded,
     })
-  }
+  };
 
   handleOnNavItemClick = () => {
     this.setState({
       expanded: false,
     })
-  }
+  };
 
   render() {
     const navClass = cx(styles.wrapper, {
