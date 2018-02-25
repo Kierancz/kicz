@@ -112,7 +112,7 @@ For us, understanding how the movements of the body relate to yaw, pitch, and ro
 
 # Step 4: Arduino Code
 
-As mentioned earlier, our first step was to understand the yaw, pitch, and roll values from the gyroscope/accelerometer. We observed that the yaw values from the gyroscope were the biggest identifier of a walking gait. We created a custom algorithm that counted the deviations from the computed average yaw value to the left and right as they occurred when taking a step with right and left legs respectively. When the L and R count values were near a 1/1 ratio of the average we determined that walking had occurred. We then wrote more logic to detect when walking stopped after previous walking had been detected and then fired the laser (an LED while testing). Not the most accurate method, but it worked pretty well for the most part and was a simple routine that performed well on an arduino mini. 
+As mentioned earlier, our first step was to understand the yaw, pitch, and roll values from the gyroscope/accelerometer. We observed that the yaw values from the gyroscope were the biggest identifier of a walking gait. We created a custom algorithm that counted the deviations from the computed average yaw value to the left and right as they occurred when taking a step with right and left legs respectively. When the L and R count values were near a 1/1 ratio of the average we determined that walking had occurred. We then wrote more logic to detect when walking stopped after previous walking had been detected and then fired the laser (an LED while testing). Not the most accurate method, but it worked pretty well for the most part and was a simple routine that performed well on an arduino mini.
 
 ```Arduino
 
@@ -161,7 +161,7 @@ float ypr[3];           // [yaw, pitch, roll]   yaw/pitch/roll container and gra
 uint8_t teapotPacket[14] = { '$', 0x02, 0,0, 0,0, 0,0, 0,0, 0x00, 0x00, '\r', '\n' };
 
 //Other Variables
-int led = 8; 
+int led = 8;
 int stabilize = 0;
 const int numReadings = 200;
 int yawSample[numReadings];
@@ -269,7 +269,7 @@ void setup() {
     pinMode(led, OUTPUT);
     pinMode(butPin, INPUT);
     pinMode(potPin, INPUT);
-    
+
     //initialize all the readings to 0:
     for(int thisReading = 0; thisReading < numReadings; thisReading++) yawSample[thisReading] = 0;
 }
@@ -318,7 +318,7 @@ void loop() {
 
         // read a packet from FIFO
         mpu.getFIFOBytes(fifoBuffer, packetSize);
-        
+
         // track FIFO count here in case there is > 1 packet available
         // (this lets us immediately read more without waiting for an interrupt)
         fifoCount -= packetSize;
@@ -390,7 +390,7 @@ void loop() {
             Serial.print("\t");
             Serial.println(aaWorld.z);
         #endif
-    
+
         #ifdef OUTPUT_TEAPOT
             // display quaternion values in InvenSense Teapot demo format:
             teapotPacket[2] = fifoBuffer[0];
@@ -409,14 +409,14 @@ void loop() {
         //blinkState = !blinkState;
         //digitalWrite(LED_PIN, blinkState);
     }
-    
+
     if(stabilize < 1400) {
       stabilize++;
       Serial.print("Stabilizing Sensor Values");
     }
-   
+
     if(stabilize >= 1400) {
-      iteration++; 
+      iteration++;
         Serial.println("IPNAMiMaOD: ");
         Serial.print(iteration);
         Serial.print("  ");
@@ -437,7 +437,7 @@ void loop() {
         Serial.print("Hello Pot");
         Serial.print(analogRead(potPin));
         Serial.print("  ");
-        
+
       // Calculate average sensor values
       total = total - yawSample[index];
       yawSample[index] = (ypr[0] * (180/M_PI));
@@ -445,7 +445,7 @@ void loop() {
       index = index + 1;
       //if at the end of the array, wrap around to the beginning
       if(index >= numReadings) index = 0;
-      
+
       minYaw = min(minYaw, yawSample[index]);
       maxYaw = max(maxYaw, yawSample[index]);
       aveYaw = total / numReadings;
@@ -453,7 +453,7 @@ void loop() {
       butState = digitalRead(butPin);
       //Serial.print("butPin");
       //Serial.print(butState);
-      
+
       // if walking has stopped after walking has been detected fire the laser
       if(!walking() && wasWalking && iteration > 200) {
         digitalWrite(led, HIGH);
@@ -497,7 +497,7 @@ boolean walking () {
     }
   }
   else return false;
-  
+
 }
 ```
 Pretty simple stuff that could use a little refinement, but it works and it's a good starting point for a very useful device. The full code can be seen [here](https://github.com/Kierancz/gait_project/blob/master/CSCI4830_Gait_Project/CSCI4830_Gait_Project.ino)
@@ -518,9 +518,9 @@ Once the modules have been 3D printed you will need to start building their inna
 
 ### Step 1: Disassemble 4S LiPos
 
-![LiPo dissasembly](https://cdn.instructables.com/F5K/4QIV/I9GWD4IX/F5K4QIVI9GWD4IX.LARGE.jpg)
+![LiPo disassembly](https://cdn.instructables.com/F5K/4QIV/I9GWD4IX/F5K4QIVI9GWD4IX.LARGE.jpg)
 
-![LiPo seperation with solvent](https://cdn.instructables.com/FVI/C3MI/I9GWD4KZ/FVIC3MII9GWD4KZ.LARGE.jpg)
+![LiPo separation with solvent](https://cdn.instructables.com/FVI/C3MI/I9GWD4KZ/FVIC3MII9GWD4KZ.LARGE.jpg)
 
 
 The battery packs that we ordered are actually four individual 3.7V battery packs linked in series to create a 14.8V pack. These are stuck together with glue so it's easiest to use a solvent like rubbing alcohol to ease their separation. Once the packs are un-glued, use a soldering iron to take off all the wires protruding from the packs, be carful not to cause any shorts! These pack are high voltage and can cause bright sparks that can shock you or cause a fire! Be careful!! Once you have taken off all the wires, use scissors or wire cutters to cut the tabs holding the cells together, make sure to cut them in the middle to ensure that there's enough tab left to be soldered to.
