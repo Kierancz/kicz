@@ -221,27 +221,35 @@ export default class Projects extends Component {
       icon: '',
       link: 'https://jquery.com/'
     }
+    const redux = {
+      id: 34,
+      name: 'Redux',
+      icon: '',
+      link: 'https://redux.js.org/'
+    }
+    const reduxSaga = {
+      id: 35,
+      name: 'Redux Saga',
+      icon: '',
+      link: 'https://redux-saga.js.org/'
+    }
+    const styledComp = {
+      id: 36,
+      name: 'Styled Components',
+      icon: '',
+      link: 'https://www.styled-components.com/'
+    }
 
-    let chatTools=[]
-    let zayoTools=[]
-    let epokTools=[]
-    let bsTools=[]
-    let modGaitTools=[]
-    let portTools=[]
-    let curTools = []
-    let tagTools = []
-    let nasaTools = []
-
-    chatTools.push(react, firebase, nodejs, heroku, materialize, CSS3)
-    zayoTools.push(react, leaflet, overpassTurbo, webpack, materialize, CSS3, PS)
-    epokTools.push(wool, leather, elastic, mFiber, IL, PS)
-    bsTools.push(RoR, html, bootstrap, heroku, sqlite, CSS3, jquery)
-    modGaitTools.push(arduino, gyro, SDM, CAD)
-    portTools.push(react, phenomic, SASS, bootstrap, webpack, IL)
-    curTools.push(RoR, bootstrap, heroku, sqlite, html, CSS3)
-    tagTools.push(craftml, javascript)
-    nasaTools.push(nodejs, twit, nasa, aws, PS)
-
+    let chatTools=[react, firebase, nodejs, heroku, materialize, CSS3]
+    let zayoTools=[react, leaflet, overpassTurbo, webpack, materialize, CSS3, PS]
+    let epokTools=[wool, leather, elastic, mFiber, IL, PS]
+    let bsTools=[RoR, html, bootstrap, heroku, sqlite, CSS3, jquery]
+    let modGaitTools=[arduino, gyro, SDM, CAD]
+    let portTools=[react, phenomic, SASS, bootstrap, webpack, IL]
+    let curTools = [RoR, bootstrap, heroku, sqlite, html, CSS3]
+    let tagTools = [craftml, javascript]
+    let nasaTools = [nodejs, twit, nasa, aws, PS]
+    let nuthreadTools = [react, redux, reduxSaga, styledComp]
 
     return (
       <div>
@@ -252,17 +260,28 @@ export default class Projects extends Component {
         <Banner
           imgUrl={ bannerImg }
           h1="Projects"
-          h2="A collection of selected creative works"
+          h2="A collection of personal creative works"
         />
           <div className={ styles.projects }>
 
             <Row>
             <Project
+              imgUrl="assets/projects/nuthread.gif"
+              title="nu-thread (Developing)"
+              description="A web app to help find only the highest quality used
+              clothes that actually fit. Saving users time and money. Proceeds
+              from eBay referrals go toward neutralizing the lifecyle carbon
+              emissions of the clothing. This project is under continuous development
+              as a method for learning Redux state management and advanced React libraries."
+              tools={ nuthreadTools }
+              demoUrl="https://nu-thread.com"
+              codeUrl="https://github.com/Kierancz/nu-thread" />
+            <Project
               imgUrl="assets/projects/NasaTimeMachine.jpg"
               title="NASA Photo Time Machine"
               description="A Twitter bot that uses a custom algorithm to find and tweet interesting old photos
               from this day in NASA history and interacts with users.
-              This project gave me more experience consuming data from APIs, managing control flow
+              This project gave me more experience managing control flow
               in the asynchronous Node environment, data streams, working with Twitter APIs,
               date & file manipulation, event scheduling, and deploying code to AWS EC2 instances using SSH & FTP.
               Its popularity has been steadily growing with absolute zero promotion."
@@ -277,7 +296,7 @@ export default class Projects extends Component {
               some of my work as I grow through my projects. I
               hope that by documenting my success and failure
               it reinforces what I've learned and clarifies
-              my thinking through writing. It taught me a lot about
+              my thinking through writing. It taught me more about
               CSS and SVG animation, cross-browser compatibility, gradients, scaling, filters,
               image compression, SASS usage, Webpack congfiguration, and gave me
               more pracitce building React components and creating
@@ -290,10 +309,9 @@ export default class Projects extends Component {
               title="Zayo Fiber Pricing"
               description="Provides price estimates for laying
               down new fiber optic connections. I led the front-end development in ReactJS,
-              including parsing and filtering the JSON
-              blob returned from an AJAX call to the OverpassTurbo API to create the itemized
-              list of potential hazards to fiber construction. This was the
-              stand-out feature that was highly praised by the panel of Zayo
+              including parsing and filtering JSON from the OverpassTurbo API to create the itemized
+              list of potential hazards to fiber construction. This
+              stand-out feature was highly praised by the panel of Zayo
               judges and resulted in our three person team winning first place out of nine teams.
               I used philosophies from UCD to guide the overall visual design using CSS, regular expressions,
               and used knowledge of asynchronous JavaScript & map APIs to ensure the responsive
@@ -336,13 +354,13 @@ export default class Projects extends Component {
               LiPo batteries and protection circuits, a charging module
               includes a LiPo charging and 5V 'boost' circuit to charge
               any modules in the chain from USB or power your
-              phone, Arduino, sensors, etc. A mini breadboard module was also
-              created for rapidly prototyping wearable electronics of all sorts.
+              phone, Arduino, sensors, etc. A mini breadboard module allows rapid
+              prototyping of diverse wearable electronics.
               As a demo, my partner and I programmed an Arduino and
               gyroscope to detect a walking gait using a custom algorithm based
               on the YAW values from the gyro. This allowed us to detect
               the debilitating freeze of gait (FOG) moments that people with Parkinson disease
-              often experience. Once these moments were detected we fired a laser
+              often experience. On FOG detection we fired a laser
               line as a visual cue needed to substitute for the patient's impaired
               Basal Ganglia and its motor cueing function."
               tools={ modGaitTools }
