@@ -239,6 +239,18 @@ export default class Projects extends Component {
       icon: '',
       link: 'https://www.styled-components.com/'
     }
+    const reactRouter = {
+      id: 37,
+      name: 'React Router',
+      icon: '',
+      link: 'https://reacttraining.com/react-router/web/guides/philosophy'
+    }
+    const express = {
+      id: 38,
+      name: 'Express',
+      icon: '',
+      link: 'https://expressjs.com/'
+    }
 
     let chatTools=[react, firebase, nodejs, heroku, materialize, CSS3]
     let zayoTools=[react, leaflet, overpassTurbo, webpack, materialize, CSS3, PS]
@@ -249,7 +261,7 @@ export default class Projects extends Component {
     let curTools = [RoR, bootstrap, heroku, sqlite, html, CSS3]
     let tagTools = [craftml, javascript]
     let nasaTools = [nodejs, twit, nasa, aws, PS]
-    let nuthreadTools = [react, redux, reduxSaga, styledComp]
+    let nuthreadTools = [react, redux, reduxSaga, styledComp, reactRouter, express, nodejs]
 
     return (
       <div>
@@ -271,8 +283,9 @@ export default class Projects extends Component {
               description="A web app to help find only the highest quality used
               clothes that actually fit. Saving users time and money. Proceeds
               from eBay referrals go toward neutralizing the lifecyle carbon
-              emissions of the clothing. This project is under continuous development
-              as a method for learning Redux state management and advanced React libraries."
+              emissions of the clothing and eco-friendly investments. This project
+              is under continuous development as a method for learning Redux
+              state management and other advanced libraries."
               tools={ nuthreadTools }
               demoUrl="https://nu-thread.com"
               codeUrl="https://github.com/Kierancz/nu-thread" />
@@ -290,11 +303,11 @@ export default class Projects extends Component {
               codeUrl="https://github.com/Kierancz/nasa-bot" />
             <Project
               imgUrl="assets/projects/kicz.gif"
-              title="Personal Portfolio and Blog"
+              title="Portfolio and Blog"
               description="A personal site developed with React
               and Phenomic. It was created as a way to record
               some of my work as I grow through my projects. I
-              hope that by documenting my success and failure
+              hope that by documenting my success and failures
               it reinforces what I've learned and clarifies
               my thinking through writing. It taught me more about
               CSS and SVG animation, cross-browser compatibility, gradients, scaling, filters,
@@ -327,7 +340,7 @@ export default class Projects extends Component {
               with a state machine to switch between chat,
               admin, and user views. It features typing detection,
               media attachments, up/down voting, and more. It was made from scratch in just a couple weeks
-              and I helped develop both front and back-end features including chatroom creation,
+              and I helped develop fullstack features including chatroom creation,
               automatic media attachments (YouTube, Vimeo, JPGs, etc), user profiles, user simulation features using Node, and
               I designed the general look and feel using CSS and material design."
               tools={ chatTools }
@@ -336,7 +349,7 @@ export default class Projects extends Component {
               imgUrl="assets/projects/brailleTag.gif"
               title="Parametric Braille Tag"
               description="A customizable identification tag for
-              the visually impaired. This simple project was created
+              the visually impaired. This quick project was created
               with an awesome 3D modelling tool created
               by my professor that lets you build 3D models with HTML,
               CSS, and JavaScript. It's a great tool for those who
@@ -347,20 +360,19 @@ export default class Projects extends Component {
               demoUrl="https://craftml.io/i7PNJ" />
             <Project
               imgUrl="assets/projects/mod.jpg"
-              title="Wearable Power Modules and Parkinsons FOG Assistant"
-              description="For my physical computing course I taught myself
-               AutoCAD and designed this wearable computing power system
+              title="Wearable Computing and Parkinsons FOG Assistant"
+              description="A wearable computing power system
               that snaps together magnetically. Power modules contain
               LiPo batteries and protection circuits, a charging module
               includes a LiPo charging and 5V 'boost' circuit to charge
-              any modules in the chain from USB or power your
+              all chained modules from USB or power your
               phone, Arduino, sensors, etc. A mini breadboard module allows rapid
               prototyping of diverse wearable electronics.
               As a demo, my partner and I programmed an Arduino and
               gyroscope to detect a walking gait using a custom algorithm based
               on the YAW values from the gyro. This allowed us to detect
               the debilitating freeze of gait (FOG) moments that people with Parkinson disease
-              often experience. On FOG detection we fired a laser
+              often experience. On FOG detection a laser projects a
               line as a visual cue needed to substitute for the patient's impaired
               Basal Ganglia and its motor cueing function."
               tools={ modGaitTools }
@@ -409,7 +421,7 @@ export default class Projects extends Component {
               I embarked on this project with little knowledge of
               product design and through it I learned how crucial
               iterative processes, user testing, and simplicity are to
-              the practice of successful product design. "
+              the practice of successful design. "
               tools={ epokTools } />
             <Project
               imgUrl="assets/projects/randProj.jpg"

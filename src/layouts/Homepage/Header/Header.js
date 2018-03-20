@@ -12,26 +12,26 @@ class HomepageHeader extends Component {
           <h1>Hi there,</h1>
 
           <h2>I'm Kieran, a mild-mannered maker
-          and front-end engineering & design geek.</h2>
+          and web development & design geek.</h2>
           <br />
           <p>
             I love building cool things. These days I work mostly in JavaScript
-            writing highly reusable, functional, and efficient code. I'm 
-            constantly learning and striving to create the most intuitive and 
-            accessible user interfaces on any platform. 
+            writing highly reusable, functional, and efficient code. I'm
+            constantly learning and working to create the most intuitive and
+            accessible user interfaces on any platform.
           </p>
           <ButtonToolbar className={ styles.center }>
           <Link to="/about.html"
             className="btn draw">
-            <MdAccountCircle 
-              className="butIcon" 
+            <MdAccountCircle
+              className="butIcon"
               size={30}/>
               About Me
           </Link>
           <Link to="/projects.html"
             className="btn draw">
-            <MdBuild 
-              className="butIcon" 
+            <MdBuild
+              className="butIcon"
               size={30}/>
               Projects
           </Link>
