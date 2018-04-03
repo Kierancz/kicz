@@ -1,6 +1,4 @@
 import React, { Component, PropTypes } from "react"
-// import enhanceCollection from "phenomic/lib/enhance-collection"
-
 import Helmet from "react-helmet"
 import Banner from "../../components/Banner"
 import Project from "../../components/Project"
@@ -275,10 +273,10 @@ export default class Projects extends Component {
           h2="A collection of personal creative works"
         />
           <div className={ styles.projects }>
-
             <Row>
             <Project
               imgUrl="assets/projects/nuthread.gif"
+              imgStill="assets/projects/nuthread.jpg"
               title="nu-thread (Developing)"
               description="A web app to help find only the highest quality used
               clothes that actually fit. Saving users time and money. Proceeds
@@ -303,6 +301,7 @@ export default class Projects extends Component {
               codeUrl="https://github.com/Kierancz/nasa-bot" />
             <Project
               imgUrl="assets/projects/kicz.gif"
+              imgStill="assets/projects/kicz.jpg"
               title="Portfolio and Blog"
               description="A personal site developed with React
               and Phenomic. It was created as a way to record
@@ -319,6 +318,7 @@ export default class Projects extends Component {
               codeUrl="https://github.com/Kierancz/kicz" />
             <Project
               imgUrl="assets/projects/zayoFiber.gif"
+              imgStill="assets/projects/zayoFiber.jpg"
               title="Zayo Fiber Pricing"
               description="Provides price estimates for laying
               down new fiber optic connections. I led the front-end development in ReactJS,
@@ -335,6 +335,7 @@ export default class Projects extends Component {
               demoUrl="http://kierancz.github.io/fiber/" />
             <Project
               imgUrl="assets/projects/chatty.gif"
+              imgStill="assets/projects/chatty.jpg"
               title="Chatty Cathy"
               description="A real-time single page chatroom app implemented
               with a state machine to switch between chat,
@@ -347,6 +348,7 @@ export default class Projects extends Component {
               codeUrl="https://github.com/Kierancz/book/tree/master/src/apps/together" />
             <Project
               imgUrl="assets/projects/brailleTag.gif"
+              imgStill="assets/projects/brailleTag.jpg"
               title="Parametric Braille Tag"
               description="A customizable identification tag for
               the visually impaired. This quick project was created
@@ -380,6 +382,7 @@ export default class Projects extends Component {
               demoUrl="https://www.instructables.com/id/Wearable-Power-and-Computing-Modules-to-Improve-Pa/" />
             <Project
               imgUrl="assets/projects/curesource.gif"
+              imgStill="assets/projects/curesource.jpg"
               title="CUresource "
               description="CUresource is a resource
               map for CU-Boulder students to easily and convieniently
@@ -398,6 +401,7 @@ export default class Projects extends Component {
               codeUrl="https://github.com/Kierancz/CUresource" />
             <Project
               imgUrl="assets/projects/blokkspace.gif"
+              imgStill="assets/projects/blokkspace.jpg"
               title="Blokkspace"
               description="This was my first real web app that
               I designed a built from scratch using test driven development

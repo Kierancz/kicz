@@ -12,7 +12,7 @@ class HomepageHeader extends Component {
           <h1>Hi there,</h1>
 
           <h2>I'm Kieran, a mild-mannered maker
-          and web development & design geek.</h2>
+          and web engineering & design geek.</h2>
           <br />
           <p>
             I love building cool things. These days I work mostly in JavaScript

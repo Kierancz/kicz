@@ -188,7 +188,7 @@ p {
 .gradHead {
   height: 2px;
   margin-bottom: 1em;
-  background: green; /* For browsers that do not support gradients */    
+  background: green; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left top, green, blue); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(bottom right, green, blue); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(bottom right, green, blue); /* For Firefox 3.6 to 15 */
@@ -250,7 +250,7 @@ p {
     bottom: 0;
     right: 0;
   }
-  
+
   &:hover {
     color: $blue;
   }
@@ -314,4 +314,82 @@ p {
 .butIcon {
   margin-left: -1em;
   margin-right: 0.5em;
+}
+
+
+
+$gif_btn_bg_base_color: #000 !default;
+$gif_btn_bg_opacity: 0.5 !default;
+$gif_btn_bg_opacity_hover: 0.7 !default;
+$gif_btn_bg_color: rgba($gif_btn_bg_base_color, $gif_btn_bg_opacity) !default;
+$gif_btn_bg_color_hover: rgba($gif_btn_bg_base_color, $gif_btn_bg_opacity_hover) !default;
+
+$gif_btn_box_shadow_base_color: #000 !default;
+$gif_btn_box_shadow_opacity: $gif_btn_bg_opacity !default;
+$gif_btn_box_shadow_opacity_hover: $gif_btn_bg_opacity_hover !default;
+$gif_btn_box_shadow_color: rgba($gif_btn_box_shadow_base_color, $gif_btn_box_shadow_opacity) !default;
+$gif_btn_box_shadow_color_hover: rgba($gif_btn_box_shadow_base_color, $gif_btn_box_shadow_opacity_hover) !default;
+
+$gif_btn_text_color: #fff !default;
+$gif_btn_font_family: 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+
+$gif_btn_border_width: 2px !default;
+$gif_btn_border_style: dashed !default;
+$gif_btn_border_color: $gif_btn_text_color !default;
+
+$gif_btn_regular_opacity: 1.0 !default;
+$gif_btn_playing_opacity: 0.5 !default;
+
+$gif_btn_paused_rotation: 0deg !default;
+$gif_btn_playing_rotation: 180deg !default;
+
+$gif_btn_transition_duration: 0.4s;
+
+$gif_btn_text_content: 'GIF' !default;
+
+.gif_player {
+  display: inline-block;
+  position: relative;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+
+  .play_button {
+    background-color: $gif_btn_bg_color;
+    border: $gif_btn_border_width $gif_btn_border_style $gif_btn_border_color;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px $gif_btn_box_shadow_color;
+    color: $gif_btn_text_color;
+    cursor: pointer;
+    font-family: $gif_btn_font_family;
+    font-size: 24px;
+    opacity: $gif_btn_regular_opacity;
+    font-size: 32px;
+    left: 50%;
+    font-weight: 600;
+    opacity: 1;
+    padding: 26px 22px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1) rotate($gif_btn_paused_rotation);
+    transition: transform $gif_btn_transition_duration, opacity $gif_btn_transition_duration;
+
+    &:hover {
+      background-color: $gif_btn_bg_color_hover;
+      box-shadow: 0 0 0 3px $gif_btn_box_shadow_color_hover;
+    }
+
+    &::after {
+      content: $gif_btn_text_content;
+    }
+  }
+
+  &.playing .play_button {
+    transform: translate(-50%, -50%) scale(0) rotate($gif_btn_playing_rotation);
+    opacity: $gif_btn_playing_opacity;
+  }
+
+  img {
+    max-width: 100%;
+  }
 }
