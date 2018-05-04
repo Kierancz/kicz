@@ -1,13 +1,27 @@
-import React, { Component, PropTypes } from "react"
-import Helmet from "react-helmet"
-import Banner from "../../components/Banner"
-import Project from "../../components/Project"
-import {Row} from "react-bootstrap/lib"
-import styles from "./index.scss"
-import Footer from "../../components/Footer"
-import BackToTop from "../../components/BackToTop"
+import React, { Component, PropTypes } from "react";
+import Helmet from "react-helmet";
+import Banner from "../../components/Banner";
+import Project from "../../components/Project";
+import { Row } from "react-bootstrap/lib";
+import styles from "./index.scss";
+import Footer from "../../components/Footer";
+import BackToTop from "../../components/BackToTop";
 
-import bannerImg from "./code.jpg"
+import bannerImg from "./code.jpg";
+
+import {
+  varTools,
+  chatTools,
+  zayoTools,
+  epokTools,
+  bsTools,
+  modGaitTools,
+  portTools,
+  curTools,
+  tagTools,
+  nasaTools,
+  nuthreadTools
+} from './tools';
 
 export default class Projects extends Component {
   static contextTypes = {
@@ -16,250 +30,17 @@ export default class Projects extends Component {
   }
 
   render() {
-
     const {
       pkg,
-    } = this.context.metadata
+    } = this.context.metadata;
 
-    const title = "Projects"
+    const title = "Projects";
 
     const meta = [
       { property: "og:type", content: "article" },
       { property: "og:title", content: title },
       { property: "og:url", content: pkg.projects },
-    ]
-
-    const react = {
-      id: 1,
-      name: 'ReactJS',
-      icon: 'assets/icons/react.svg',
-      link: 'https://facebook.github.io/react/'
-    };
-    const materialize = {
-      id: 2,
-      name: 'Materialize',
-      icon: '',
-      link: 'http://materializecss.com/'
-    };
-    const bootstrap = {
-      id: 3,
-      name: 'Bootstrap',
-      icon: '',
-      link: ''
-    };
-    const firebase = {
-      id: 5,
-      name: 'Firebase',
-      icon: '',
-      link: 'https://firebase.google.com/'
-    };
-    const overpassTurbo = {
-      id: 6,
-      name: 'Overpass Turbo',
-      icon: '',
-      link: 'https://overpass-turbo.eu/'
-    };
-    const webpack = {
-      id: 7,
-      name: 'Webpack',
-      icon: '',
-      link: 'https://webpack.github.io/'
-    };
-    const CSS3 = {
-      id: 8,
-      name: 'CSS3',
-      icon: 'assets/icons/reactBoostrap.png',
-      link: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3'
-    };
-    const leaflet = {
-      id: 9,
-      name: 'Leaflet',
-      icon: '',
-      link: 'http://leafletjs.com/'
-    };
-    const leather = {
-      id: 10,
-      name: 'Full-Grain Leather',
-      icon: '',
-      link: ''
-    };
-    const wool = {
-      id: 11,
-      name: '100% Merino Wool Felt',
-      icon: '',
-      link: ''
-    };
-    const elastic = {
-      id: 12,
-      name: 'Rubber-backed Elastic ',
-      icon: '',
-      link: ''
-    };
-    const mFiber = {
-      id: 13,
-      name: 'Toray Micro Fiber',
-      icon: '',
-      link: ''
-    };
-    const RoR = {
-      id: 14,
-      name: 'Ruby on Rails',
-      icon: '',
-      link: ''
-    };
-    const heroku = {
-      id: 15,
-      name: 'Heroku',
-      icon: '',
-      link: ''
-    };
-    const arduino = {
-      id: 16,
-      name: 'Arduino',
-      icon: '',
-      link: ''
-    };
-    const gyro = {
-      id: 17,
-      name: 'Accelerometer/Gyroscrope Module',
-      icon: '',
-      link: ''
-    };
-    const SDM = {
-      id: 18,
-      name: '3D Printing',
-      icon: '',
-      link: ''
-    };
-    const CAD = {
-      id: 19,
-      name: 'AutoCAD',
-      icon: '',
-      link: ''
-    };
-    const IL = {
-      id: 20,
-      name: 'Adobe Illustrator',
-      icon: '',
-      link: ''
-    }
-    const PS = {
-      id: 21,
-      name: 'Adobe Photoshop',
-      icon: '',
-      link: ''
-    }
-    const SASS = {
-      id: 22,
-      name: 'SASS',
-      icon: '',
-      link: 'http://sass-lang.com/'
-    }
-    const phenomic = {
-      id: 23,
-      name: 'Phenomic',
-      icon: '',
-      link: 'https://phenomic.io/'
-    }
-    const sqlite = {
-      id: 24,
-      name: 'SQLite',
-      icon: '',
-      link: 'https://www.sqlite.org/'
-    }
-    const javascript = {
-      id: 25,
-      name: 'JavaScript',
-      icon: '',
-      link: ''
-    }
-    const craftml = {
-      id: 26,
-      name: 'Craft ML',
-      icon: '',
-      link: 'https://craftml.io/collections'
-    }
-    const html = {
-      id: 27,
-      name: 'HTML5',
-      icon: '',
-      link: ''
-    }
-    const nodejs = {
-      id: 28,
-      name: 'NodeJS',
-      icon: '',
-      link: 'https://nodejs.org/'
-    }
-    const various = {
-      id: 29,
-      name: 'Various'
-    }
-    const aws = {
-      id: 30,
-      name: 'AWS EC2',
-      icon: '',
-      link: 'https://aws.amazon.com/ec2/'
-    }
-    const nasa = {
-      id: 31,
-      name: 'NASA Image & Video Library',
-      icon: '',
-      link: 'https://images.nasa.gov/#/'
-    }
-    const twit = {
-      id: 32,
-      name: 'Twit',
-      icon: '',
-      link: 'https://github.com/ttezel/twit'
-    }
-    const jquery = {
-      id: 33,
-      name: 'jQuery',
-      icon: '',
-      link: 'https://jquery.com/'
-    }
-    const redux = {
-      id: 34,
-      name: 'Redux',
-      icon: '',
-      link: 'https://redux.js.org/'
-    }
-    const reduxSaga = {
-      id: 35,
-      name: 'Redux Saga',
-      icon: '',
-      link: 'https://redux-saga.js.org/'
-    }
-    const styledComp = {
-      id: 36,
-      name: 'Styled Components',
-      icon: '',
-      link: 'https://www.styled-components.com/'
-    }
-    const reactRouter = {
-      id: 37,
-      name: 'React Router',
-      icon: '',
-      link: 'https://reacttraining.com/react-router/web/guides/philosophy'
-    }
-    const express = {
-      id: 38,
-      name: 'Express',
-      icon: '',
-      link: 'https://expressjs.com/'
-    }
-
-    let chatTools=[react, firebase, nodejs, heroku, materialize, CSS3]
-    let zayoTools=[react, leaflet, overpassTurbo, webpack, materialize, CSS3, PS]
-    let epokTools=[wool, leather, elastic, mFiber, IL, PS]
-    let bsTools=[RoR, html, bootstrap, heroku, sqlite, CSS3, jquery]
-    let modGaitTools=[arduino, gyro, SDM, CAD]
-    let portTools=[react, phenomic, SASS, bootstrap, webpack, IL]
-    let curTools = [RoR, bootstrap, heroku, sqlite, html, CSS3]
-    let tagTools = [craftml, javascript]
-    let nasaTools = [nodejs, twit, nasa, aws, PS]
-    let nuthreadTools = [react, redux, reduxSaga, styledComp, reactRouter, express, nodejs]
+    ];
 
     return (
       <div>
@@ -275,8 +56,8 @@ export default class Projects extends Component {
           <div className={ styles.projects }>
             <Row>
             <Project
-              imgUrl="assets/projects/nuthread.gif"
-              imgStill="assets/projects/nuthread.jpg"
+              imgUrl="assets/projects/nu-thread.gif"
+              imgStill="assets/projects/nu-thread.jpg"
               title="nu-thread (Developing)"
               description="A web app to help find only the highest quality used
               clothes that actually fit. Saving users time and money. Proceeds
@@ -300,8 +81,7 @@ export default class Projects extends Component {
               demoUrl="https://twitter.com/NasaTimeMachine"
               codeUrl="https://github.com/Kierancz/nasa-bot" />
             <Project
-              imgUrl="assets/projects/kicz.gif"
-              imgStill="assets/projects/kicz.jpg"
+              imgUrl="assets/projects/kicz.jpg"
               title="Portfolio and Blog"
               description="A personal site developed with React
               and Phenomic. It was created as a way to record
@@ -436,7 +216,7 @@ export default class Projects extends Component {
               scientific simulations, prototype apps, websites, electronics, woodworking,
               mockups, and wireframes. They were instrumental steps in developing
               my philosophies of design and I learned valuable skills from all of them."
-              tools={ [various] } />
+              tools={ varTools } />
             </Row>
 
             <BackToTop/>

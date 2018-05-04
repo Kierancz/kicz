@@ -53,13 +53,13 @@ const Page = (
         title={ metaTitle }
         meta={ meta }
       />
-      <Banner 
-        imgUrl={ bannerImg } 
-        h1={ metaTitle } 
+      <Banner
+        imgUrl={ bannerImg }
+        h1={ metaTitle }
         h2={ head.description }
       />
       <section>
-        <Col xs={12} md={8} mdOffset={2}>
+        <Col xs={12} md={6} mdOffset={3}>
           <div className={ styles.body }>
             {
               isLoading

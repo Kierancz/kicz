@@ -5,13 +5,13 @@ date: 2017-05-23
 layout: Post
 ---
 
-# The tutorial I wish I had when starting my Angular app
+# The complete guide to AngularFire OAuth
 
-In the never ending quest to keep up with the rapidly evolving JS framework brawl, I've been learning Google's Angular, one of the most popular and powerful frameworks on the market. One of the first things one needs to think about when starting any web app of complexity is how to add secure user accounts for users to act through. After lots of searching and finding little but outdated tutorials and spotty documentation, I've compiled all the knowledge I've gained about how to create an extremely user friendly, secure, and simple authentication service (the Google way) using the latest versions of Angular, AngularFire2, and Material2. What took me a couple days of work should now take no more than an hour!
+In the never ending quest to keep up with the rapidly evolving JS framework brawl, I've been learning Google's Angular, one of the most popular and powerful frameworks in the JavaScript world. One of the first things one needs to think about when starting any complex web app is how to add secure user accounts for users to act through. After lots of searching and finding little but outdated tutorials and spotty documentation, I've compiled all the knowledge I've gained about how to create an extremely user friendly, secure, and simple authentication service (the Google way) using the latest versions of Angular, AngularFire2, and Material2. What took me a couple days of work should now take no more than an hour!
 
 So why use AngularFire OAuth instead of creating your own authentication using something like [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) (JSON Web Tokens)? First of all, unless you're a seasoned cyber security specialist, it's generally considered the most secure approach to not try to roll your own authentication system. The exception being if you're just making a fun side project for the sake of learning that will never handle real production loads. Using authentication services such as OAuth leaves critical security implementation up to the experts and allows you to focus on other major features of your app. Enabling common OAuth providers such as Google, Facebook, and Twitter also creates a lower barrier to entry and better user experience because users don't need to worry about signing up for a whole new service and verifying their email. They may not even need to enter password credentials if they're already logged into their chosen service.
 
-There's a number of other great benefits to using Firebase for not only your app's authentication but as your entire backend service and I'd highly suggest you read [this](http://blog.angular-university.io/angular-2-firebase/) great article about how Angular and Firebase are changing the web dev world.
+There's a number of other great benefits to using Firebase for not only your app's authentication but as your entire backend service and I'd highly suggest you read [this great aticle](http://blog.angular-university.io/angular-2-firebase/) about how Angular and Firebase are changing the web dev world.
 
 # Step 1: Create Firebase App and Activate OAuth Providers
 ### Create a Firebase Account and App
@@ -32,11 +32,11 @@ Now we're ready to start configuring Firebase in our app. Navigate to your app's
 #### config.ts
 ```ts
 export const firebaseConfig = {
-  apiKey: '<your-key>',
-  authDomain: '<your-app-name>.firebaseapp.com',
-  databaseURL: 'https://<your-app-name>.firebaseio.com',
-  storageBucket: '<your-app-name>.appspot.com',
-  messagingSenderId: '<your-messaging-sender-id>'
+  apiKey: 'your-key',
+  authDomain: 'your-app-name.firebaseapp.com',
+  databaseURL: 'https://your-app-name.firebaseio.com',
+  storageBucket: 'your-app-name.appspot.com',
+  messagingSenderId: 'your-messaging-sender-id'
 };
 ```
 We could have put this config object directly in our app.module.ts file but then we wouldn't be able to exclude its very sensitive details from being commited if using Github. This file becomes a handy little 'secret' repository for any variables we wish to keep from prying eyes.

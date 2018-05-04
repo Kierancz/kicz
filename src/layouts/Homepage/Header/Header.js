@@ -18,7 +18,7 @@ class HomepageHeader extends Component {
             I love building cool things. These days I work mostly in JavaScript
             writing highly reusable, functional, and efficient code. I'm
             constantly learning and working to create the most intuitive and
-            accessible user interfaces on any platform.
+            accessible experiences on any platform.
           </p>
           <ButtonToolbar className={ styles.center }>
           <Link to="/about.html"
