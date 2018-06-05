@@ -1,11 +1,9 @@
 import React, { Component, PropTypes } from "react"
 import { Col } from "react-bootstrap/lib"
-//import SVGInline from "react-svg-inline"
 import { Tooltip, OverlayTrigger } from "react-bootstrap"
 import styles from "./index.scss"
 import GifPlayer from "react-gif-player"
-import { MdCode, MdLaunch }
-  from "react-icons/lib/md"
+import { MdCode, MdLaunch } from "react-icons/lib/md"
 
 
 export default class Project extends Component {
@@ -67,7 +65,9 @@ export default class Project extends Component {
 
     let img =
       imgStill?
-        <GifPlayer gif={imgUrl} still={imgStill} className={ styles.imgLeft }/>
+        <div className={ styles.gifWrapper }>
+          <GifPlayer gif={imgUrl} still={imgStill} className={ styles.imgLeft }/>
+        </div>
         :
         <img
           className={ styles.imgLeft }
@@ -81,8 +81,8 @@ export default class Project extends Component {
         </Col>
         <Col xs={12} md={4} className={ styles.textContainer }>
           <div className={ styles.title }>
-            <div className='btn-toolbar pull-right'>
-              <div className='btn-group'>
+            <div className="btn-toolbar pull-right">
+              <div className="btn-group">
                 { dURL }{ cURL }
               </div>
             </div>

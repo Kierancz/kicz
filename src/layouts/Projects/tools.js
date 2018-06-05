@@ -108,13 +108,13 @@ const CAD = {
 };
 const IL = {
   id: 20,
-  name: 'Adobe Illustrator',
+  name: 'Illustrator',
   icon: '',
   link: ''
 }
 const PS = {
   id: 21,
-  name: 'Adobe Photoshop',
+  name: 'Photoshop',
   icon: '',
   link: ''
 }
@@ -156,7 +156,7 @@ const html = {
 }
 const nodejs = {
   id: 28,
-  name: 'NodeJS',
+  name: 'Node.js',
   icon: '',
   link: 'https://nodejs.org/'
 }
@@ -230,6 +230,24 @@ const rSpec = {
   icon: '',
   link: 'http://rspec.info/'
 }
+const enzyme = {
+  id: 41,
+  name: 'Enzyme',
+  icon: '',
+  link: 'http://airbnb.io/enzyme/'
+}
+const postCss = {
+  id: 42,
+  name: 'PostCSS',
+  icon: '',
+  link: 'https://postcss.org/'
+}
+const cssMod = {
+  id: 43,
+  name: 'CSS Modules',
+  icon: '',
+  link: 'https://github.com/css-modules/css-modules'
+}
 
 export const varTools = [various];
 export const chatTools = [react, firebase, nodejs, heroku, materialize, CSS3]
@@ -237,8 +255,8 @@ export const zayoTools = [react, leaflet, overpassTurbo, webpack, materialize, C
 export const epokTools = [wool, leather, elastic, mFiber, IL, PS]
 export const bsTools = [RoR, html, bootstrap, heroku, sqlite, CSS3, rSpec]
 export const modGaitTools = [arduino, gyro, SDM, CAD]
-export const portTools = [react, phenomic, SASS, bootstrap, webpack, IL]
+export const portTools = [react, phenomic, SASS, bootstrap, webpack, cssMod, postCss, IL]
 export const curTools = [RoR, bootstrap, heroku, sqlite, html, CSS3, jquery]
 export const tagTools = [craftml, javascript]
 export const nasaTools = [nodejs, twit, nasa, aws, PS]
-export const nuthreadTools = [react, redux, reduxSaga, styledComp, reactRouter, express, nodejs, jest]
+export const nuthreadTools = [react, redux, reduxSaga, styledComp, reactRouter, express, nodejs, enzyme, jest]

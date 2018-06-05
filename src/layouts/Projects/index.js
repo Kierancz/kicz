@@ -54,6 +54,10 @@ export default class Projects extends Component {
           h2="A collection of personal creative works"
         />
           <div className={ styles.projects }>
+            <h4 className={ styles.request }> 
+              Professional works upon 
+              <a className="slide" href="mailto:info@kicz.me?subject=Requesting professional sample&body=Hi, I'm interested in your professional work. May I see a sample?"> request</a>
+            </h4>
             <Row>
             <Project
               imgUrl="assets/projects/nu-thread.gif"

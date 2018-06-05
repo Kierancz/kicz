@@ -1,17 +1,13 @@
-import React, { Component } from "react"
-//import { Link } from "react-router"
-
+import React from "react"
 import Social from "../Social"
 import styles from "./index.scss"
 
-export default class Footer extends Component {
-
-  render() {
-    return (
-      <footer className={ styles.footer }>
-        <Social size={20}/>
-        { " © 2017 Kieran Czerwinski" }
-      </footer>
-    )
-  }
+const Footer = () => {
+  return(
+    <footer className={ styles.footer }>
+      <Social size={20}/>
+      { " © 2017 Kieran Czerwinski" }
+    </footer>);
 }
+
+export default Footer;
