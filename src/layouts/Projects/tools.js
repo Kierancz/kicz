@@ -124,12 +124,6 @@ const SASS = {
   icon: '',
   link: 'http://sass-lang.com/'
 }
-const phenomic = {
-  id: 23,
-  name: 'Phenomic',
-  icon: '',
-  link: 'https://phenomic.io/'
-}
 const sqlite = {
   id: 24,
   name: 'SQLite',
@@ -255,7 +249,7 @@ export const zayoTools = [react, leaflet, overpassTurbo, webpack, materialize, C
 export const epokTools = [wool, leather, elastic, mFiber, IL, PS]
 export const bsTools = [RoR, html, bootstrap, heroku, sqlite, CSS3, rSpec]
 export const modGaitTools = [arduino, gyro, SDM, CAD]
-export const portTools = [react, phenomic, SASS, bootstrap, webpack, cssMod, postCss, IL]
+export const portTools = [react, SASS, bootstrap, webpack, cssMod, postCss, IL]
 export const curTools = [RoR, bootstrap, heroku, sqlite, html, CSS3, jquery]
 export const tagTools = [craftml, javascript]
 export const nasaTools = [nodejs, twit, nasa, aws, PS]

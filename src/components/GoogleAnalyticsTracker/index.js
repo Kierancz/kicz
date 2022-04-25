@@ -24,6 +24,7 @@ export default class GoogleAnalyticsTracker extends Component {
         ga("create", pkg.googleAnalyticsUA, "auto")
       }
       else {
+        // eslint-disable-next-line no-console
         console.info("ga.create", pkg.googleAnalyticsUA)
       }
       this.logPageview()
@@ -43,6 +44,7 @@ export default class GoogleAnalyticsTracker extends Component {
         ga("send", "pageview")
       }
       else {
+        // eslint-disable-next-line no-console
         console.info("New pageview", window.location.href)
       }
     }

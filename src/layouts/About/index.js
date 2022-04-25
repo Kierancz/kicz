@@ -11,9 +11,7 @@ import {
   Col,
   Tooltip,
   OverlayTrigger } from "react-bootstrap"
-import {  } from "react-bootstrap"
-import { MdEmail, MdPhoneIphone, MdBuild }
-  from "react-icons/lib/md"
+import { MdEmail, MdBuild } from "react-icons/lib/md"
 
 
 export default class About extends Component {
@@ -38,9 +36,6 @@ export default class About extends Component {
     const emailTooltip = (
       <Tooltip id="tooltip">Shoot me an email!</Tooltip>
     )
-    const phoneTooltip = (
-      <Tooltip id="tooltip">+1 (707) 499 - 9913</Tooltip>
-    )
 
     const email = (
       <OverlayTrigger placement="top" overlay={emailTooltip}>
@@ -49,18 +44,6 @@ export default class About extends Component {
             <MdEmail
             className="icon"
             size={ iconSize }/>
-          </a>
-        </div>
-      </OverlayTrigger>
-    )
-
-    const phone = (
-      <OverlayTrigger placement="top" overlay={phoneTooltip}>
-        <div className="round-btn">
-          <a href="tel:+17074999913">
-            <MdPhoneIphone
-              className="icon"
-              size={ iconSize }/>
           </a>
         </div>
       </OverlayTrigger>
@@ -90,29 +73,29 @@ export default class About extends Component {
               <div className={ styles.para }>
               <div className='btn-toolbar pull-right'>
                 <div className='btn-group'>
-                  { email }{ phone }
+                  { email }
                 </div>
               </div>
 
               <h1>Kieran Czerwinski</h1>
               <div className="gradHead"/>
               <p>I’m a resourceful ape from the redwoods of northern California
-              with a Bachelor’s degree in Computer Science, Minor in Philosophy,
+              with a bachelor’s degree in computer science, minor in philosophy,
               seven years of programming experience, and five years experience working
-              independently and in collaborative teams developing quality web apps
+              independently and in collaborative teams developing quality apps
               with beautiful, responsive, and intuitive interfaces.
               </p>
               <p>
               I’ve always had a deep love for the process of building things.
               It tests my philosophies of design and allows me to practice
-              my favorite skills; creativity, empathy, and logic to solve challenging
+              my favorite skills - creativity, empathy, and logic to solve challenging
               problems, communicate effectively, and prioritize concerns under
               real-world constraints and tradeoffs. However, I believe true
               wisdom comes not merely from building, but objectively evaluating
               and learning from the resulting success and failures. It’s a
               beautifully cyclical, humbling, and rewarding process that I
               think is crucial not only to designing and building successful products, but
-              to developing an efficient, virtuous, and fullfilling life in general.
+              to developing an efficient, virtuous, and fulfilling life in general.
               </p>
               <p>
               The web has played a huge role in this personal development. It allowed
