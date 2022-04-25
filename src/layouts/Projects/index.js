@@ -62,12 +62,10 @@ export default class Projects extends Component {
             <Project
               imgUrl="assets/projects/nu-thread.gif"
               imgStill="assets/projects/nu-thread.jpg"
-              title="nu-thread (Developing)"
+              title="nu-thread"
               description="A web app to help find only the highest quality used
-              clothes that actually fit. Saving users time and money. Proceeds
-              from eBay referrals go toward neutralizing the lifecyle carbon
-              emissions of the clothing and eco-friendly investments. This project
-              is under continuous development as a method for learning Redux
+              clothes that actually fit. Saving users time and money. This project
+              was developed as a method for learning Redux
               state management and other advanced libraries."
               tools={ nuthreadTools }
               demoUrl="https://nu-thread.com"
@@ -87,15 +85,10 @@ export default class Projects extends Component {
             <Project
               imgUrl="assets/projects/kicz.jpg"
               title="Portfolio and Blog"
-              description="A personal site developed with React
-              and Phenomic. It was created as a way to record
-              some of my work as I grow through my projects. I
-              hope that by documenting my success and failures
-              it reinforces what I've learned and clarifies
-              my thinking through writing. It taught me more about
+              description="A personal site developed with React, it taught me about
               CSS and SVG animation, cross-browser compatibility, gradients, scaling, filters,
-              image compression, SASS usage, Webpack congfiguration, and gave me
-              more pracitce building React components and creating
+              image compression, SASS usage, Webpack configuration, and gave me
+              more practice building React components and creating
               scroll effects using React. "
               tools={ portTools }
               demoUrl="http://kicz.me"
@@ -105,15 +98,11 @@ export default class Projects extends Component {
               imgStill="assets/projects/zayoFiber.jpg"
               title="Zayo Fiber Pricing"
               description="Provides price estimates for laying
-              down new fiber optic connections. I led the front-end development in ReactJS,
-              including parsing and filtering JSON from the OverpassTurbo API to create the itemized
-              list of potential hazards to fiber construction. This
-              stand-out feature was highly praised by the panel of Zayo
-              judges and resulted in our three person team winning first place out of nine teams.
-              I used philosophies from UCD to guide the overall visual design using CSS, regular expressions,
-              and used knowledge of asynchronous JavaScript & map APIs to ensure the responsive
-              feedback during loading states and map interaction. I also refactored back-end code to
-              improve readability and efficiency. "
+              down new fiber optic connections. I used data from the overpass-turbo API about
+              hazards in the area to inform price calculations. Our three person team won first place out of nine teams.
+              I used philosophies from user centered design to guide the UI/UX and used knowledge of 
+              asynchronous JavaScript & map APIs to ensure the responsive
+              feedback during loading states and map interaction."
               tools={ zayoTools }
               codeUrl="https://github.com/Kierancz/fiber"
               demoUrl="http://kierancz.github.io/fiber/" />
@@ -125,7 +114,7 @@ export default class Projects extends Component {
               with a state machine to switch between chat,
               admin, and user views. It features typing detection,
               media attachments, up/down voting, and more. It was made from scratch in just a couple weeks
-              and I helped develop fullstack features including chatroom creation,
+              and I helped develop features including chatroom creation,
               automatic media attachments (YouTube, Vimeo, JPGs, etc), user profiles, user simulation features using Node, and
               I designed the general look and feel using CSS and material design."
               tools={ chatTools }
@@ -141,12 +130,12 @@ export default class Projects extends Component {
               CSS, and JavaScript. It's a great tool for those who
               already know web development and want to quickly create
               customizable 3D models which will be the future of
-              3D printing. "
+              3D printing."
               tools={ tagTools }
               demoUrl="https://craftml.io/i7PNJ" />
             <Project
               imgUrl="assets/projects/mod.jpg"
-              title="Wearable Computing and Parkinsons FOG Assistant"
+              title="Wearable Computing and Parkinson's FOG Assistant"
               description="A wearable computing power system
               that snaps together magnetically. Power modules contain
               LiPo batteries and protection circuits, a charging module
@@ -169,13 +158,13 @@ export default class Projects extends Component {
               imgStill="assets/projects/curesource.jpg"
               title="CUresource "
               description="CUresource is a resource
-              map for CU-Boulder students to easily and convieniently
+              map for CU-Boulder students to easily and conveniently
               find course and department info, contacts, and helpful
               content. You can save your current classes and departments
               as well as your favorite posts with helpful material. I
               created it from scratch to satisfy the project requirements
               of my Technical Communication and
-              Design writing course. It helped me solidfy my understanding
+              Design writing course. It helped me solidify my understanding
               of Rails and gave me more experience with front-end design
               and polymorphic controllers as well as producing concise and
               clear documentation of the design features and areas for future
@@ -205,7 +194,7 @@ export default class Projects extends Component {
               description="Inspired by my first smart phone,
               I learned how to sew and made a protective sleeve
               with expandable storage that can hang or clip to your
-              belt or pocket so it stays consealed yet easily accessible.
+              belt or pocket so it stays concealed yet easily accessible.
               I embarked on this project with little knowledge of
               product design and through it I learned how crucial
               iterative processes, user testing, and simplicity are to

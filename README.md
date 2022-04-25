@@ -1,4 +1,4 @@
-This is a portfolio and blog developed by and for me, Kieran Czerwinski using Phemnomic, React, and lots of SASS. If for some strange reason you want to steal my code and run it yourself, you can use the following instructions:
+This is a portfolio and blog developed using React, and lots of SASS. Instructions for running it are as follows:
 
 
 ## Install dependencies
