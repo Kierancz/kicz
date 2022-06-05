@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[port]]></title><description><![CDATA[port]]></description><link>http://kicz.me</link><generator>RSS for Node</generator><lastBuildDate>Sun, 05 Jun 2022 02:19:13 GMT</lastBuildDate><atom:link href="http://kicz.me/feed.xml" rel="self" type="application/rss+xml"/><item><title><![CDATA[Wearable Computing and Parkinson's FOG Assistant]]></title><description><![CDATA[<p><img src="https://cdn.instructables.com/FUK/CTU1/I9CLX032/FUKCTU1I9CLX032.MEDIUM.jpg" alt="power modules"></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Pmr8eylvb8s?rel=0" frameborder="0" allowfullscreen></iframe>
+<p>Update: This was a short project I undertook, which lasted just over a month. There's a lot I would change, from the design of the battery modules (switching to higher energy density 18650 LiMnCo cells) to improvements of the code. This tutorial is still relevant as a reference for what's possible through rapid prototyping and as a starting point for anyone working on wearables or gait analysis.</p>
+<p>Many useful applications for the cheap processing power and sensors we have today are limited by the short duration of use provided by our batteries. To solve this, slim LiPo battery modules were made that attach to a user’s belt with a simple clip on the back. Each module contains a LiPo cell, LiPo protection circuit (PCM), and magnetic power terminals to allow them to be easily snapped into chains to provide more power. These power modules are linked in parallel to a control module that contains a step-up regulator with integrated USB to allow it to charge a phone or other devices, power terminals for powering loads with non-standard connections, and an internal LiPo charger with micro-USB connection for convenient charging individually or as a chain.</p>
+<p>As a demonstration of the possibilities these modules open up, we decided to focus on creating a wearable device that enables people diagnosed with Parkinson’s disease (PD) to escape Freeze of Gait (FOG) moments and improve their mobility and independence. To do this, a gyroscope constantly monitors a patient’s motion to identify an incidence of slowed or frozen gait. In the case of a freeze, a laser diode with a line projection lens shines a laser-line in front of a user so that they have a visual cue to step forward, replacing the cueing function of a PD patient’s impaired Basal ganglia. Similar techniques have successfully been used to reduce FoG moments and improve walking velocity.</p>
+<h1 id="step-1-materials-and-tools"><a href="#step-1-materials-and-tools" class="phenomic-HeadingAnchor">#</a>Step 1: Materials and Tools</h1>
+<h3 id="power-module-parts"><a href="#power-module-parts" class="phenomic-HeadingAnchor">#</a>Power Module Parts:</h3>
+<ul>
+<li>10x10x2mm Magnets</li>
+</ul>
+<p>These strong neodymium magnets were used to allow the modules to easily snap together in parallel.</p>
+<ul>
+<li>3.7v LiPo Battery Packs</li>
+</ul>
+<p>We used these 4S LiPo packs from Turnigy because they were the right dimensions for the job, cost-effective per cell, high performance, and can be easy broken apart into four 3.7v cells with 850mah each.</p>
+<ul>
+<li>5V Boost Switching Linear Regulator w/ USB</li>
+</ul>
+<p>1A output Boosting DC-DC converter from ebay to boost up the batteries from an average voltage of 3.7V to 5V to drive the Arduino or charge a phone.</p>
+<ul>
+<li>LiPo Charger</li>
+</ul>
+<p>These LiPo chargers are perfect for conveniently charging the 3.7v cells with up to 1A current from supported USB ports.</p>
+<ul>
+<li>LiPo PCMs</li>
+</ul>
+<p>Pretty much any PCM designed for 3.7v LiPos will work, but you want to make sure that they have over-charge (OC), over-discharge (OD), and short circuit (SC) protection. We used these modules from ebay.</p>
+<ul>
+<li>Copper tape for wiring to magnets</li>
+</ul>
+<p>These were found locally from a hardware store with a diverse inventory called McGuckins. Unfortunately Home Depot does not carry the right kind of copper tape.</p>
+<ul>
+<li>Adhesive</li>
+</ul>
+<p>Gorilla glue epoxy is pretty great.</p>
+<ul>
+<li>Screws 3.6mm Length x 2.2mm Diameter</li>
+</ul>
+<p>We also found these locally, unfortunately Home Depot is unlikely to carry screws this small.</p>
+<h3 id="gait-module-parts"><a href="#gait-module-parts" class="phenomic-HeadingAnchor">#</a>Gait Module Parts:</h3>
+<p>Minimum parts:</p>
+<ul>
+<li>Arduino Pro Mini/Micro</li>
+</ul>
+<p>We used an Arduino Pro Micro from Sparkfun.</p>
+<ul>
+<li>
+<p>Accelerometer/Gyroscope MPU 6050</p>
+</li>
+<li>
+<p>Laser diode with a lens that projects a line</p>
+</li>
+</ul>
+<p>These laser diodes with a lens to focus the beam into a line were also found on ebay.</p>
+<ul>
+<li>A mini-breadboard for easy connections to the Arduino.</li>
+</ul>
+<p>We found 5 of these little cuties on eBay.</p>
+<h3 id="belt-or-waist-attachment-parts"><a href="#belt-or-waist-attachment-parts" class="phenomic-HeadingAnchor">#</a>Belt or Waist attachment Parts:</h3>
+<ul>
+<li>These modules can use either an elastic or adjustable strap as well as metal clips so that they can be attached to the waist without a belt. We used these bail making pliers to bend 3003 aluminum strips into clips for the modules.</li>
+</ul>
+<h3 id="parts-for-improvements"><a href="#parts-for-improvements" class="phenomic-HeadingAnchor">#</a>Parts for improvements:</h3>
+<ul>
+<li>
+<p>Through-hole potentiometer for gait-detection sensitivity adjustment.</p>
+</li>
+<li>
+<p>Through-hole RGB LED for feedback.</p>
+</li>
+<li>
+<p>Buzzer motor or solenoid for haptic feedback and gait-pace setting.</p>
+</li>
+</ul>
+<h3 id="other-tools"><a href="#other-tools" class="phenomic-HeadingAnchor">#</a>Other Tools:</h3>
+<ul>
+<li>
+<p>Multimeter for testing</p>
+</li>
+<li>
+<p>Soldering iron and helping hands (clips for holding parts)</p>
+</li>
+<li>
+<p>Small phillips screw driver</p>
+</li>
+<li>
+<p>Millimeter precision measuring calipers were very useful for this project, but not necessary if you plan to use all of our designs and parts.</p>
+</li>
+</ul>
+<p><img src="https://cdn.instructables.com/FE7/87VN/I96W83CS/FE787VNI96W83CS.MEDIUM.jpg?width=614" alt="circuit diagram"></p>
+<p><img src="https://cdn.instructables.com/F5R/I8A3/I96W8E89/F5RI8A3I96W8E89.MEDIUM.jpg" alt="visual circuit connections"></p>
+<h1 id="step-2-build-breadboard-circuit"><a href="#step-2-build-breadboard-circuit" class="phenomic-HeadingAnchor">#</a>Step 2: Build Breadboard Circuit</h1>
+<p>This schematic shows how to connect the MPU 6050 gyroscope + accelerometer, the laser diode with focus line, and the Arduino pro mini. If you are using a different micro-controller, check which pins your board uses for the I2C pins; they can vary significantly between Arduino models.</p>
+<p><img src="https://cdn.instructables.com/F2N/EH5G/I9EP24V0/F2NEH5GI9EP24V0.MEDIUM.jpg?width=614" alt="Roll pitch and yaw diagram"></p>
+<h1 id="step-3-understanding-the-gyroscope"><a href="#step-3-understanding-the-gyroscope" class="phenomic-HeadingAnchor">#</a>Step 3: Understanding the Gyroscope</h1>
+<p>We began by downloading a preexisting library for the MPU 6050(gyroscope/potentiometer). We downloaded the library called MPU6050_DMP6 found on the following tutorial:</p>
+<p><a href="http://diyhacking.com/arduino-mpu-6050-imu-sensor-..">http://diyhacking.com/arduino-mpu-6050-imu-sensor-..</a>.</p>
+<p>This tutorial helped us to understand how our potentiometer and gyroscope picked up data. Through the serial port, we learned the data values for yaw, pitch and roll.</p>
+<p>For us, understanding how the movements of the body relate to yaw, pitch, and roll values and how to interpret those values were the biggest challenges. To better visualize yaw, pitch, and roll, we've attached a useful diagram above.</p>
+<h1 id="step-4-arduino-code"><a href="#step-4-arduino-code" class="phenomic-HeadingAnchor">#</a>Step 4: Arduino Code</h1>
+<p>As mentioned earlier, our first step was to understand the yaw, pitch, and roll values from the gyroscope/accelerometer. We observed that the yaw values from the gyroscope were the biggest identifier of a walking gait. We created a custom algorithm that counted the deviations from the computed average yaw value to the left and right as they occurred when taking a step with right and left legs respectively. When the L and R count values were near a 1/1 ratio of the average we determined that walking had occurred. We then wrote more logic to detect when walking stopped after previous walking had been detected and then fired the laser (an LED while testing). Not the most accurate method, but it worked pretty well for the most part and was a simple routine that performed well on an arduino mini.</p>
+<pre><code class="hljs language-Arduino"><span class="hljs-comment">// I2Cdev and MPU6050 must be installed as libraries, or else the .cpp/.h files</span>
+<span class="hljs-comment">// for both classes must be in the include path of your project</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"I2Cdev.h"</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"MPU6050_6Axis_MotionApps20.h"</span></span>
+<span class="hljs-comment">//#include "MPU6050.h" // not necessary if using MotionApps include file</span>
+
+<span class="hljs-comment">// Arduino Wire library is required if I2Cdev I2CDEV_ARDUINO_WIRE implementation</span>
+<span class="hljs-comment">// is used in I2Cdev.h</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE</span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"Wire.h"</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+<span class="hljs-comment">// class default I2C address is 0x68</span>
+<span class="hljs-comment">// specific I2C addresses may be passed as a parameter here</span>
+<span class="hljs-comment">// AD0 low = 0x68 (default for SparkFun breakout and InvenSense evaluation board)</span>
+<span class="hljs-comment">// AD0 high = 0x69</span>
+MPU6050 mpu;
+
+
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LED_PIN 13 <span class="hljs-comment">// (Arduino is 13, Teensy is 11, Teensy++ is 6)</span></span>
+<span class="hljs-keyword">bool</span> blinkState = false;
+
+<span class="hljs-comment">// MPU control/status vars</span>
+<span class="hljs-keyword">bool</span> dmpReady = false;  <span class="hljs-comment">// set true if DMP init was successful</span>
+uint8_t mpuIntStatus;   <span class="hljs-comment">// holds actual interrupt status byte from MPU</span>
+uint8_t devStatus;      <span class="hljs-comment">// return status after each device operation (0 = success, !0 = error)</span>
+uint16_t packetSize;    <span class="hljs-comment">// expected DMP packet size (default is 42 bytes)</span>
+uint16_t fifoCount;     <span class="hljs-comment">// count of all bytes currently in FIFO</span>
+uint8_t fifoBuffer[<span class="hljs-number">64</span>]; <span class="hljs-comment">// FIFO storage buffer</span>
+
+<span class="hljs-comment">// orientation/motion vars</span>
+Quaternion q;           <span class="hljs-comment">// [w, x, y, z]         quaternion container</span>
+VectorInt16 aa;         <span class="hljs-comment">// [x, y, z]            accel sensor measurements</span>
+VectorInt16 aaReal;     <span class="hljs-comment">// [x, y, z]            gravity-free accel sensor measurements</span>
+VectorInt16 aaWorld;    <span class="hljs-comment">// [x, y, z]            world-frame accel sensor measurements</span>
+VectorFloat gravity;    <span class="hljs-comment">// [x, y, z]            gravity vector</span>
+<span class="hljs-keyword">float</span> euler[<span class="hljs-number">3</span>];         <span class="hljs-comment">// [psi, theta, phi]    Euler angle container</span>
+<span class="hljs-keyword">float</span> ypr[<span class="hljs-number">3</span>];           <span class="hljs-comment">// [yaw, pitch, roll]   yaw/pitch/roll container and gravity vector</span>
+
+<span class="hljs-comment">// packet structure for InvenSense teapot demo</span>
+uint8_t teapotPacket[<span class="hljs-number">14</span>] = { <span class="hljs-string">'$'</span>, <span class="hljs-number">0x02</span>, <span class="hljs-number">0</span>,<span class="hljs-number">0</span>, <span class="hljs-number">0</span>,<span class="hljs-number">0</span>, <span class="hljs-number">0</span>,<span class="hljs-number">0</span>, <span class="hljs-number">0</span>,<span class="hljs-number">0</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-string">'\r'</span>, <span class="hljs-string">'\n'</span> };
+
+<span class="hljs-comment">//Other Variables</span>
+<span class="hljs-keyword">int</span> led = <span class="hljs-number">8</span>;
+<span class="hljs-keyword">int</span> stabilize = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> numReadings = <span class="hljs-number">200</span>;
+<span class="hljs-keyword">int</span> yawSample[numReadings];
+<span class="hljs-keyword">int</span> index = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> total = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> aveYaw = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> minYaw = <span class="hljs-number">1000</span>;
+<span class="hljs-keyword">int</span> maxYaw = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> difYaw = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> oldDifYaw = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> iteration = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> butPin = <span class="hljs-number">4</span>;
+<span class="hljs-keyword">int</span> butState = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> initIter = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">float</span> posCount = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">float</span> negCount = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">boolean</span> wasWalking = false;
+<span class="hljs-keyword">int</span> potPin = A0;
+
+
+
+<span class="hljs-comment">// ================================================================</span>
+<span class="hljs-comment">// ===               INTERRUPT DETECTION ROUTINE                ===</span>
+<span class="hljs-comment">// ================================================================</span>
+
+<span class="hljs-keyword">volatile</span> <span class="hljs-keyword">bool</span> mpuInterrupt = false;     <span class="hljs-comment">// indicates whether MPU interrupt pin has gone high</span>
+<span class="hljs-keyword">void</span> dmpDataReady() {
+    mpuInterrupt = true;
+}
+
+
+
+<span class="hljs-comment">// ================================================================</span>
+<span class="hljs-comment">// ===                      INITIAL SETUP                       ===</span>
+<span class="hljs-comment">// ================================================================</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-built_in">setup</span>() {
+    <span class="hljs-comment">// join I2C bus (I2Cdev library doesn't do this automatically)</span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE</span>
+        <span class="hljs-built_in">Wire</span>.<span class="hljs-built_in">begin</span>();
+        TWBR = <span class="hljs-number">24</span>; <span class="hljs-comment">// 400kHz I2C clock (200kHz if CPU is 8MHz)</span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">elif</span> I2CDEV_IMPLEMENTATION == I2CDEV_BUILTIN_FASTWIRE</span>
+        Fastwire::<span class="hljs-built_in">setup</span>(<span class="hljs-number">400</span>, true);
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+    <span class="hljs-comment">// initialize serial communication</span>
+    <span class="hljs-comment">// (115200 chosen because it is required for Teapot Demo output, but it's</span>
+    <span class="hljs-comment">// really up to you depending on your project)</span>
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">begin</span>(<span class="hljs-number">115200</span>);
+    <span class="hljs-built_in">while</span> (!<span class="hljs-built_in">Serial</span>); <span class="hljs-comment">// wait for Leonardo enumeration, others continue immediately</span>
+
+    <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> 8MHz or slower host processors, like the Teensy @ 3.3v or Ardunio</span>
+    <span class="hljs-comment">// Pro Mini running at 3.3v, cannot handle this baud rate reliably due to</span>
+    <span class="hljs-comment">// the baud timing being too misaligned with processor ticks. You must use</span>
+    <span class="hljs-comment">// 38400 or slower in these cases, or use some kind of external separate</span>
+    <span class="hljs-comment">// crystal solution for the UART timer.</span>
+
+    <span class="hljs-comment">// initialize device</span>
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(F(<span class="hljs-string">"Initializing I2C devices..."</span>));
+    mpu.initialize();
+
+    <span class="hljs-comment">// verify connection</span>
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(F(<span class="hljs-string">"Testing device connections..."</span>));
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(mpu.testConnection() ? F(<span class="hljs-string">"MPU6050 connection successful"</span>) : F(<span class="hljs-string">"MPU6050 connection failed"</span>));
+
+    <span class="hljs-comment">// load and configure the DMP</span>
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(F(<span class="hljs-string">"Initializing DMP..."</span>));
+    devStatus = mpu.dmpInitialize();
+
+    <span class="hljs-comment">// supply your own gyro offsets here, scaled for min sensitivity</span>
+    mpu.setXGyroOffset(<span class="hljs-number">220</span>);
+    mpu.setYGyroOffset(<span class="hljs-number">76</span>);
+    mpu.setZGyroOffset(<span class="hljs-number">-85</span>);
+    mpu.setZAccelOffset(<span class="hljs-number">1788</span>); <span class="hljs-comment">// 1688 factory default for my test chip</span>
+
+    <span class="hljs-comment">// make sure it worked (returns 0 if so)</span>
+    <span class="hljs-built_in">if</span> (devStatus == <span class="hljs-number">0</span>) {
+        <span class="hljs-comment">// turn on the DMP, now that it's ready</span>
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(F(<span class="hljs-string">"Enabling DMP..."</span>));
+        mpu.setDMPEnabled(true);
+
+        <span class="hljs-comment">// enable Arduino interrupt detection</span>
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(F(<span class="hljs-string">"Enabling interrupt detection (Arduino external interrupt 0)..."</span>));
+        <span class="hljs-built_in">attachInterrupt</span>(<span class="hljs-number">0</span>, dmpDataReady, RISING);
+        mpuIntStatus = mpu.getIntStatus();
+
+        <span class="hljs-comment">// set our DMP Ready flag so the main loop() function knows it's okay to use it</span>
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(F(<span class="hljs-string">"DMP ready! Waiting for first interrupt..."</span>));
+        dmpReady = true;
+
+        <span class="hljs-comment">// get expected DMP packet size for later comparison</span>
+        packetSize = mpu.dmpGetFIFOPacketSize();
+    } <span class="hljs-built_in">else</span> {
+        <span class="hljs-comment">// ERROR!</span>
+        <span class="hljs-comment">// 1 = initial memory load failed</span>
+        <span class="hljs-comment">// 2 = DMP configuration updates failed</span>
+        <span class="hljs-comment">// (if it's going to break, usually the code will be 1)</span>
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(F(<span class="hljs-string">"DMP Initialization failed (code "</span>));
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(devStatus);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(F(<span class="hljs-string">")"</span>));
+    }
+
+    <span class="hljs-comment">// configure LED for output</span>
+    <span class="hljs-built_in">pinMode</span>(LED_PIN, <span class="hljs-literal">OUTPUT</span>);
+    <span class="hljs-built_in">pinMode</span>(led, <span class="hljs-literal">OUTPUT</span>);
+    <span class="hljs-built_in">pinMode</span>(butPin, <span class="hljs-literal">INPUT</span>);
+    <span class="hljs-built_in">pinMode</span>(potPin, <span class="hljs-literal">INPUT</span>);
+
+    <span class="hljs-comment">//initialize all the readings to 0:</span>
+    <span class="hljs-built_in">for</span>(<span class="hljs-keyword">int</span> thisReading = <span class="hljs-number">0</span>; thisReading &#x3C; numReadings; thisReading++) yawSample[thisReading] = <span class="hljs-number">0</span>;
+}
+
+
+
+<span class="hljs-comment">// ================================================================</span>
+<span class="hljs-comment">// ===                    MAIN PROGRAM LOOP                     ===</span>
+<span class="hljs-comment">// ================================================================</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-built_in">loop</span>() {
+    <span class="hljs-comment">// if programming failed, don't try to do anything</span>
+    <span class="hljs-built_in">if</span> (!dmpReady) <span class="hljs-built_in">return</span>;
+
+    <span class="hljs-comment">// wait for MPU interrupt or extra packet(s) available</span>
+    <span class="hljs-built_in">while</span> (!mpuInterrupt &#x26;&#x26; fifoCount &#x3C; packetSize) {
+        <span class="hljs-comment">// other program behavior stuff here</span>
+        <span class="hljs-comment">// .</span>
+        <span class="hljs-comment">// .</span>
+        <span class="hljs-comment">// .</span>
+        <span class="hljs-comment">// if you are really paranoid you can frequently test in between other</span>
+        <span class="hljs-comment">// stuff to see if mpuInterrupt is true, and if so, "break;" from the</span>
+        <span class="hljs-comment">// while() loop to immediately process the MPU data</span>
+        <span class="hljs-comment">// .</span>
+        <span class="hljs-comment">// .</span>
+        <span class="hljs-comment">// .</span>
+    }
+
+    <span class="hljs-comment">// reset interrupt flag and get INT_STATUS byte</span>
+    mpuInterrupt = false;
+    mpuIntStatus = mpu.getIntStatus();
+
+    <span class="hljs-comment">// get current FIFO count</span>
+    fifoCount = mpu.getFIFOCount();
+
+    <span class="hljs-comment">// check for overflow (this should never happen unless our code is too inefficient)</span>
+    <span class="hljs-built_in">if</span> ((mpuIntStatus &#x26; <span class="hljs-number">0x10</span>) || fifoCount == <span class="hljs-number">1024</span>) {
+        <span class="hljs-comment">// reset so we can continue cleanly</span>
+        mpu.resetFIFO();
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(F(<span class="hljs-string">"FIFO overflow!"</span>));
+
+    <span class="hljs-comment">// otherwise, check for DMP data ready interrupt (this should happen frequently)</span>
+    } <span class="hljs-built_in">else</span> <span class="hljs-built_in">if</span> (mpuIntStatus &#x26; <span class="hljs-number">0x02</span>) {
+        <span class="hljs-comment">// wait for correct available data length, should be a VERY short wait</span>
+        <span class="hljs-built_in">while</span> (fifoCount &#x3C; packetSize) fifoCount = mpu.getFIFOCount();
+
+        <span class="hljs-comment">// read a packet from FIFO</span>
+        mpu.getFIFOBytes(fifoBuffer, packetSize);
+
+        <span class="hljs-comment">// track FIFO count here in case there is > 1 packet available</span>
+        <span class="hljs-comment">// (this lets us immediately read more without waiting for an interrupt)</span>
+        fifoCount -= packetSize;
+
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> OUTPUT_READABLE_QUATERNION</span>
+            <span class="hljs-comment">// display quaternion values in easy matrix form: w x y z</span>
+            mpu.dmpGetQuaternion(&#x26;q, fifoBuffer);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"quat\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(q.w);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(q.x);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(q.y);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(q.z);
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> OUTPUT_READABLE_EULER</span>
+            <span class="hljs-comment">// display Euler angles in degrees</span>
+            mpu.dmpGetQuaternion(&#x26;q, fifoBuffer);
+            mpu.dmpGetEuler(euler, &#x26;q);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"euler\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(euler[<span class="hljs-number">0</span>] * <span class="hljs-number">180</span>/M_PI);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(euler[<span class="hljs-number">1</span>] * <span class="hljs-number">180</span>/M_PI);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(euler[<span class="hljs-number">2</span>] * <span class="hljs-number">180</span>/M_PI);
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> OUTPUT_READABLE_YAWPITCHROLL</span>
+            <span class="hljs-comment">// display Euler angles in degrees</span>
+            mpu.dmpGetQuaternion(&#x26;q, fifoBuffer);
+            mpu.dmpGetGravity(&#x26;gravity, &#x26;q);
+            mpu.dmpGetYawPitchRoll(ypr, &#x26;q, &#x26;gravity);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"ypr\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(ypr[<span class="hljs-number">0</span>] * <span class="hljs-number">180</span>/M_PI);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(ypr[<span class="hljs-number">1</span>] * <span class="hljs-number">180</span>/M_PI);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(ypr[<span class="hljs-number">2</span>] * <span class="hljs-number">180</span>/M_PI);
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> OUTPUT_READABLE_REALACCEL</span>
+            <span class="hljs-comment">// display real acceleration, adjusted to remove gravity</span>
+            mpu.dmpGetQuaternion(&#x26;q, fifoBuffer);
+            mpu.dmpGetAccel(&#x26;aa, fifoBuffer);
+            mpu.dmpGetGravity(&#x26;gravity, &#x26;q);
+            mpu.dmpGetLinearAccel(&#x26;aaReal, &#x26;aa, &#x26;gravity);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"areal\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(aaReal.x);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(aaReal.y);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(aaReal.z);
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> OUTPUT_READABLE_WORLDACCEL</span>
+            <span class="hljs-comment">// display initial world-frame acceleration, adjusted to remove gravity</span>
+            <span class="hljs-comment">// and rotated based on known orientation from quaternion</span>
+            mpu.dmpGetQuaternion(&#x26;q, fifoBuffer);
+            mpu.dmpGetAccel(&#x26;aa, fifoBuffer);
+            mpu.dmpGetGravity(&#x26;gravity, &#x26;q);
+            mpu.dmpGetLinearAccel(&#x26;aaReal, &#x26;aa, &#x26;gravity);
+            mpu.dmpGetLinearAccelInWorld(&#x26;aaWorld, &#x26;aaReal, &#x26;q);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"aworld\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(aaWorld.x);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(aaWorld.y);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"\t"</span>);
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(aaWorld.z);
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> OUTPUT_TEAPOT</span>
+            <span class="hljs-comment">// display quaternion values in InvenSense Teapot demo format:</span>
+            teapotPacket[<span class="hljs-number">2</span>] = fifoBuffer[<span class="hljs-number">0</span>];
+            teapotPacket[<span class="hljs-number">3</span>] = fifoBuffer[<span class="hljs-number">1</span>];
+            teapotPacket[<span class="hljs-number">4</span>] = fifoBuffer[<span class="hljs-number">4</span>];
+            teapotPacket[<span class="hljs-number">5</span>] = fifoBuffer[<span class="hljs-number">5</span>];
+            teapotPacket[<span class="hljs-number">6</span>] = fifoBuffer[<span class="hljs-number">8</span>];
+            teapotPacket[<span class="hljs-number">7</span>] = fifoBuffer[<span class="hljs-number">9</span>];
+            teapotPacket[<span class="hljs-number">8</span>] = fifoBuffer[<span class="hljs-number">12</span>];
+            teapotPacket[<span class="hljs-number">9</span>] = fifoBuffer[<span class="hljs-number">13</span>];
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">write</span>(teapotPacket, <span class="hljs-number">14</span>);
+            teapotPacket[<span class="hljs-number">11</span>]++; <span class="hljs-comment">// packetCount, loops at 0xFF on purpose</span>
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+        <span class="hljs-comment">// blink LED to indicate activity</span>
+        <span class="hljs-comment">//blinkState = !blinkState;</span>
+        <span class="hljs-comment">//digitalWrite(LED_PIN, blinkState);</span>
+    }
+
+    <span class="hljs-built_in">if</span>(stabilize &#x3C; <span class="hljs-number">1400</span>) {
+      stabilize++;
+      <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"Stabilizing Sensor Values"</span>);
+    }
+
+    <span class="hljs-built_in">if</span>(stabilize >= <span class="hljs-number">1400</span>) {
+      iteration++;
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">"IPNAMiMaOD: "</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(iteration);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"  "</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(posCount);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"  "</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(negCount);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"  "</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(aveYaw);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"  "</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(minYaw);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"  "</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(maxYaw);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"  "</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(oldDifYaw);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"  "</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(difYaw);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"  "</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"Hello Pot"</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-built_in">analogRead</span>(potPin));
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"  "</span>);
+
+      <span class="hljs-comment">// Calculate average sensor values</span>
+      total = total - yawSample[index];
+      yawSample[index] = (ypr[<span class="hljs-number">0</span>] * (<span class="hljs-number">180</span>/M_PI));
+      total = total + yawSample[index];
+      index = index + <span class="hljs-number">1</span>;
+      <span class="hljs-comment">//if at the end of the array, wrap around to the beginning</span>
+      <span class="hljs-built_in">if</span>(index >= numReadings) index = <span class="hljs-number">0</span>;
+
+      minYaw = <span class="hljs-built_in">min</span>(minYaw, yawSample[index]);
+      maxYaw = <span class="hljs-built_in">max</span>(maxYaw, yawSample[index]);
+      aveYaw = total / numReadings;
+
+      butState = <span class="hljs-built_in">digitalRead</span>(butPin);
+      <span class="hljs-comment">//Serial.print("butPin");</span>
+      <span class="hljs-comment">//Serial.print(butState);</span>
+
+      <span class="hljs-comment">// if walking has stopped after walking has been detected fire the laser</span>
+      <span class="hljs-built_in">if</span>(!walking() &#x26;&#x26; wasWalking &#x26;&#x26; iteration > <span class="hljs-number">200</span>) {
+        <span class="hljs-built_in">digitalWrite</span>(led, <span class="hljs-literal">HIGH</span>);
+      }   
+      <span class="hljs-built_in">if</span>(walking()) {
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">"WALKING DETECTED"</span>);
+        initIter = iteration;
+        <span class="hljs-comment">//digitalWrite(led, LOW);</span>
+        wasWalking = true;
+      }
+      <span class="hljs-built_in">if</span>(iteration > (initIter + <span class="hljs-number">100</span>)) {
+        <span class="hljs-built_in">digitalWrite</span>(led, <span class="hljs-literal">LOW</span>);
+      }
+      <span class="hljs-built_in">if</span>(iteration > <span class="hljs-number">200</span>) {
+        difYaw = <span class="hljs-built_in">abs</span>(maxYaw - minYaw);
+      }
+      <span class="hljs-comment">// reset our values every 500 iterations</span>
+      <span class="hljs-built_in">if</span>(iteration > <span class="hljs-number">500</span>) {
+        iteration = <span class="hljs-number">0</span>;
+        posCount = <span class="hljs-number">0</span>;
+        negCount = <span class="hljs-number">0</span>;
+        minYaw = aveYaw;
+        maxYaw = aveYaw;
+        oldDifYaw = difYaw;
+        initIter = <span class="hljs-number">0</span>;
+      }
+    }  
+}
+
+<span class="hljs-comment">// detects walking gait using deviation from average yaw</span>
+<span class="hljs-keyword">boolean</span> walking () {
+  <span class="hljs-built_in">if</span>(ypr[<span class="hljs-number">0</span>] * (<span class="hljs-number">180</span>/M_PI) >= (aveYaw + <span class="hljs-number">3</span>)) {
+    posCount++;
+  }
+  <span class="hljs-built_in">if</span>(ypr[<span class="hljs-number">0</span>] * (<span class="hljs-number">180</span>/M_PI) &#x3C;= (aveYaw - <span class="hljs-number">3</span>)) {
+    negCount++;
+  }
+  <span class="hljs-built_in">if</span>((posCount > <span class="hljs-number">10</span>) &#x26;&#x26; (negCount > <span class="hljs-number">10</span>)) {
+    <span class="hljs-built_in">if</span>(<span class="hljs-number">.5</span> &#x3C; posCount/negCount &#x3C; <span class="hljs-number">1.5</span>) {
+      <span class="hljs-built_in">return</span> true;
+    }
+  }
+  <span class="hljs-built_in">else</span> <span class="hljs-built_in">return</span> false;
+
+}</code></pre>
+<p>Pretty simple stuff that could use a little refinement, but it works and it's a good starting point for a very useful device. The full code can be seen <a href="https://github.com/Kierancz/gait_project/blob/master/CSCI4830_Gait_Project/CSCI4830_Gait_Project.ino">here</a></p>
+<h1 id="step-5-creating-the-power-system"><a href="#step-5-creating-the-power-system" class="phenomic-HeadingAnchor">#</a>Step 5: Creating the Power System</h1>
+<p><img src="https://cdn.instructables.com/FIT/OSM5/I96W8CFC/FITOSM5I96W8CFC.MEDIUM.jpg?width=614" alt="Module shells in AutoCAD"></p>
+<p>We designed a whole wearable system that connects LiPo batteries in parallel with other wearable modules in order to power them. The modules consist of a charging/discharging module that is capable of charging external devices through USB or direct connection to output terminals, as well as allowing the battery modules to be charged with a micro-USB cable. Another module consists of an Arduino Micro Pro that serves as a computing module capable of powering all sorts of wearable computing projects. The final module allows a breadboard to easily be combined with the system, enabling rapid prototyping of wearable projects.</p>
+<p>The DXG and STI files from AutoCAD can be downloaded from this page.</p>
+<p>We had access to a high print quality 3D printer called the Objet, but any 3D printer with at least a .5mm resolution that can also print over-hangs should be able to do an adequate job.</p>
+<p>If you do not have access to a 3D printer, easy power systems using a 9V battery and linear or switching regulator (to lower 9V to 5V) can be used to power the Arduino, laser, and gyroscope units. In fact Arduino's often have an on-board regulator that lowers voltages as high as 12v down to the Arduino's operating voltage of 5V. In this case the 9V battery should be attached directly to a pin that's usually labeled RAW. Make sure to check the capabilities of your individual Arduino, so that you don't accidentally supply too much voltage and fry it.</p>
+<p>Once the modules have been 3D printed you will need to start building their innards.</p>
+<h3 id="step-1-disassemble-4s-lipos"><a href="#step-1-disassemble-4s-lipos" class="phenomic-HeadingAnchor">#</a>Step 1: Disassemble 4S LiPos</h3>
+<p><img src="https://cdn.instructables.com/F5K/4QIV/I9GWD4IX/F5K4QIVI9GWD4IX.LARGE.jpg" alt="LiPo disassembly"></p>
+<p><img src="https://cdn.instructables.com/FVI/C3MI/I9GWD4KZ/FVIC3MII9GWD4KZ.LARGE.jpg" alt="LiPo separation with solvent"></p>
+<p>The battery packs that we ordered are actually four individual 3.7V battery packs linked in series to create a 14.8V pack. These are stuck together with glue so it's easiest to use a solvent like rubbing alcohol to ease their separation. Once the packs are un-glued, use a soldering iron to take off all the wires protruding from the packs, be carful not to cause any shorts! These pack are high voltage and can cause bright sparks that can shock you or cause a fire! Be careful!! Once you have taken off all the wires, use scissors or wire cutters to cut the tabs holding the cells together, make sure to cut them in the middle to ensure that there's enough tab left to be soldered to.</p>
+<h3 id="step-2-solder-on-lipo-pcm"><a href="#step-2-solder-on-lipo-pcm" class="phenomic-HeadingAnchor">#</a>Step 2: Solder on LiPo PCM</h3>
+<p>This step is fairly straightforward. Start by folding the battery terminal tabs over into the open area above the battery. Use short wires to connect the battery terminals to the protected terminals on the PCM. These are usually labelled with a B+ and B-. Make sure the wires and PCM are contained within the space at the top of the LiPo cell, otherwise it will be difficult to fit them into the 3D models.</p>
+<h3 id="step-3-glue-magnets"><a href="#step-3-glue-magnets" class="phenomic-HeadingAnchor">#</a>Step 3: Glue magnets</h3>
+<p>Use the gorilla glue epoxy to set the magnets in their grooves. Make sure that you keep the polarity consistent. One side should be designated as positive polarity and the other negative. For instance we made the right side positive and the left negative. The polarity is the same if they repel each other and opposite if they attract; basic stuff. Make sure that the magnets on the same side repel each other. Once you have figured out how the magnets are to be laid out, put epoxy on the bottom of the magnet grooves of the 3D model and press the magnets into the grooves. Wipe away any epoxy that gets on top of the magnets, the top surface should be clean for good connection to the battery.</p>
+<h3 id="step-4-lay-copper-tape"><a href="#step-4-lay-copper-tape" class="phenomic-HeadingAnchor">#</a>Step 4: Lay copper tape</h3>
+<p>Lay down copper tape between the magnets. Since only one side of the tape is conductive due to the adhesive on the back, you will have to fold the ends over so that the copper side without the adhesive is in contact with the magnets. To keep the tape down, apply epoxy to the top of the tape and magnet. Verify that the resistance between the two magnets is not too high ( &#x3C;10 Ohms). After this is completed, add copper tape to the back of the LiPo; lined up so that they will be in contact with the strips in the enclosure. Solder the tape to the protected power terminals of the PCM (labelled P+ and P-).</p>
+<h3 id="step-5-put-it-all-together"><a href="#step-5-put-it-all-together" class="phenomic-HeadingAnchor">#</a>Step 5: Put it all together</h3>
+<p>Insert the battery cell into the model and put the lid on. Drive the screws into the holes in the side to secure the lid. Verify that you have the same voltage across the magnets that you do across the battery. Make sure things are well insulated with electrical tape to prevent shorts.</p>
+]]></description><link>http://kicz.me/posts/wearables/</link><guid isPermaLink="true">http://kicz.me/posts/wearables/</guid><pubDate>Thu, 07 May 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Origin of an idea]]></title><description><![CDATA[<p>There was nothing magical about getting my first smartphone, the iPhone 5. I remember getting the okay from my parents, the Verizon store setup, the hurried bike ride home, and the tinkering I did on it when I got there. Sure there was plenty of giddy excitement, but none of Apple’s promised magic. That came later when I was able to really use it to connect with the world in new ways. I instantly knew exactly how to get to places I’d never been before, I remembered everything I needed to, I had a photographic memory, and my knowledge seemed almost infinite, I was now superhuman. </p>
+<p>I loved it and it became an extension of my body, there was only one problem, it was fragile. I hated the idea of covering up the beautifully sculpted aluminum and glass features in an ugly plastic case. However leaving it naked was not a long-term option, I knew that sharp objects would gouge its soft finish and pocket lint would find a home in its ports and speaker grill. So I started researching. I liked the idea of the various phone sleeves I saw because they offered the protection I sought and they could slide off the phone when it needed to be used. Although there was an obvious flaw, it would be annoying to pull the sleeve out of the pocket, slide the phone out with two hands, and then reverse the process when finished using the device. There were also the extremely dorky phone holsters that bulged out from your belt with very little discretion. These were not acceptable options so I left my phone naked and got designing.</p>
+<p>From the beginning I knew it needed to be secured in place with the pouch opening positioned at the top of my pocket so that I could retrieve my phone with one hand. I came up with a system that allowed an adjustable tether system that connected to your belt. Inspired by the prodigious oil wicking ability of the Ipad SmartCover’s microfiber lining, I decided to line the sleeve with microfiber to clean fingerprints from the screen as the phone slid in and out. I also added elastic to the design to allow the pockets to expand to accommodate all of your cards and cash to replace your wallet. Finally I made it modular so it could be further adapted without the need to make new one. After countless sketches, I had my design. I ordered materials, learned how to sew, and started building.</p>
+<p>Initially I was quite happy with the finished product, it worked exactly how I had designed it. Then as the months went by I began to notice problems. The tether system was an arduous process that made swapping out the belt annoying. I also noticed from friends testing that it was rather unintuitive. I tried for months to remedy some of the design’s nuisances, but I hated the solutions because they all made the already overcomplicated design even more complex. After about a year of use I decided I needed to start over with renewed focus on the truly important features. This time I knew I needed to drastically shorten each phase of the development and feedback loop; design, build, test, and learn. I needed to rapid prototype ideas, test them with other users, and evaluate and learn from the results. Since that realization, the tether system has become a breeze; it functions better than my wallet, and its more adaptable, beautiful, and easily manufactured than ever.</p>
+]]></description><link>http://kicz.me/posts/idea-origin/</link><guid isPermaLink="true">http://kicz.me/posts/idea-origin/</guid><pubDate>Fri, 27 Sep 2013 00:00:00 GMT</pubDate></item></channel></rss>
